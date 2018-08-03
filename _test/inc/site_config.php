@@ -1,3 +1,3 @@
 <?php
-	define("SITE_TITLE", "test");
+	define("SITE_TITLE", "_test");
 ?>
