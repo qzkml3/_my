@@ -1,5 +1,5 @@
 	<br>
-	layout_btm : proto
+	layout_btm : <?=SITE_TITLE?>
 
 </body>
 </html>
