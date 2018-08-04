@@ -33,13 +33,13 @@
 
   func();
 
-  alert(str);
-
   if (-1) {
     console.log(obj);
   }
 
   console.log("arr  : " + arr);
+
+  console.log(1);
 
 }).call(this);
 

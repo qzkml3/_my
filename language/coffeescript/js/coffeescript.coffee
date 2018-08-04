@@ -41,7 +41,9 @@ func = () -> console.log "func exec"
 # 함수 실행
 func()
 #alert(str)
-alert str
+#alert str
 console.log obj if -1
 
 console.log "arr  : #{arr}"
+
+console.log 1
