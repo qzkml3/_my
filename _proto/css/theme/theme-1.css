@@ -1,0 +1,14 @@
+* {color:#555;}
+a {color: #0b7cc1}
+
+h1:before {content:"# "; font-size:.8em;}
+
+h2:before {content:"## "; font-size:.8em;}
+h2,
+h2 ~ *
+{margin-left: 2em;}
+
+h3:before {content:"### "; font-size:.8em;}
+h3,
+h3 ~ *
+{margin-left: 4em;}
