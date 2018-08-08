@@ -1,0 +1,31 @@
+<?php
+$this_file = $_SERVER["DOCUMENT_ROOT"] . $_SERVER["PHP_SELF"];
+$last_modified = date('D, d M Y H:i:s T', filemtime($this_file));
+$b_file_modified = $last_modified != $_SERVER["HTTP_IF_MODIFIED_SINCE"];
+
+if ($b_file_modified) {
+    header("pragma: no-cache");
+    header("Cache-Control: no-cache");
+    header("Expires: -1");
+}
+
+echo "\$last_modified: $last_modified";
+echo "<br>" . $last_modified;
+echo "<br>" . $_SERVER["HTTP_IF_MODIFIED_SINCE"];
+echo "<br>\$b_file_modified: " . $b_file_modified;
+
+
+//참고 : http://jongpak.com/prob/post/123
+
+
+
+
+
+header("Last-Modified: $last_modified");
+
+define("LAYOUT", "");
+define("DOC_TITLE", "temp");
+?>
+<?php require_once "../../inc/layout_top.php" ?>
+    <div>임시 테스트 공간입니다.ddddbbddasdf</div>
+<?php require_once "../../inc/layout_btm.php" ?>
