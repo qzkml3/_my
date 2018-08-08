@@ -1,17 +1,17 @@
 <?php
 $this_file = $_SERVER["DOCUMENT_ROOT"] . $_SERVER["PHP_SELF"];
 $last_modified = date('D, d M Y H:i:s T', filemtime($this_file));
-$b_file_modified = $last_modified != $_SERVER["HTTP_IF_MODIFIED_SINCE"];
-
+$if_modified_since = str_replace("GMT", "UTC", $_SERVER["HTTP_IF_MODIFIED_SINCE"]);
+$b_file_modified = $last_modified != $if_modified_since;
+header("Last-Modified: $last_modified");
 if ($b_file_modified) {
     header("pragma: no-cache");
     header("Cache-Control: no-cache");
     header("Expires: -1");
 }
 
-echo "\$last_modified: $last_modified";
 echo "<br>" . $last_modified;
-echo "<br>" . $_SERVER["HTTP_IF_MODIFIED_SINCE"];
+echo "<br>" . $if_modified_since;
 echo "<br>\$b_file_modified: " . $b_file_modified;
 
 
@@ -21,7 +21,8 @@ echo "<br>\$b_file_modified: " . $b_file_modified;
 
 
 
-header("Last-Modified: $last_modified");
+
+
 
 define("LAYOUT", "");
 define("DOC_TITLE", "temp");
