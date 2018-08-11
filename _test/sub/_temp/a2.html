@@ -1,32 +1,30 @@
 <?php
-$this_file = $_SERVER["DOCUMENT_ROOT"] . $_SERVER["PHP_SELF"];
-$last_modified = date('D, d M Y H:i:s T', filemtime($this_file));
-$if_modified_since = str_replace("GMT", "UTC", $_SERVER["HTTP_IF_MODIFIED_SINCE"]);
-$b_file_modified = $last_modified != $if_modified_since;
-header("Last-Modified: $last_modified");
-if ($b_file_modified) {
-    header("pragma: no-cache");
-    header("Cache-Control: no-cache");
-    header("Expires: -1");
-}
+	date_default_timezone_set("UTC");
 
-echo "<br>" . $last_modified;
-echo "<br>" . $if_modified_since;
-echo "<br>\$b_file_modified: " . $b_file_modified;
+	$last_modified = date('D, d M Y H:i:s T', filemtime($_SERVER["SCRIPT_FILENAME"]));
+	$if_modified_since = date('D, d M Y H:i:s T', strtotime($_SERVER["HTTP_IF_MODIFIED_SINCE"]) );
+	$b_file_modified = $last_modified != $if_modified_since;
 
+	header("Last-Modified: $last_modified");
+	if ($b_file_modified) {
+		header("pragma: no-cache");
+		header("Cache-Control: must-revalidate");
+		header("Expires: -1");
+	}
 
-//참고 : http://jongpak.com/prob/post/123
-
-
+	//Test Case
+	echo "<br> \$last_modified: $last_modified";
+	echo "<br> \$if_modified_since: " . $if_modified_since;
+	echo "<br>\$b_file_modified: " . $b_file_modified;
 
 
 
 
 
 
-define("LAYOUT", "");
-define("DOC_TITLE", "temp");
+	define("LAYOUT", "");
+	define("DOC_TITLE", "temp");
 ?>
 <?php require_once "../../inc/layout_top.php" ?>
-    <div>임시 테스트 공간입니다.ddddbbddasdf</div>
+	<div>임시 테스트 공간입니다.ddddbbddasdf</div>
 <?php require_once "../../inc/layout_btm.php" ?>
