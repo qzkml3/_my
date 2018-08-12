@@ -1,0 +1,10 @@
+requirejs
+
+<script src="/_language/requirejs/js/require.js"></script>
+<script>
+	require(["/_language/requirejs/js/require_config.js"], function () {
+		require(["common"], function () {
+			alert("out: " + $);
+		});
+	});
+</script>
