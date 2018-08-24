@@ -1,6 +1,5 @@
 <?php
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/class/common/FrameWork.php";
-	require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/class/common/HTTP.php";
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/class/common/JS.php";
 
 	session_start();

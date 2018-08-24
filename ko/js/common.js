@@ -1,5 +1,1 @@
-console.log("common.js");
-
-function aaa() {
-	alert("aaa");
-}
+console.log("loaded: common");

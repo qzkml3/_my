@@ -4,21 +4,10 @@
 	define("DOC_TITLE", "proto");
 ?>
 <?php require_once "inc/layout_top.php" ?>
-	<div>
-		<button type="button" onclick="clickButton(this);">
-			button
-		</button>
-		content
-	</div>
-	<script src="/ko/js/require.js"></script>
-	<script>
-		require(["/ko/js/require_config.js"], function () {
-			require(["common2"], function () {
-			});
-		});
 
-		function clickButton() {
-			alert($);
-		}
-	</script>
+	<script src="/ko/js/require.js"></script>
+    <script src="/ko/js/require_config.js"></script>
+	<script>
+        require(["common"], function () {});
+    </script>
 <?php require_once "inc/layout_btm.php" ?>
