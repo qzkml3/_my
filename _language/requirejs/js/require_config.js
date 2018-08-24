@@ -1,12 +1,27 @@
 require.config({
-	baseUrl: "/ko/js/",
 	paths: {
-		"jquery": "jquery/jquery-1.8.3.min",
-		"common": "common"
+		"jquery": "/ko/js/jquery/jquery-1.8.3.min",
+		"common": "/ko/js/common",
+        "inner": "/_language/requirejs/js/inner",
+        "inner2": "/_language/requirejs/js/inner2",
+        "outer": "/_language/requirejs/js/outer",
+        "outer2": "/_language/requirejs/js/outer2"
 	},
 	shim: {
-		"common": {
-			deps: ["jquery"]
-		}
+        "common": {
+            deps: ["jquery", "inner", "inner2"]
+        },
+        "inner": {
+            deps: ["jquery"]
+        },
+        "inner2": {
+            deps: ["jquery"]
+        },
+        "outer": {
+            deps: ["jquery"]
+        },
+        "outer2": {
+            deps: ["jquery"]
+        }
 	}
 });
