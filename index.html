@@ -1,3 +1,48 @@
-<script>
-	location.replace("sitemap.html");
-</script>
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "_my");
+?>
+<?php require_once "ko/inc/layout_top.php" ?>
+    <style>
+        ul {overflow: hidden;}
+
+        li {float: left; margin-left: 5em;}
+
+        #wrap {max-width: 1024px; margin: auto;}
+    </style>
+    <section id="wrap">
+        <section id="ko">
+            <h1>한국어</h1>
+            <ul>
+                <li><a href="ko/sub/article/article.html">게시판</a></li>
+            </ul>
+        </section>
+        <section id="language">
+            <h1>언어</h1>
+            <ul>
+                <li><a href="_language/sass/sass.html">sass</a></li>
+                <li><a href="_language/scss/scss.html">scss</a></li>
+                <li><a href="_language/less/less.html">less</a></li>
+                <li>requirejs
+                    <ul>
+                        <li><a href="_language/requirejs/requirejs_inner.html">requirejs_inner</a></li>
+                        <li><a href="_language/requirejs/requirejs_outer.html">requirejs_outer</a></li>
+                    </ul>
+                </li>
+                <li><a href="_language/coffeescript/coffeescript.html">coffeescript</a></li>
+            </ul>
+        </section>
+        <section id="test">
+            <h1>테스트</h1>
+            <ul>
+                <li><a href="_test/auto_link/auto_link.html">자동링크</a></li>
+            </ul>
+        </section>
+    </section>
+    <script src="/ko/js/require.js"></script>
+    <script src="/ko/js/require_config.js"></script>
+    <script>
+        require(["common"], function () {
+        });
+    </script>
+<?php require_once "ko/inc/layout_btm.php" ?>

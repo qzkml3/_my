@@ -1,10 +1,15 @@
-<?php require_once "../../inc/site_config.php" ?>
 <?php
-	define("LAYOUT", "empty");
-	define("DOC_TITLE", "template");
+define("LAYOUT", "");
+define("THEME", "");
+define("DOC_TITLE", "템플릿");
 ?>
 <?php require_once "../../inc/layout_top.php" ?>
+    <section>
 
-	template dd
-
+    </section>
+    <script src="/ko/js/require.js"></script>
+    <script src="/ko/js/require_config.js"></script>
+    <script>
+        require(["common"], function () {});
+    </script>
 <?php require_once "../../inc/layout_btm.php" ?>

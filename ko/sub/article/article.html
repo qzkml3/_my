@@ -1,11 +1,15 @@
-<?php require_once "../../inc/site_config.php" ?>
 <?php
-	define("LAYOUT", "");
-	define("DOC_TITLE", "게시판");
+define("LAYOUT", "");
+define("THEME", "");
+define("DOC_TITLE", "게시판");
 ?>
-
 <?php require_once "../../inc/layout_top.php" ?>
+    <section>
 
-	proto_sub dd
-
+    </section>
+    <script src="/ko/js/require.js"></script>
+    <script src="/ko/js/require_config.js"></script>
+    <script>
+        require(["common"], function () {});
+    </script>
 <?php require_once "../../inc/layout_btm.php" ?>
