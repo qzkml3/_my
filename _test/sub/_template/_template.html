@@ -2,12 +2,14 @@
 	define("LAYOUT", "");
 	define("DOC_TITLE", "템플릿");
 ?>
-<?php require_once "../../ko/inc/layout_top.php" ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
 	<section>
 	</section>
 	<script src="/ko/js/require.js"></script>
 	<script src="/ko/js/require_config.js"></script>
 	<script>
-       require(["common"], function () {});
+       require(["common"], function () {
+
+		 });
 	</script>
-<?php require_once "../../ko/inc/layout_btm.php" ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>
