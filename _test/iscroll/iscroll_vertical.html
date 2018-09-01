@@ -1,0 +1,66 @@
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "iscroll_vertical");
+?>
+<?php require_once "../../ko/inc/layout_top.php" ?>
+	<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style>
+		/*reset*/
+		* {matgin: 0; padding: 0;}
+		li {list-style: none;}
+		/*custom*/
+
+		#gnb_wrap {position:relative;}
+		#gnb {width: 2000px; position: absolute; overflow:hidden;}
+		#gnb li {float: left; margin-right:100px; border: solid 1px black;}
+	</style>
+	<section>
+		<div id="gnb_wrap">
+			<ul id="gnb">
+				<li>가나다</li>
+				<li>가나다</li>
+				<li>가나다</li>
+				<li>가나다</li>
+				<li>가나다</li>
+				<li>가나다</li>
+				<li>가나다</li>
+				<li>가나다</li>
+				<li>가나다</li>
+			</ul>
+		</div>
+	</section>
+	<br><br><br><br>
+	본문
+
+
+
+
+	<script src="/ko/js/jquery/jquery-1.8.3.min.js"></script>
+	<script>
+		$(window).on("load", function () {
+			console.log("j load")
+		});
+
+		$(document).ready(function() {
+			console.log("j ready");
+		})
+	</script>
+
+
+
+
+	<script src="/ko/js/iscroll/iscroll.js"></script>
+	<script src="/ko/js/require.js"></script>
+	<script src="/ko/js/require_config.js"></script>
+	<script>
+		require(["common"], function () {
+			$("#kkk").css({"background":"red"});
+			myScroll = new IScroll('#gnb_wrap', { scrollX: true});
+			$(document).ready(function () {
+				console.log("ready");
+			})
+		});
+	</script>
+
+<?php require_once "../../ko/inc/layout_btm.php" ?>
