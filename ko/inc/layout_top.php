@@ -10,11 +10,12 @@
 <!doctype html>
 <html lang="ko">
 <head>
-    <title><?= $a?><?= DOC_TITLE ?> : <?= SITE_TITLE ?></title>
+    <title><?= DOC_TITLE ?> : <?= SITE_TITLE ?></title>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script>console.log("loaded: layout_top");</script>
+    <script>
+		 console.log("loaded: layout_top");</script>
 </head>
 <body>
 <?php if (LAYOUT == "") { ?>
