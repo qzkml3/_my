@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+/* # reset */
+* {
+	-webkit-appearance: none; border-radius: 0; /*아이폰 스타일 방지*/
+}
