@@ -2,7 +2,9 @@ console.log("loaded: common");
 
 System = {
 	getDebugMode: function() {
-		return true;
+		if (SYSTEM_DEBUG_MODE) {
+			return true;
+		}
 	}
 };
 

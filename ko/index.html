@@ -1,21 +1,8 @@
 <?php
-	define("LAYOUT", "");
-	define("THEME", "");
+	define("LAYOUT", "main");
 	define("DOC_TITLE", "메인");
 ?>
 <?php require_once "inc/layout_top.php" ?>
-    <section id="sitemap">
-        <h1>사이트맵</h1>
-        <ul>
-            <li><a href="sub/article/article.html">게시판</a></li>
-        </ul>
-    </section>
-
-    <script src="/ko/js/require.js"></script>
-    <script src="/ko/js/require_config.js"></script>
-    <script>
-        require(["common"], function () {
-
-		  });
-    </script>
+	<script src="js/jquery/jquery-1.8.3.min.js"></script>
+	<script src="js/common.js"></script>
 <?php require_once "inc/layout_btm.php" ?>

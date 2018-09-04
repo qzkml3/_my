@@ -8,19 +8,11 @@
 	<script src="/ko/js/require_config.js"></script>
 	<script>
 		require(["common"], function () {
-			UI.tab();
-
-			$.aaa = function() {
-				console.log("aaa");
-			}
-			$.aaa();
-			console.log($.fn.jquery);
-
 			$(window).on("load", function() {
-				console.log("- load2");
+				console.log("1 window.load " + $.fn.jquery);
 			});
 			$(document).ready(function() {
-				console.log("- ready2");
+				console.log("1 document.ready " + $.fn.jquery);
 			});
 		});
 	</script>
@@ -32,10 +24,10 @@
 	<script src="/ko/js/jquery/jquery-3.3.1.min.js"></script>
 	<script>
 		$(window).on("load", function() {
-			console.log("- load1");
+			console.log("2 window.load " + $.fn.jquery);
 		});
 		$(document).ready(function() {
-			console.log("- ready1");
+			console.log("2 document.ready " + $.fn.jquery);
 		});
 	</script>
 <?php require_once  $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php" ?>

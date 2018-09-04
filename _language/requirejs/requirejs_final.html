@@ -22,15 +22,16 @@
 	<script src="/ko/js/require_config.js"></script>
 	<script>
 		require(["common"], function () {
-			console.log("front");
-			$(window).on("load", function() {
-				console.log("2 window.load" + $.fn.jquery);
-			});
-			$(document).ready(function() {
-				console.log("2 document.ready" + $.fn.jquery);
-			});
+			console.log("requirejs");
+		});
+	</script>
 
-			console.log("end");
+	<script>
+		$(window).on("load", function() {
+			console.log("2 window.load" + $.fn.jquery);
+		});
+		$(document).ready(function() {
+			console.log("2 document.ready" + $.fn.jquery);
 		});
 	</script>
 <?php require_once  $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php" ?>

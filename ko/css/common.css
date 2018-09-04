@@ -2,6 +2,22 @@
 
 /* # reset */
 * {
+	-webkit-text-size-adjust: none; /*아이폰 반응형 폰트크기 방지*/
 	-webkit-appearance: none; border-radius: 0; /*아이폰 스타일 방지*/
-	-webkit-overflow-scrolling:touch !important; /*아이폰 가속스크롤 추가(버벅임)*/
+	-webkit-overflow-scrolling:touch; /*아이폰 가속스크롤 추가(버벅임)*/
 }
+
+/* # custom */
+#header {}
+
+#logo {}
+
+#gnb {}
+
+#container {}
+
+#cont {}
+
+#quick {}
+
+#footer {}
