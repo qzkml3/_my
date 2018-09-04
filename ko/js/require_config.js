@@ -1,9 +1,8 @@
 require.config({
 	paths: {
 		"jquery": "/ko/js/jquery/jquery-1.8.3.min",
-		"common": "/ko/js/common",
-		"Iscroll": "/ko/js/iscroll/iscroll",
-		"UI": "/ko/js/class/UI"
+		"UI": "/ko/js/class/UI",
+		"common": "/ko/js/common"
 	},
 	shim: {
 		"UI": {

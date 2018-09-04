@@ -1,6 +1,6 @@
 <?php
 	define("LAYOUT", "");
-	define("DOC_TITLE", "temp");
+	define("DOC_TITLE", "requirejs_jquery2");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
 
@@ -14,16 +14,13 @@
 				console.log("aaa");
 			}
 			$.aaa();
-			console.log($.fn.jquery + ":requirejs");
+			console.log($.fn.jquery);
 
 			$(window).on("load", function() {
 				console.log("- load2");
-				console.log($.fn.jquery + ":requirejs in load");
 			});
 			$(document).ready(function() {
 				console.log("- ready2");
-
-				console.log($.fn.jquery + ":requirejs in ready");
 			});
 		});
 	</script>
