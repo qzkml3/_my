@@ -1,5 +1,13 @@
 console.log("loaded: common");
 
+$(document).ready(function () {
+	console.log("loaded: document.ready");
+});
+
+$(window).load(function () {
+	console.log("loaded: window.load");
+});
+
 System = {
 	getDebugMode: function() {
 		if (SYSTEM_DEBUG_MODE) {
@@ -21,8 +29,7 @@ Browser = {
 	getIPhone:  function() {
 
 	}
-}
-
+};
 
 UI = {
 	tab: function (tabBtn, tabCont) {

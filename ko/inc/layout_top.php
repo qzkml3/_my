@@ -26,7 +26,7 @@
 <body>
 <?php if (LAYOUT == "main" || LAYOUT == "sub") { ?>
 	<header id="header">
-		<h1>_my</h1>
+		<h1><a href="/">_my</a></h1>
 		<nav id="gnb">
 			<a href="/ko/sub/article/article.html">게시판</a>
 		</nav>
