@@ -3,13 +3,21 @@
 	define("DOC_TITLE", "temp");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
-
+	<style>
+		.p {font-size: 36px;}
+		.span {font-size: larger;}
+	</style>
+	
+	<div class="p">
+		가나다
+			<span class="span">가나다</span>
+	</div>
 
 	<script src="/ko/js/require.js"></script>
 	<script src="/ko/js/require_config.js"></script>
 	<script>
        require(["common"], function () {
-			 UI.tab();
+			 
 		 });
 	</script>
 <?php require_once  $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php" ?>

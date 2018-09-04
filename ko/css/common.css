@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+/* # reset */
+* {
+	-webkit-appearance: none; border-radius: 0; /*아이폰 스타일 방지*/
+	-webkit-overflow-scrolling:touch !important; /*아이폰 가속스크롤 추가(버벅임)*/
+}
