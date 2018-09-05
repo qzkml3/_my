@@ -1,12 +1,12 @@
 console.log("loaded: common");
 
-$(document).ready(function () {
-	console.log("loaded: document.ready");
-});
-
-$(window).load(function () {
-	console.log("loaded: window.load");
-});
+StringUtil = {
+	hasString: function(scope, find) {
+		if (scope.indexOf(find) > -1) {
+			return true;
+		}
+	}
+};
 
 System = {
 	getDebugMode: function() {
@@ -18,8 +18,8 @@ System = {
 
 Browser = {
 	getIE: function() {
-		if (navigator.userAgent.indexOf("MSIE") > -1) {
-
+		if (StringUtil.hasString(navigator.userAgent, "Trident")) {
+			return true;
 		}
 	},
 	getChrome: function() {
@@ -51,3 +51,11 @@ UI = {
 		});
 	}
 };
+
+$(document).ready(function () {
+	console.log("loaded: document.ready");
+});
+
+$(window).load(function () {
+	console.log("loaded: window.load");
+});
