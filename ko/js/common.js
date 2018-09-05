@@ -18,7 +18,9 @@ System = {
 
 Browser = {
 	getIE: function() {
+		if (navigator.userAgent.indexOf("MSIE") > -1) {
 
+		}
 	},
 	getChrome: function() {
 
