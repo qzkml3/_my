@@ -2,7 +2,7 @@
 
 class StringUtil
 {
-	static function has_str($scope, $find)
+	static function hasString($scope, $find)
 	{
 		if (strpos($scope, $find) > -1) {
 			return true;
@@ -11,7 +11,7 @@ class StringUtil
 		}
 	}
 	
-	static function start_with($scope, $find)
+	static function startsWith($scope, $find)
 	{
 		if (strpos($scope, $find) == 0) {
 			return true;

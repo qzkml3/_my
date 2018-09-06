@@ -17,7 +17,7 @@
 	<!doctype html>
 	<html lang="ko">
 	<head>
-		<?php System::setDebugMode(); ?>
+		<?php System::setDebugModeToJS(); ?>
 		<title><?php System::getDocTitle(); ?></title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
