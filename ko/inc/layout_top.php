@@ -1,20 +1,23 @@
 <?php
 	define("SITE_TITLE", "ko");
-
-	session_start();
-	header_remove("Cache-Control");
-	header_remove("Pragma");
-	header_remove("Expires");
-
-	require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/class/common/System.php";
+	
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/class/common/JS.php";
+	require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/class/common/StringUtil.php";
+	require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/class/common/System.php";
+	
+	session_start();
+	if (System::getHeaderRemove()) {
+		header_remove("Cache-Control");
+		header_remove("Pragma");
+		header_remove("Expires");
+	}
 
 	System::getController();
 ?>
 	<!doctype html>
 	<html lang="ko">
 	<head>
-		<?php System::setDebugMode(); ?>
+		<?php System::setDebugModeToJS(); ?>
 		<title><?php System::getDocTitle(); ?></title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">

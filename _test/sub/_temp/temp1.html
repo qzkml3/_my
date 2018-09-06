@@ -1,0 +1,35 @@
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", $_SERVER["PHP_SELF"]); //todo substr path
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+	<style>
+		.a {background: #0b7cc1;}
+		.a ~ div {background: #0b7cc1;}
+	</style>
+	<section>
+		<div class="a">a</div>
+		
+		<button>button</button>
+	</section>
+
+	<script id="tpl_html" type="tempalte">
+		<div class="a">x</div>
+	</script>
+	
+	<script src="/ko/js/jquery/jquery-1.8.3.min.js"></script>
+	<script src="/ko/js/common.js"></script>
+	<script>
+		
+		/*$("body").on("click", "button",  function () {
+			$("section").append($("#tpl_html").html());
+
+			$(".a").css({"background": "none"});
+		});*/
+		$(document).on("click",  function () {
+			$("section").append($("#tpl_html").html());
+			
+			$(".a").css({"background": "none"});
+		});
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>
