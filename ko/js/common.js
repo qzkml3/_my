@@ -17,18 +17,18 @@ FrameWork = {
 };
 
 Browser = {
-	getIE: function() {
+	isIE: function() {
 		if (StringUtil.hasString(navigator.userAgent, "Trident")) {
 			return true;
 		}
 	},
-	getChrome: function() {
+	isChrome: function() {
 
 	},
-	getFireFox: function() {
+	isFireFox: function() {
 
 	},
-	getIPhone:  function() {
+	isIPhone:  function() {
 
 	}
 };

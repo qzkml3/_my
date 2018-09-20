@@ -15,7 +15,7 @@
 		static function setDebugModeToJS() {
 			echo '
 				<script>
-					FRAMEWORK_IS_DEBUG_MODE = ' . self::isDebugMode() . '
+					FRAMEWORK_IS_DEBUG_MODE = ' . self::isDebugMode() . ';
 				</script>
 			';
 		}
