@@ -8,9 +8,9 @@ StringUtil = {
 	}
 };
 
-System = {
-	getDebugMode: function() {
-		if (SYSTEM_DEBUG_MODE) {
+FrameWork = {
+	isDebugMode: function() {
+		if (FRAMEWORK_IS_DEBUG_MODE) {
 			return true;
 		}
 	}

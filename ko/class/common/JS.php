@@ -2,7 +2,7 @@
 
 class JS
 {
-	public static function confirm($str) {
+	static function confirm($str) {
 		echo $str;
 		echo "
 				<script>
@@ -11,7 +11,7 @@ class JS
 			";
 	}
 
-	public static function alert($str) {
+	static function alert($str) {
 		echo $str;
 		echo "
 				<script>
@@ -20,7 +20,7 @@ class JS
 			";
 	}
 
-	public static function console_log($str) {
+	static function console_log($str) {
 		echo "
 				<script>
 					console.log('$str');
