@@ -1,31 +1,13 @@
 <?php
 
-	class System
+	class Framework
 	{
 		static function getController() {
-			//controler
-			// $controller = __FILE__; todo test;
 			$controller = $_SERVER["SCRIPT_FILENAME"];
 			$controller = str_replace(".html", "_ctrl.php", $controller);
 			if (file_exists($controller)) {
 				require_once $controller;
 			}
-		}
-
-		static function getDebugMode() {
-			if ($_SERVER["REMOTE_ADDR"] == "127.0.0.1") {
-				return true;
-			} else {
-				return false;
-			}
-		}
-
-		static function setDebugModeToJS() {
-			echo '
-				<script>
-					SYSTEM_DEBUG_MODE = ' . System::getDebugMode() . '
-				</script>
-			';
 		}
 
 		static function getDocTitle() {
@@ -36,11 +18,20 @@
 			}
 		}
 		
-		static function getHeaderRemove() {
+		static function hasHeaderRemove() {
 			if (StringUtil::startsWith(phpversion(), "5.2.12")) { //office apm
 				return false;
 			} else {
 				return true;
+			}
+		}
+		
+		static function setSession() {
+			session_start();
+			if (Framework::hasHeaderRemove()) {
+				header_remove("Cache-Control");
+				header_remove("Pragma");
+				header_remove("Expires");
 			}
 		}
 	}

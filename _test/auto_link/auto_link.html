@@ -1,0 +1,55 @@
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "임시 템플릿");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+	<style>
+		* {font-family: dotum, sans-serif; line-height: 1.6;}
+
+		p {font-size: 12px;}
+		
+		article {width: 48%; float: left; margin-left: 2%;}
+		main {overflow: hidden; max-width: 1000px; margin: 100px auto;}
+		
+		a {color: orchid; text-decoration: none;}
+	</style>
+
+	<main>
+		<article>
+			<h2>원문</h2>
+			<p class="cont">
+			</p>
+		</article>
+
+		<article>
+			<h2>치환됨</h2>
+			<p class="cont2">
+			</p>
+		</article>
+	</main>
+	
+	<!-- template -->
+	<script type="html/template" id="cont">
+		<hr>
+		# 등록자가 링크건것: 변경하지 않음
+		<br>
+		<a href="사용자가 입력한 링크">http://google.com</a>
+		<br>
+		<a href="mailto:사용자가 입력한 링크">33333@aaaaa.com</a>
+		
+		<hr>
+		# 등록자가 링크 안걸은 것: 파싱해서 (자동링크) 추가
+		<br>
+		http://www.naver.com
+		<br>
+		33333@aaaaa.com
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+	<script>
+		$(document).ready(function () {
+			$(".cont, .cont2").html($("#cont").html()); //내용 템플릿 적용
+
+			StringUtil.autoLink(".cont2");
+		});
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>
