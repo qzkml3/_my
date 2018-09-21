@@ -1,6 +1,6 @@
 <?php
 	define("LAYOUT", "");
-	define("DOC_TITLE", "임시 템플릿");
+	define("DOC_TITLE", "템플릿");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
 	<style>

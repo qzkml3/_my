@@ -1,10 +1,17 @@
-<? define('DOC_TITLE', "testcase of StringUtil") ?>
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/ko/inc/layout_top.php"; ?>
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "testcase of StringUtil");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+	<style>
 
-<script src="/ko/js/jquery/jquery-1.8.3.min.js"></script>
-<script src="/ko/js/common.js"></script>
-<script>
-	console.assert(StringUtil.lastString("가나다", "나") === "다", "'나'뒤에 '다'인지");
-	console.assert(StringUtil.lastStringWith("가나다", "나") === "나다", "'나'뒤에 '나다'인지");
-</script>
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/ko/inc/layout_btm.php"; ?>
+	</style>
+	<main>
+
+	</main>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+	<script>
+		console.assert(StringUtil.lastString("가나다", "나") === "다", "'나'뒤에 '다'인지");
+		console.assert(StringUtil.lastStringWith("가나다", "나") === "나다", "'나'뒤에 '나다'인지");
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>
