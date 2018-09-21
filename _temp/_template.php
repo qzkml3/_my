@@ -1,15 +1,16 @@
 <?php
 	define("LAYOUT", "");
-	define("DOC_TITLE", "temp");
+	define("DOC_TITLE", "임시 템플릿");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
-	<section id="sitemap">
-	</section>
-	<script src="/ko/js/require.js"></script>
-	<script src="/ko/js/require_config.js"></script>
+	<style>
+	
+	</style>
+	<main>
+	
+	</main>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
 	<script>
-		require(["common"], function () {
-
-		});
+	
 	</script>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>
