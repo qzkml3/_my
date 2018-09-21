@@ -1,0 +1,21 @@
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "임시 템플릿");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+	<hr>
+		# 등록자가 링크건것: 변경하지 않음
+		<br>
+		<a href="사용자가 입력한 링크"><span class="generated_link_span">http://google.com</span> <a class="generated_link" href="http://google.com" target="_blank">(자동링크)</a></a>
+		<br>
+		<a href="mailto:사용자가 입력한 링크">33333@aaaaa.com</a>
+		
+		<hr>
+		# 등록자가 링크 안걸은 것: 파싱해서 (자동링크) 추가
+		<br>
+		<span class="generated_link_span">http://www.naver.com</span> <a class="generated_link" href="http://www.naver.com" target="_blank">(자동링크)</a>
+		<br>
+		33333@aaaaa.com
+	
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>

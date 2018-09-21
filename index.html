@@ -3,81 +3,77 @@
 	define("DOC_TITLE", "_my");
 ?>
 <?php require_once "ko/inc/layout_top.php" ?>
-    <style>
-        ul {overflow: hidden;}
-
-        li {float: left; margin-left: 5em;}
-
-        #wrap {max-width: 1024px; margin: auto;}
-    </style>
-    <section id="wrap">
-        <h1>_my</h1>
-        <section id="temp">
-            <h2>임시</h2>
-            <ul>
-                <li><a href="_temp/temp1.html">temp1</a></li>
-                <li><a href="_temp/temp2.html">temp2</a></li>
-                <li><a href="_temp/temp3.html">temp3</a></li>
-                <li><a href="_temp/temp4.html">temp4</a></li>
-                <li><a href="_temp/temp5.html">temp5</a></li>
-            </ul>
-        </section>
-        <section id="info">
-            <h2>자원</h2>
-            <ul>
-                <li>블로그
-                    <ul>
-                        <li><a href="http://qzkml3.blogspot.com/">구글블로그</a></li>
-                        <li><a href="http://qzkml3.blogger.com/">구글블로그(어드민)</a></li>
-                    </ul>
-                </li>
-                <li>FTP
-                    <ul>
-                        <li><a href="http://qzkml3.dothome.co.kr">닷홈</a></li>
-                        <li><a href="http://qzkml32.dothome.co.kr">닷홈2</a></li>
-                        <li><a href="http://qzkml3.woobi.co.kr">우비</a></li>
-                    </ul>
-                </li>
-                <li>디비
-                    <ul>
-                        <li><a href="http://localhost/phpmyadmin">phpMyAdmin</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-        <section id="ko">
-            <h2>한국어</h2>
-            <ul>
-                <li><a href="ko/index.html">메인</a></li>
-					<li><a href="ko/sub/article/article.html">게시판</a></li>
-            </ul>
-        </section>
-        <section id="language">
-            <h2>언어</h2>
-            <ul>
-                <li><a href="_language/sass/sass.html">sass</a></li>
-                <li><a href="_language/scss/scss.html">scss</a></li>
-                <li><a href="_language/less/less.html">less</a></li>
-                <li>requirejs
-                    <ul>
-                        <li><a href="_language/requirejs/requirejs_final.html">requirejs_final</a></li>
-                        <li><a href="_language/requirejs/requirejs_jquery1.html">requirejs_jquery1(시점)</a></li>
-                        <li><a href="_language/requirejs/requirejs_jquery2.html">requirejs_jquery2(시점)</a></li>
-                        <li><a href="_language/requirejs/requirejs_inner.html">requirejs_inner</a></li>
-                        <li><a href="_language/requirejs/requirejs_outer.html">requirejs_outer</a></li>
-                    </ul>
-                </li>
-                <li><a href="_language/coffeescript/coffeescript.html">coffeescript</a></li>
-            </ul>
-        </section>
-        <section id="test">
-            <h2>테스트</h2>
-            <ul>
-                <li><a href="_test/sub/auto_link/auto_link.html">자동링크</a></li>
-                <li><a href="_test/sub/iscroll/iscroll_vertical.html">iscroll</a></li>
-            </ul>
-        </section>
-    </section>
+	<style>
+		.font_base {color: #333;}
+		#wrap {max-width: 1024px; margin: auto;}
+		#wrap > section {float: left; margin-left: 2%;}
+	</style>
+	<main id="wrap">
+		<h1 class="font_base">_my</h1>
+		<section id="자원">
+			<h2 class="font_base">자원</h2>
+			<ul>
+				<li>블로그
+					<ul>
+						<li><a href="http://qzkml3.blogspot.com/">구글블로그</a></li>
+						<li><a href="http://qzkml3.blogger.com/">구글블로그(어드민)</a></li>
+					</ul>
+				</li>
+				<li>FTP
+					<ul>
+						<li><a href="http://qzkml3.dothome.co.kr">닷홈</a></li>
+						<li><a href="http://qzkml32.dothome.co.kr">닷홈2</a></li>
+						<li><a href="http://qzkml3.woobi.co.kr">우비</a></li>
+					</ul>
+				</li>
+				<li>디비
+					<ul>
+						<li><a href="http://localhost/phpmyadmin">phpMyAdmin</a></li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<section id="언어">
+			<h2 class="font_base">언어</h2>
+			<ul>
+				<li><a href="_language/sass/sass.html">sass</a></li>
+				<li><a href="_language/scss/scss.html">scss</a></li>
+				<li><a href="_language/less/less.html">less</a></li>
+				<li>requirejs
+					<ul>
+						<li><a href="_language/requirejs/requirejs_final.html">requirejs_final</a></li>
+						<li><a href="_language/requirejs/requirejs_jquery1.html">requirejs_jquery1(시점)</a></li>
+						<li><a href="_language/requirejs/requirejs_jquery2.html">requirejs_jquery2(시점)</a></li>
+						<li><a href="_language/requirejs/requirejs_inner.html">requirejs_inner</a></li>
+						<li><a href="_language/requirejs/requirejs_outer.html">requirejs_outer</a></li>
+					</ul>
+				</li>
+				<li><a href="_language/coffeescript/coffeescript.html">coffeescript</a></li>
+			</ul>
+		</section>
+		<section id="사이트">
+			<h2 class="font_base">사이트</h2>
+			<ul>
+				<li><a href="ko/index.html">메인</a></li>
+				<li><a href="ko/sub/article/article.html">게시판</a></li>
+			</ul>
+		</section>
+		<section id="임시">
+			<h2 class="font_base">임시</h2>
+			<ul>
+				<li><a href="_temp/temp1.html">temp1</a></li>
+				<li><a href="_temp/temp2.html">temp2</a></li>
+				<li><a href="_temp/temp3.html">temp3</a></li>
+			</ul>
+		</section>
+		<section id="테스트">
+			<h2 class="font_base">테스트</h2>
+			<ul>
+				<li><a href="_test/auto_link/auto_link.html">자동링크</a></li>
+				<li><a href="_test/iscroll/iscroll_vertical.html">iscroll</a></li>
+			</ul>
+		</section>
+	</main>
 	<script src="/ko/js/jquery/jquery-1.8.3.min.js"></script>
 	<script src="/ko/js/common.js"></script>
 <?php require_once "ko/inc/layout_btm.php" ?>

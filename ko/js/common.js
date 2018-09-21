@@ -7,7 +7,7 @@ console.log("loaded: common.js");
  * */
 StringUtil = {
 	/**문자열이 있는지 판별*/
-	hasString: function(scope, find) {
+	hasString: function (scope, find) {
 		var scope = scope.toString();
 		var find = find.toString();
 
@@ -17,7 +17,7 @@ StringUtil = {
 	},
 
 	/**구분자 뒤에 문자 리턴*/
-	lastString: function(scope, find) {
+	lastString: function (scope, find) {
 		var scope = scope.toString();
 		var find = find.toString();
 
@@ -25,21 +25,45 @@ StringUtil = {
 	},
 
 	/**구분자와 구분자 뒤에 문자 리턴*/
-	lastStringWith: function(scope, find) {
+	lastStringWith: function (scope, find) {
 		var scope = scope.toString();
 		var find = find.toString();
 
 		return scope.substring(scope.indexOf(find));
+	},
+	autoLink: function (content) {
+		var regURL = new RegExp("(http|https|ftp|telnet|news|irc)://([-/.a-zA-Z0-9_~#%$?&=:200-377()]+)", "gi");
+		var regEmail = new RegExp("([xA1-xFEa-z0-9_-]+@[xA1-xFEa-z0-9-]+\.[a-z0-9-]+)", "gi");
+
+		//a 태그 자동적용
+		var oriText = $(content).html();
+		var chagnedText = "";
+
+		chagnedText = oriText.replace(regURL, '$1://$2 <a class="generated_link" href="$1://$2" target="_blank">(자동링크)</a>');
+		chagnedText = chagnedText.replace(regEmail, '$1 <a class="generated_link" href="mailto:$1">(자동링크)</a>');
+
+
+		$(content).html(chagnedText);
+
+
+		$(content).find(".generated_link").attr("target", "_blank"); //a target 속성추가
+
+		$(content).find(".generated_link").each(function () {
+			var v = $(this).prev("a").html();
+			if (v != null) { //사용자가 링크건것은 그대로 나둠
+				$(this).remove();
+			}
+		});
 	}
 };
 
 FrameWork = {
-	isDebugMode: function() {
+	isDebugMode: function () {
 		if (FRAMEWORK_IS_DEBUG_MODE) {
 			return true;
 		}
 	},
-	setTitle: function() {
+	setTitle: function () {
 		var site_tit = window.site_title;
 		var doc_tit = window.doc_title;
 
@@ -54,17 +78,17 @@ FrameWork = {
 };
 
 Browser = {
-	isWin7: function() {
+	isWin7: function () {
 		if (StringUtil.hasString(navigator.userAgent, "Windows NT 6.1")) {
 			return true;
 		}
 	},
-	isIE: function() {
+	isIE: function () {
 		if (StringUtil.hasString(navigator.userAgent, "Trident")) {
 			return true;
 		}
 	},
-	isIE11: function() {
+	isIE11: function () {
 		if (
 			StringUtil.hasString(navigator.userAgent, "Trident")
 			&& StringUtil.hasString(navigator.userAgent, "rv:11.0")
@@ -72,47 +96,47 @@ Browser = {
 			return true;
 		}
 	},
-	isIE10: function() {
+	isIE10: function () {
 		if (StringUtil.hasString(navigator.userAgent, "MSIE 10")) {
 			return true;
 		}
 	},
-	isIE9: function() {
+	isIE9: function () {
 		if (StringUtil.hasString(navigator.userAgent, "MSIE 9")) {
 			return true;
 		}
 	},
-	isIE8: function() {
+	isIE8: function () {
 		if (StringUtil.hasString(navigator.userAgent, "MSIE 8")) {
 			return true;
 		}
 	},
-	isIE7: function() {
+	isIE7: function () {
 		if (StringUtil.hasString(navigator.userAgent, "MSIE 7")) {
 			return true;
 		}
 	},
-	isIE6: function() {
+	isIE6: function () {
 		if (StringUtil.hasString(navigator.userAgent, "MSIE 6")) {
 			return true;
 		}
 	},
-	isQuirks: function() {
+	isQuirks: function () {
 		if (StringUtil.hasString(navigator.userAgent, "MSIE 5")) {
 			return true;
 		}
 	},
-	isChrome: function() {
+	isChrome: function () {
 		if (StringUtil.hasString(navigator.userAgent, "Chrome")) {
 			return true;
 		}
 	},
-	isFireFox: function() {
+	isFireFox: function () {
 		if (StringUtil.hasString(navigator.userAgent, "Firefox")) {
 			return true;
 		}
 	},
-	isIOS:  function() {
+	isIOS: function () {
 		if (
 			StringUtil.hasString(navigator.userAgent, "iPhone")
 			|| StringUtil.hasString(navigator.userAgent, "iPad")
@@ -124,10 +148,10 @@ Browser = {
 
 Youtube = {
 	/* IE8 이하 youtube 지원종료안내 */
-	setInfo: function() {
+	setInfo: function () {
 		if (Browser.isIE8() || Browser.isIE7() || Browser.isIE6() || Browser.isQuirks()) {
 			var target = 'iframe';
-			$(target).each(function(i) {
+			$(target).each(function (i) {
 				$iframe = $(this);
 
 				if ($iframe.attr("src").hasString("youtube")) {
@@ -188,7 +212,7 @@ UI = {
 			});
 		});
 	},
-	createHTML5: function() {
+	createHTML5: function () {
 		if (Browser.isQuirks() || Browser.isIE6() || Browser.isIE7() || Browser.isIE8()) {
 			document.createElement("main");
 			document.createElement("header");
@@ -197,19 +221,19 @@ UI = {
 			document.createElement("aside");
 		}
 	},
-	responsiveImgMap: function() {
+	responsiveImgMap: function () {
 		$('img[usemap]').rwdImageMaps(); //반응형 이미지맵
 	},
-	setBodyHeightPx: function() {
+	setBodyHeightPx: function () {
 		var bodyHeight = $("body").outerHeight(true);
 		$("body").outerHeight(bodyHeight);
 	},
 
 	/* IE9 이하 placeholder 사용가능하게 */
-	setPlaceholder: function() {
+	setPlaceholder: function () {
 		if (Browser.isIE9() || Browser.isIE9() || Browser.isIE7() || Browser.isIE6() || Browser.isQuirks()) {
 			var target = 'input[placeholder], textarea[placeholder]';
-			$(target).each(function(i) {
+			$(target).each(function (i) {
 				//Set HTML
 				var $el = $(this);
 				var $el_w;
@@ -238,7 +262,7 @@ UI = {
 				});
 
 				//Set Event
-				$el.on("focus", function() {
+				$el.on("focus", function () {
 					var $el = $(this);
 					var $el_w = $el.closest(".js-patchPlaceholder-w");
 					var $el_place = $el_w.find(".js-place-holder");
@@ -246,7 +270,7 @@ UI = {
 					$el_place.hide();
 				});
 
-				$el.on("blur", function() {
+				$el.on("blur", function () {
 					var $el = $(this);
 					var $el_w = $el.closest(".js-patchPlaceholder-w");
 					var $el_place = $el_w.find(".js-place-holder");
@@ -256,7 +280,7 @@ UI = {
 					}
 				});
 
-				$el_place.on("focus", function() {
+				$el_place.on("focus", function () {
 					$el.trigger("focus");
 				});
 			});
@@ -283,7 +307,7 @@ UI = {
 	 *  IE9 이하 hash 사용 깜박임 있음 home 갈때 주소에 #이 붙음
 	 *  home 갈때 href="#"
 	 *  */
-	goAnimatedHash: function(href) {
+	goAnimatedHash: function (href) {
 		var loc = window.location;
 		var doc = window.document;
 		var gotoScroll;
@@ -313,7 +337,7 @@ UI = {
 		}
 	},
 	/* 해시 처리 */
-	setHashControl: function() {
+	setHashControl: function () {
 		$("a, area").on("click", function () {
 			var $a = $(this);
 			var href = $a.attr("href");
@@ -327,10 +351,10 @@ UI = {
 };
 
 /* # jQuery extention ================================================== */
- $.fn.getPercentWidth = function () {
-	  var width = parseFloat($(this).css('width'))/parseFloat($(this).parent().css('width'));
-	  return Math.round(100*width)+'%';
- };
+$.fn.getPercentWidth = function () {
+	var width = parseFloat($(this).css('width')) / parseFloat($(this).parent().css('width'));
+	return Math.round(100 * width) + '%';
+};
 
 $(document).ready(function () {
 	UI.createHTML5();
