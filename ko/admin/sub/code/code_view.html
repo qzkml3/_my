@@ -1,0 +1,29 @@
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "코드관리 목록");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+	<main>
+		<h1><?= DOC_TITLE ?></h1>
+		<table>
+			<tr>
+				<th>code_name</th>
+				<th>code</th>
+				<th>code_ref</th>
+			</tr>
+			<?php while ($data = $dataList->fetch_array()) { ?>
+				<tr>
+					<td><a href="code_view.html"><?= $data["code_name"] ?></a></td>
+					<td><?= $data["code"] ?></td>
+					<td><?= $data["code_ref"] ?></td>
+				</tr>
+			<? } ?>
+		</table>
+
+		<a href="">등록</a>
+	</main>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+	<script>
+
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>

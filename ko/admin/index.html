@@ -1,8 +1,19 @@
 <?php
 	define("LAYOUT", "");
-	define("DOC_TITLE", "임시 템플릿");
+	define("DOC_TITLE", "코드관리");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+<?php
+	$db = DB::getDB();
+	$sql = "
+		select * from code
+	";
+
+
+
+	$dataList = $db->query($sql);
+
+?>
 	<style>
 
 	</style>
