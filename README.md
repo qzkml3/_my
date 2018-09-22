@@ -1,1 +1,1 @@
-[HOME](https://github.com/qzkml3/_my/wiki)
+[Wiki HOME](https://github.com/qzkml3/_my/wiki)
