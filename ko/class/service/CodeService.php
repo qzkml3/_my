@@ -2,12 +2,20 @@
 
 	Class CodeService
 	{
-		static function getList() {
+		static function getListCode($code_ref) {
 			$db = DB::getDB();
 
-			$sql = DBQuery::select("code");
+			$query = DBQuery::select("code");
+			if ($code_ref == "") {
+				$query = DBQuery::where($query, "code_ref is null");
+			} else {
+				$query = DBQuery::where($query, "code_ref = $code_ref");
+			}
+			$query = DBQuery::orderBy($query, "code_name asc");
 
-			return $dataList = $db->query($sql);
+			//echo $query;
+
+			return $dataList = $db->query($query);
 		}
 	}
 

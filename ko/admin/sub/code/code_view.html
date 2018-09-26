@@ -1,8 +1,12 @@
 <?php
-	define("LAYOUT", "");
+	define("LAYOUT", "admin_sub");
 	define("DOC_TITLE", "코드관리 목록");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+<?php
+	include_once $_SERVER['DOCUMENT_ROOT'] . "/ko/class/service/CodeService.php";
+	$dataListCode = CodeService::getListCode();
+?>
 	<main>
 		<h1><?= DOC_TITLE ?></h1>
 		<table>
@@ -11,7 +15,7 @@
 				<th>code</th>
 				<th>code_ref</th>
 			</tr>
-			<?php while ($data = $dataList->fetch_array()) { ?>
+			<?php while ($data = $dataListCode->fetch_assoc()) { ?>
 				<tr>
 					<td><a href="code_view.html"><?= $data["code_name"] ?></a></td>
 					<td><?= $data["code"] ?></td>
@@ -20,7 +24,9 @@
 			<? } ?>
 		</table>
 
-		<a href="">등록</a>
+		<div style="text-align: center;">
+			<a href="code_view.html">등록</a>
+		</div>
 	</main>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
 	<script>
