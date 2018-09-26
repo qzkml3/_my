@@ -1,6 +1,1 @@
-# _my
-
-# 가나다\
-
-## 마나닥라
-    
+[Wiki HOME](https://github.com/qzkml3/_my/wiki)
