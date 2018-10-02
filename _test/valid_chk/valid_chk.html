@@ -1,0 +1,16 @@
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "유효성 검사");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+	<main>
+	
+	</main>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+	<form name="f">
+		<input type="text" name="aaa">
+	</form>
+	<script>
+		ValidChk.isTelWithNum(f.aaa);
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>

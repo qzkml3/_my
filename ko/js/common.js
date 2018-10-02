@@ -1,5 +1,25 @@
 console.log("loaded: common.js");
 
+ValidChk = {
+	isTel: function (el) {
+		var re = /^\d{2,3}-\d{3,4}-\d{4}$/;
+		if (!re.test(el.value)) {
+			alert("연락처 형식이 틀립니다.");
+			el.focus();
+			return false;
+		}
+	},
+	isTelWithNum: function (el) {
+		var re1 = /^\d{2,3}-\d{3,4}-\d{4}$/;
+		var re2 = /^\d*$/;
+		if ( !(re1.test(el.value) || re2.test(el.value)) ) {
+			alert("연락처 형식이 틀립니다.");
+			el.focus();
+			return false;
+		}
+	}
+};
+
 /**
  * String.prototype으로 만들지 않은 이유
  * - 다른 라이브러리와 충돌 가능성
@@ -346,6 +366,16 @@ UI = {
 				util.goAnimatedHash(href.backString("#"));
 				return false;
 			}
+		});
+	},
+	/* 인풋과 버튼이 있을시 두개의 간격 나눔*/
+	divideWidth: function (el, offset) {
+		$(el).each(function () {
+			$el = $(this);
+			$parent = $el.parent();
+			$next = $el.next();
+
+			$el.width($parent.width() - $next.width() - offset);
 		});
 	}
 };
