@@ -1,0 +1,35 @@
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "testcase of true or false");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+	<style>
+
+	</style>
+	<main>
+
+	</main>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+	<script>
+		var v = 0;
+		if (v) {
+			console.log(v + ' 일때는 true');
+		}
+		var v = 1;
+		if (v) {
+			console.log(v + ' 일때는 true');
+		}
+		var v = -1;
+		if (v) {
+			console.log(v + ' 일때는 true');
+		}
+		var v = null;
+		if (v) {
+			console.log(v + ' 일때는 true');
+		}
+		var v = undefined;
+		if (v) {
+			console.log(v + ' 일때는 true');
+		}
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>

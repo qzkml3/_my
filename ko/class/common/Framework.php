@@ -4,9 +4,9 @@
 	{
 		static function getController() {
 			$controller = $_SERVER["SCRIPT_FILENAME"];
-			$controller = str_replace(".html", "_ctrl.php", $controller);
+			$controller = str_replace(".html", ".php", $controller);
 			if (file_exists($controller)) {
-				require_once $controller;
+				return $controller;
 			}
 		}
 

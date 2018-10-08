@@ -1,1 +1,14 @@
 @charset "UTF-8";
+
+/* # reset */
+button {font-size: inherit; cursor: pointer;}
+
+/* # custom */
+.clfix {overflow: hidden;}
+.float_left {float: left;}
+
+.pos_rel {position: relative;}
+.pos_left {position:absolute; left: 0;}
+.pos_top {position:absolute; top: 0;}
+
+.align_center {text-align: center;}

@@ -282,6 +282,24 @@ UI = {
 			});
 		}
 	},
+	checkAll: function (btnAllChk, btnChk) {
+		$(btnAllChk).on("click", function() {
+			if ($(this).prop("checked")) {
+				$(this).closest("tr").siblings().addClass("on");
+			} else {
+				$(this).closest("tr").siblings().removeClass("on");
+			}
+			$(btnChk).prop("checked", $(this).prop("checked"));
+		});
+
+		$(btnChk).on("click", function() {
+			if ($(this).prop("checked")) {
+				$(this).closest("tr").addClass("on");
+			} else {
+				$(this).closest("tr").removeClass("on");
+			}
+		});
+	},
 	/* WIN7 IE11 맑은 고딕 상하 정렬 문제 패치*/
 	setFontAdjust: function () {
 		if (Browser.WIN7) {

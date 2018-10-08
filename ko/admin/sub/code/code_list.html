@@ -1,0 +1,50 @@
+<?php
+	define("LAYOUT", "admin_sub");
+	define("DOC_TITLE", "코드관리 목록");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+<?php
+	$code_ref = Request::getParam("code_ref");
+
+	include_once $_SERVER['DOCUMENT_ROOT'] . "/ko/class/service/CodeService.php";
+	$dataListCode = CodeService::getListCode($code_ref);
+?>
+	<table class="tbl1">
+		<tr>
+			<!--js: btn_all_check-->
+			<th><input class="btn_all_check" type="checkbox" title="전체항목선택"></th>
+			<th>code_name</th>
+			<th>code</th>
+			<th>code_ref</th>
+		</tr>
+		<?php if ($dataListCode->num_rows) { ?>
+			<?php while ($data = $dataListCode->fetch_assoc()) { ?>
+				<tr>
+					<td class="align_center"><input class="btn_check" type="checkbox" title="항목선택"></td>
+					<td>
+						<a href="code_list.html?code_ref=<?= $data["code"] ?>">
+							<?= $data["code_name"] ?>
+						</a>
+					</td>
+					<td class="align_center"><?= $data["code"] ?></td>
+					<td class="align_center"><?= $data["code_ref"] ?></td>
+				</tr>
+			<? } ?>
+		<? } else {?>
+			<tr>
+				<td colspan="10" class="align_center">
+					데이터가 존재하지 않습니다.
+				</td>
+			</tr>
+		<? } ?>
+	</table>
+
+	<div class="btn_area1">
+		<a href="code_edit.html">등록</a>
+		<a class="btn_error" href=" code_edit.html">삭제</a>
+	</div>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+	<script>
+		UI.checkAll(".btn_all_check", ".btn_check");
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>

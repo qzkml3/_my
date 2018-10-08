@@ -1,8 +1,8 @@
 <?php
 	define("LAYOUT", "");
-	define("DOC_TITLE", "_my");
+	define("DOC_TITLE", "템플릿");
 ?>
-<?php require_once "ko/inc/layout_top.php" ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
 	<style>
 		.font_base {color: #333;}
 		#wrap {max-width: 1024px; margin: auto;}
@@ -66,6 +66,13 @@
 				<li><a href="_temp/temp3.html">temp3</a></li>
 			</ul>
 		</section>
+		<section id="테스트케이스">
+			<h2 class="font_base">테스트케이스</h2>
+			<ul>
+				<li><a href="_testcase/js/true_false.html">true_false</a></li>
+				<li><a href="_testcase/js/StringUtil.html">StringUtil</a></li>
+			</ul>
+		</section>
 		<section id="테스트">
 			<h2 class="font_base">테스트</h2>
 			<ul>
@@ -76,6 +83,8 @@
 			</ul>
 		</section>
 	</main>
-	<script src="/ko/js/jquery/jquery-1.8.3.min.js"></script>
-	<script src="/ko/js/common.js"></script>
-<?php require_once "ko/inc/layout_btm.php" ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+	<script>
+
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>

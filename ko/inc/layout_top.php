@@ -22,4 +22,16 @@
 			<a href="/ko/sub/article/article.html">게시판</a>
 		</nav>
 	</header>
+	<main>
+		<h1><?= DOC_TITLE ?></h1>
+<?php } ?>
+<?php if (LAYOUT == "admin_main" || LAYOUT == "admin_sub") { ?>
+	<header id="header">
+		<h1><a href="/">_my</a></h1>
+		<nav id="gnb">
+			<a href="/ko/admin/sub/code/code_list.html">코드관리</a>
+		</nav>
+	</header>
+	<main>
+		<h1><?= DOC_TITLE ?></h1>
 <?php } ?>
