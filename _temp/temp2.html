@@ -9,7 +9,7 @@
 	<main>
 	
 	</main>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_js.php"; ?>
 	<script>
 	
 	</script>

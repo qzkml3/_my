@@ -50,30 +50,6 @@ StringUtil = {
 		var find = find.toString();
 
 		return scope.substring(scope.indexOf(find));
-	},
-	autoLink: function (content) {
-		var regURL = new RegExp("(http|https|ftp|telnet|news|irc)://([-/.a-zA-Z0-9_~#%$?&=:200-377()]+)", "gi");
-		var regEmail = new RegExp("([xA1-xFEa-z0-9_-]+@[xA1-xFEa-z0-9-]+\.[a-z0-9-]+)", "gi");
-
-		//a 태그 자동적용
-		var oriText = $(content).html();
-		var chagnedText = "";
-
-		chagnedText = oriText.replace(regURL, '$1://$2 <a class="generated_link" href="$1://$2" target="_blank">(자동링크)</a>');
-		chagnedText = chagnedText.replace(regEmail, '$1 <a class="generated_link" href="mailto:$1">(자동링크)</a>');
-
-
-		$(content).html(chagnedText);
-
-
-		$(content).find(".generated_link").attr("target", "_blank"); //a target 속성추가
-
-		$(content).find(".generated_link").each(function () {
-			var v = $(this).prev("a").html();
-			if (v != null) { //사용자가 링크건것은 그대로 나둠
-				$(this).remove();
-			}
-		});
 	}
 };
 
@@ -184,7 +160,7 @@ Youtube = {
 					$el.wrap('<div class="js-youtube-w"></div>');
 					$el_w = $el.closest(".js-youtube-w");
 
-					$el_w.append('<div class="js-youtube-info"></div>')
+					$el_w.append('<div class="js-youtube-info"></div>');
 					$el_place = $el_w.find(".js-youtube-info");
 					$el_place.text($el.attr("patchPlaceholder"));
 
@@ -213,7 +189,7 @@ Youtube = {
 			});
 		}
 	},
-}
+};
 
 UI = {
 	tab: function (tabBtn, tabCont) {
