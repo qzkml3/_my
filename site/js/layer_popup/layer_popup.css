@@ -1,0 +1,8 @@
+.layer_popup {position: fixed; left: 20px; top: 20px;}
+.layer_popup * {color: white; font-size: 12px; font-family: "Malgun Gothic";}
+.layer_popup_img_w img {width: 100%; vertical-align: middle;}
+.layer_popup_control {background: black; overflow: hidden; box-sizing: border-box; padding: 3px;}
+.layer_popup_control_left {float: left;}
+.layer_popup_control_right {float: right;}
+.layer_popup_control_span {position: relative; top: -2px;}
+.layer_popup_control_btn {background: none; border: none; cursor: pointer;}

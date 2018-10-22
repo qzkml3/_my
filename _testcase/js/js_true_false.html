@@ -1,0 +1,38 @@
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "testcase of true or false");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
+	<style>
+
+	</style>
+	<main>
+
+	</main>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_script.php"; ?>
+	<script>
+		var v = 1;
+		console.log(v + ' is true?');
+		console.assert(v);
+		
+		var v = -1;
+		console.log(v + ' is true?');
+		console.assert(v);
+		
+		var v = "";
+		console.log(v + 'whitespace is true?');
+		console.assert(v);
+		
+		var v = 0;
+		console.log(v + ' is true?');
+		console.assert(v);
+		
+		var v = null;
+		console.log(v + ' is true?');
+		console.assert(v);
+		
+		var v = undefined;
+		console.log(v + ' is true?');
+		console.assert(v);
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>

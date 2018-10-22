@@ -2,16 +2,16 @@
 	define("LAYOUT", "");
 	define("DOC_TITLE", "testcase of StringUtil");
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_top.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
 	<style>
 
 	</style>
 	<main>
 
 	</main>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/comm_script.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_script.php"; ?>
 	<script>
 		console.assert(StringUtil.lastString("가나다", "나") === "다", "'나'뒤에 '다'인지");
-		console.assert(StringUtil.lastStringWith("가나다", "나") === "나다", "'나'뒤에 '나다'인지");
+		console.assert(StringUtil.lastStringWithSeparator("가나다", "나") === "나다", "'나'뒤에 '나다'인지");
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/ko/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>

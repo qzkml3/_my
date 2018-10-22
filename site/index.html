@@ -1,16 +1,11 @@
 <?php
-	define("LAYOUT", "");
-	define("DOC_TITLE", "템플릿");
+	define("LAYOUT", "main");
+	define("DOC_TITLE", "메인");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
-	<style>
-	
-	</style>
-	<main>
-	
-	</main>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
+	<?=Text::getText("가나다", "a_b");?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_script.php"; ?>
 	<script>
-	
+
 	</script>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>

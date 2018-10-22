@@ -1,0 +1,36 @@
+<?php
+	define("LAYOUT", "");
+	define("DOC_TITLE", "유효성 검사");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
+	<main>
+
+	</main>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
+	<form name="f" onsubmit="return onSubmit();">
+		<input type="text" name="t">
+		<input type="checkbox" name="c">
+		<input type="checkbox" name="c">
+		<input type="radio" name="r">
+		<input type="radio" name="r">
+		<select name="s">
+			<option value=""></option>
+			<option value="a"></option>
+		</select>
+		<input type="submit" value="제출">
+	</form>
+	<script>
+		function onSubmit() {
+			try {
+				var f = document.f;
+				if (ValidChk.isEmpty(f.t, "text")) return false;
+				if (ValidChk.isNotChecked(f.c, "checkbox")) return false;
+				if (ValidChk.isNotChecked(f.r, "radio")) return false;
+				if (ValidChk.isNotSelected(f.s, "select")) return false;
+			} catch (e) {
+				console.error(e);
+				return false;
+			}
+		}
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>

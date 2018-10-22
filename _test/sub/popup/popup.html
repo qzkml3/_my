@@ -1,0 +1,35 @@
+<?php define("DOC_TITLE", "팝업"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/_test/inc/layout_top.php" ?>
+	<section>
+
+	</section>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/_test/inc/comm_js.php" ?>
+	<script>
+		<?php
+		//$popup_end_time = "2018-07-26 24"; //팝업종료시간은 서버시간으로 체크
+		if ($popup_end_time == "" || date("Y-m-d H") < $popup_end_time) {
+		?>
+		LayerPopup.open({
+			linkId: "#mktis_db",
+			id: "lpop1",
+			width: "300px", left: "20px", top: "20px", //leftFromCenter: "-500px",
+			//src: "/site17/inc17/images/allcut_popup.jpg?v=2018-07-26-1
+			src: "http://dbdbdeep.com/site17/inc17/images/allcut_popup.jpg?v=2018-07-26-1"
+		});
+		LayerPopup.open({
+			//linkId: "#mktis_db",
+			id: "lpop2",
+			width: "350px", left: "400px", top: "20px", //leftFromCenter: "-500px",
+			//src: "/site17/inc17/images/allcut_popup.jpg?v=2018-07-26-1
+			src: "http://dbdbdeep.com/site17/inc17/images/allcut_popup.jpg?v=2018-07-26-1"
+		});
+		LayerPopup.open({
+			//linkId: "#mktis_db",
+			id: "lpop3",
+			width: "400px", left: "800px", top: "20px", //leftFromCenter: "-500px",
+			//src: "/site17/inc17/images/allcut_popup.jpg?v=2018-07-26-1
+			src: "http://dbdbdeep.com/site17/inc17/images/allcut_popup.jpg?v=2018-07-26-1"
+		});
+		<?}?>
+	</script>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/_test/inc/layout_btm.php" ?>
