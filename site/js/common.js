@@ -167,7 +167,7 @@ StringUtil = {
 	},
 
 	/**구분자 뒤에 문자 리턴*/
-	lastString: function (scope, find) {
+	lastStringWithOut: function (scope, find) {
 		var scope = scope.toString();
 		var find = find.toString();
 
@@ -175,7 +175,7 @@ StringUtil = {
 	},
 
 	/**구분자와 구분자 뒤에 문자 리턴*/
-	lastStringWithSeparator: function (scope, find) {
+	lastStringWith: function (scope, find) {
 		var scope = scope.toString();
 		var find = find.toString();
 
@@ -408,7 +408,7 @@ UI = {
 			var href = $a.attr("href");
 
 			if (StringUtil.hasString(href, "#")) {
-				util.goAnimatedHash(href.backString("#"));
+				UI.goAnimatedHash(StringUtil.lastStringWith(href, "#"));
 				return false;
 			}
 		});
