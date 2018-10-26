@@ -1,0 +1,47 @@
+<?php
+	define("LAYOUT", "sub");
+	define("DOC_TITLE", "코드관리 등록");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
+<?php
+	$code_ref = Request::getParam("code_ref");
+	
+	$db_param["code_ref"] = $code_ref;
+	
+	$dataListCode = CodeService::getListCode($db_param);
+?>
+	<form name="f" onsubmit="return onSubmit();">
+		<table class="tbl1 th_center td_left">
+			<?php $v = "코드" ?>
+			<tr>
+				<td class="th"><?= $v ?></td>
+				<td><input type="text" name="code" title="<?= $v ?>"></td>
+			</tr>
+			<?php $v = "코드이름" ?>
+			<tr>
+				<td class="th"><?= $v ?></td>
+				<td><input type="text" name="code_name" title="<?= $v ?>"></td>
+			</tr>
+			<?php $v = "참조코드"; ?>
+			<tr>
+				<td class="th"><?= $v ?></td>
+				<td><input type="text" name="code_ref" title="<?= $v ?>"></td>
+			</tr>
+		</table>
+	</form>
+
+	<div class="btn_area1">
+		<button type="submit">등록</button>
+		<a href="code_list.html">목록</a>
+	</div>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
+	<script>
+		function onSubmit() {
+			var f = document.f;
+			
+			if (ValidChk.isEmpty(f.code, "코드")) return;
+			if (ValidChk.isEmpty(f.code_name, "코드이름")) return;
+		}
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>

@@ -19,9 +19,7 @@
 		<div id="header_inner">
 			<h1><a href="/">_my</a></h1>
 			<nav id="gnb">
-				<a href="/site/sub/article/article.html">게시판</a>
-				<a href="/site/sub/article/article.html">게시판</a>
-				<a href="/site/sub/article/article.html">게시판</a>
+				<a href="/site/admin/sub/code/code_list.html">코드관리</a>
 			</nav>
 		</div>
 	</header>

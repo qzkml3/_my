@@ -3,14 +3,29 @@
 	define("DOC_TITLE", "임시 템플릿");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
-	<style>
+<style>
 
-	</style>
-	<main>
+</style>
+<main>
 
-	</main>
+</main>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
-	<script>
+<script>
 
-	</script>
+</script>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>
+
+<?php
+	
+	
+	$query = DBQuery::select("code");
+	if ($code_ref == "") {
+		$query = DBQuery::where($query, "code_ref is null");
+	} else {
+		$query = DBQuery::where($query, "code_ref = $code_ref");
+	}
+	$query = DBQuery::orderBy($query, "code_name asc");
+	
+	
+	
+?>

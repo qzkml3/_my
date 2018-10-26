@@ -3,7 +3,7 @@
 		static function getDB() {
 			$host = 'localhost';
 			$id = 'root';
-			$pw = 'mysql';
+			$pw = 'root';
 			$dbName = '_my';
 
 			$db = new mysqli($host, $id, $pw, $dbName);

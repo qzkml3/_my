@@ -1,26 +1,28 @@
 <?php
-	define("LAYOUT", "admin_sub");
+	define("LAYOUT", "sub");
 	define("DOC_TITLE", "코드관리 목록");
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
 	$code_ref = Request::getParam("code_ref");
-
-	include_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php";
-	$dataListCode = CodeService::getListCode($code_ref);
+	
+	$db_param["code_ref"] = $code_ref;
+	
+	$dataListCode = CodeService::getListCode($db_param);
 ?>
-	<table class="tbl1">
+	<table class="tbl1 th_center td_center">
 		<tr>
 			<!--js: btn_all_check-->
-			<th><input class="btn_all_check" type="checkbox" title="전체항목선택"></th>
-			<th>code_name</th>
-			<th>code</th>
-			<th>code_ref</th>
+			<td class="th"><input class="btn_all_check" type="checkbox" title="전체항목선택"></td>
+			<td class="th">code_name</td>
+			<td class="th">code</td>
+			<td class="th">code_ref</td>
 		</tr>
 		<?php if ($dataListCode->num_rows) { ?>
 			<?php while ($data = $dataListCode->fetch_assoc()) { ?>
 				<tr>
-					<td class="align_center"><input class="btn_check" type="checkbox" title="항목선택"></td>
+					<td><input class="btn_check" type="checkbox" title="항목선택"></td>
 					<td>
 						<a href="code_list.html?code_ref=<?= $data["code"] ?>">
 							<?= $data["code_name"] ?>
@@ -30,7 +32,7 @@
 					<td class="align_center"><?= $data["code_ref"] ?></td>
 				</tr>
 			<? } ?>
-		<? } else {?>
+		<? } else { ?>
 			<tr>
 				<td colspan="10" class="align_center">
 					데이터가 존재하지 않습니다.
@@ -40,11 +42,11 @@
 	</table>
 
 	<div class="btn_area1">
-		<a href="code_edit.html">등록</a>
-		<a class="btn_error" href=" code_edit.html">삭제</a>
+		<a href="code_write.html">등록</a>
+		<a class="btn_error" href="code_write.html">삭제</a>
 	</div>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_script.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
 	<script>
 		UI.checkAll(".btn_all_check", ".btn_check");
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_btm.php"; ?>

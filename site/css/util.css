@@ -12,3 +12,11 @@ button {font-size: inherit; cursor: pointer;}
 .pos_top {position:absolute; top: 0;}
 
 .align_center {text-align: center;}
+
+.th_left .th {text-align: left;}
+.th_center .th {text-align: center;}
+.th_right .th {text-align: right;}
+
+.td_left td {text-align: left;}
+.td_center td {text-align: center;}
+.td_right td {text-align: right;}
