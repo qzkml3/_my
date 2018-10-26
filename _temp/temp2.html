@@ -3,14 +3,19 @@
 	define("DOC_TITLE", "임시 템플릿");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
-	<style>
-	
-	</style>
-	<main>
-	
-	</main>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
 	<script>
+	var date = new Date();
+	console.log(date);
+	date.setTime("12");
+	date.setMinutes(0);
+	date.setSeconds(0);
+	console.log(date);
+	
+	date.setSeconds(date.getSeconds() +5);
+	console.log(date);
+	
+	
 	
 	</script>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>

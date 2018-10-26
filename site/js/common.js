@@ -152,6 +152,20 @@ HTML = {
  * - 다른 언어와의 문법적 동일성
  * */
 StringUtil = {
+	/*문자열에서 문자제거*/
+	remove: function(str, sepa) {
+		return str.split(sepa).join("");
+	},
+
+	/**돈 형식으로 콤마 추가*/
+	toMoney: function(el) {
+		$(el).on("keyup", function () {
+			var v = $(this).val();
+			v = StringUtil.remove(v, ",");
+			v =  v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+			$(el).val(v);
+		});
+	},
 	/**좌우 공백제거*/
 	trim: function (scope) {
 		return scope.split(" ").join("");
