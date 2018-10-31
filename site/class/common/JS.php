@@ -12,7 +12,6 @@ class JS
 	}
 
 	static function alert($str) {
-		echo $str;
 		echo "
 				<script>
 					alert('$str');
@@ -24,6 +23,19 @@ class JS
 		echo "
 				<script>
 					console.log('$str');
+				</script>
+			";
+	}
+	
+	static function alertBack($str) {
+		self::alert($str);
+		self::historyBack();
+	}
+	
+	static function historyBack() {
+		echo "
+				<script>
+					history.back();
 				</script>
 			";
 	}

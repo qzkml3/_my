@@ -5,13 +5,15 @@
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
+	$work_flag = Request::getParam("work_flag");
 	$code_ref = Request::getParam("code_ref");
 	
 	$db_param["code_ref"] = $code_ref;
 	
 	$dataListCode = CodeService::getListCode($db_param);
 ?>
-	<form name="f" onsubmit="return onSubmit();">
+	<form name="f" methoed="post" action="code_proc.php" onsubmit="onSubmit(); return false;">
+		<input type="hidden" name="work_flag" value="<?=$work_flag?>">
 		<table class="tbl1 th_center td_left">
 			<?php $v = "코드" ?>
 			<tr>
@@ -29,19 +31,21 @@
 				<td><input type="text" name="code_ref" title="<?= $v ?>"></td>
 			</tr>
 		</table>
-	</form>
 
-	<div class="btn_area1">
-		<button type="submit">등록</button>
-		<a href="code_list.html">목록</a>
-	</div>
+		<div class="btn_area1">
+			<button type="submit">등록</button>
+			<a href="code_list.html">목록</a>
+		</div>
+	</form>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
 	<script>
 		function onSubmit() {
 			var f = document.f;
-			
+
 			if (ValidChk.isEmpty(f.code, "코드")) return;
 			if (ValidChk.isEmpty(f.code_name, "코드이름")) return;
+			
+			f.submit();
 		}
 	</script>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>

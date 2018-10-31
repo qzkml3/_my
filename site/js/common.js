@@ -10,6 +10,12 @@ $(window).load(function () {
 
 });
 
+/* # jQuery extention ================================================== */
+$.fn.getPercentWidth = function () {
+	var width = parseFloat($(this).css('width')) / parseFloat($(this).parent().css('width'));
+	return Math.round(100 * width) + '%';
+};
+
 ValidChk = {
 	isEmpty: function (el, el_name) {
 		if (StringUtil.trim(el.value) == "") {
@@ -439,8 +445,49 @@ UI = {
 	}
 };
 
-/* # jQuery extention ================================================== */
-$.fn.getPercentWidth = function () {
-	var width = parseFloat($(this).css('width')) / parseFloat($(this).parent().css('width'));
-	return Math.round(100 * width) + '%';
+NumberUtil = {
+	addZero: function (target, wish_size) {
+		var size = 2;
+		target = target.toString();
+
+		if (wish_size) {
+			size = wish_size;
+		}
+
+		if (target.length < size) {
+			for (var i = 0; i < size - 1; i++) {
+				target = "0" + target;
+			}
+		}
+
+		return target;
+	}
+};
+
+CookieUtil = {
+	setCookie: function(name, value, expiredays){
+		var todayDate = new Date();
+		todayDate.setDate( todayDate.getDate() + expiredays );
+		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+	},
+	getCookie: function(name){
+		var arg = name + "=";
+		var alen = arg.length;
+		var clen = document.cookie.length;
+		var i = 0;
+		while (i < clen) {
+			var j = i + alen;
+			if (document.cookie.substring(i, j) == arg)
+				return CookieUtil.getCookieVal (j);
+				i = document.cookie.indexOf(" ", i) + 1;
+				if (i == 0) break;
+		}
+		return null;
+	},
+	getCookieVal: function(offset){
+		var endstr = document.cookie.indexOf (";", offset);
+		if (endstr == -1)
+			endstr = document.cookie.length;
+		   	return unescape(document.cookie.substring(offset, endstr));
+	}
 };
