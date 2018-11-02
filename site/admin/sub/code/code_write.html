@@ -9,6 +9,7 @@
 	$code_ref = Request::getParam("code_ref");
 	
 	$db_param["code_ref"] = $code_ref;
+	DevUtil::consoleLog($db_param);
 	
 	$dataListCode = CodeService::getListCode($db_param);
 ?>

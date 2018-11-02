@@ -36,8 +36,9 @@ a {color: #0b7cc1;}
 
 #footer {}
 
-.tbl1 {width: 100%; border-spacing: 2px;}
-	.tbl1 .th {background: #ccc; padding: 8px 8px; border: solid 1px #ccc; box-sizing: border-box;}
+.tbl1 {width: 100%; border-spacing: 2px; border-collapse: collapse;}
+	.tbl1 .th {background: #ccc; padding: 8px 8px; border: solid 1px #ccc; box-sizing: border-box;
+	border: solid 2px white;}
 	
 	.tbl1 td {border: solid 1px #ccc; padding:6px 6px; border-left: 0; border-right: 0; box-sizing: border-box;}
 	.tbl1 .on td {background: #ddd;}

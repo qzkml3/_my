@@ -5,11 +5,10 @@
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
-	$code_ref = Request::getParam("code_ref");
+	$req_param = Request::getRequestParameters();
+	DevUtil::consoleLog($req_param);
 	
-	$db_param["code_ref"] = $code_ref;
-	
-	$dataListCode = CodeService::getListCode($db_param);
+	$dataListCode = CodeService::getListCode($req_param);
 ?>
 	<table class="tbl1 th_center td_center">
 		<tr>
@@ -45,6 +44,11 @@
 		<a href="code_write.html?work_flag=write">등록</a>
 		<a class="btn_error" href="code_write.html">삭제</a>
 	</div>
+
+	<form action="" method="post">
+		<input type="text" name="aaa">
+		<button type="submit">전송</button>
+	</form>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
 	<script>
 		UI.checkAll(".btn_all_check", ".btn_check");

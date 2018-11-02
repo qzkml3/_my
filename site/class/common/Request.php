@@ -4,5 +4,9 @@
 			$param = $_REQUEST[$name];
 			return $param;
 		}
+		
+		static function getRequestParameters() {
+			return $_GET + $_POST;
+		}
 	}
 ?>

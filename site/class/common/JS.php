@@ -19,7 +19,7 @@ class JS
 			";
 	}
 
-	static function console_log($str) {
+	static function consoleLog($str) {
 		echo "
 				<script>
 					console.log('$str');
@@ -30,6 +30,7 @@ class JS
 	static function alertBack($str) {
 		self::alert($str);
 		self::historyBack();
+		exit;
 	}
 	
 	static function historyBack() {
@@ -38,6 +39,20 @@ class JS
 					history.back();
 				</script>
 			";
+	}
+	
+	static function locationReplace($location) {
+		echo "
+				<script>
+					location.replace('$location');
+				</script>
+			";
+	}
+	
+	static function alertReplace($msg, $location) {
+		self::alert($msg);
+		self::locationReplace($location);
+		exit;
 	}
 }
 

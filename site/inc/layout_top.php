@@ -5,7 +5,7 @@
 	<!doctype html>
 	<html lang="ko">
 	<head>
-		<?php Debug::setDebugModeToJS(); ?>
+		<?php DevUtil::setDevModeToJS(); ?>
 		<title><?php Framework::getDocTitle(); ?></title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
