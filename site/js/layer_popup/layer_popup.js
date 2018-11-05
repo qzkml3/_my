@@ -1,6 +1,3 @@
-/*todo
-- ÄíÅ° Ãß°¡
-* */
 var LayerPopup = {
 	css: '<link rel="stylesheet" href="/site/js/layer_popup/layer_popup.css">',
 	htmlPath: '/site/js/layer_popup/layer_popup.html',
