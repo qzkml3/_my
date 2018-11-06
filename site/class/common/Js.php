@@ -1,6 +1,6 @@
 <?php
 
-class JS
+class Js
 {
 	static function confirm($str) {
 		echo $str;
@@ -47,12 +47,6 @@ class JS
 					location.replace('$location');
 				</script>
 			";
-	}
-	
-	static function alertReplace($msg, $location) {
-		self::alert($msg);
-		self::locationReplace($location);
-		exit;
 	}
 }
 

@@ -2,20 +2,16 @@
 	define("LAYOUT", "sub");
 	define("DOC_TITLE", "코드관리 등록");
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
-	phpinfo();
-	$work_flag = Request::getParam("work_flag");
-	$code_ref = Request::getParam("code_ref");
+	$req_params = Request::getParameters();
+	DevUtil::consoleLog($req_params);
 	
-	$db_param["code_ref"] = $code_ref;
-	DevUtil::consoleLog($db_param);
-	
-	$dataListCode = CodeService::getListCode($db_param);
+	$dataListCode = CodeService::getListCode($req_params);
 ?>
-	<form name="f" methoed="post" action="code_proc.php" onsubmit="onSubmit(); return false;">
-		<input type="hidden" name="work_flag" value="<?=$work_flag?>">
+	<form name="f" method="post" action="code_proc.php" onsubmit="onSubmit(); return false;">
+		<input type="hidden" name="work_flag" value=" <?= $req_params["work_flag"] ?> ">
 		<table class="tbl1 th_center td_left">
 			<?php $v = "코드" ?>
 			<tr>
@@ -27,16 +23,18 @@
 				<td class="th"><?= $v ?></td>
 				<td><input type="text" name="code_name" title="<?= $v ?>"></td>
 			</tr>
-			<?php $v = "참조코드"; ?>
-			<tr>
-				<td class="th"><?= $v ?></td>
-				<td><input type="text" name="code_ref" title="<?= $v ?>"></td>
-			</tr>
+			<?php if ($req_params["code_level"] != "") { ?>
+				<?php $v = "참조코드"; ?>
+				<tr>
+					<td class="th"><?= $v ?></td>
+					<td><input type="text" name="ref_code" title="<?= $v ?>"></td>
+				</tr>
+			<? } ?>
 		</table>
 
 		<div class="btn_area1">
-			<button type="submit">등록</button>
-			<a href="code_list.html">목록</a>
+			<button class="btn" type="submit">등록</button class="btn">
+			<a class="btn" href="code_list.html?<?= Request::getQueryString() ?>">목록</a>
 		</div>
 	</form>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
@@ -46,8 +44,8 @@
 
 			if (ValidChk.isEmpty(f.code, "코드")) return;
 			if (ValidChk.isEmpty(f.code_name, "코드이름")) return;
-			
+
 			f.submit();
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_btm.php"; ?>

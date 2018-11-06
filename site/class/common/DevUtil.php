@@ -35,11 +35,11 @@
 				if (is_array($obj)) {
 					foreach($obj as $key => $val) {
 						$str = $key . " = " . $val;
-						JS::consoleLog($str);
+						Js::consoleLog($str);
 					}
 				} else {
 					$obj = str_replace("'", "\'", $obj);
-					JS::consoleLog($obj);
+					Js::consoleLog($obj);
 				}
 			}
 		}

@@ -1,33 +1,39 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_script.php" ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php" ?>
 <?php
-	//get request
-	$work_flag = Request::getParam("work_flag");
-	$code = Request::getParam("code");
-	$code_name = Request::getParam("code_name");
-	$code_ref = Request::getParam("code_ref");
+	$req_params = Request::getParameters();
+	DevUtil::consoleLog($req_params);
 	
-	//set db_param
-	$db_param["work_flag"] = $work_flag;
-	$db_param["code"] = $code;
-	$db_param["code_name"] = $code_name;
-	$db_param["code_ref"] = $code_ref;
-	
-	DevUtil::consoleLog($db_param);
-	
+	echo (($req_params["work_flag"]) == "write ");
 	//work_flag
-	if ($work_flag == "") {
-		JS::alertBack("작업타입이 없습니다.");
-	} else if ($work_flag == "write") {
-		$result = CodeService::writeCode($db_param);
+	if ($req_params["work_flag"] == "") {
+		Js::alertBack(Lang::getText("WORK_FLAG_IS_EMPTY"));
+	//write
+	} else if ($req_params["work_flag"] == "write") {
+		$result = CodeService::writeCode($req_params);
 		if ($result) {
-			JS::alertReplace("등록 되었습니다.", "code_list.html");
+			Js::alert(Lang::getText("RESULT_WRITE"));
+			Js::locationReplace("code_list.html");
 		} else {
-			JS::alertReplace("작업실패, 관리자에게 문의바랍니다.", "code_list.html");
+			Js::alertBack(Lang::getText("RESULT_ERROR"));
 		}
-	} else if ($work_flag == "edit") {
-		CodeService::editCode($db_param);
-	} else if ($work_flag == "delete") {
-		CodeService::deleteCode($db_param);
+	//edit
+	} else if ($req_params["work_flag"] == "edit") {
+		$result = CodeService::editCode($req_params);
+		if ($result) {
+			Js::alert(Lang::getText("RESULT_EDIT"));
+			Js::locationReplace("code_list.html");
+		} else {
+			Js::alertBack(Lang::getText("RESULT_ERROR"));
+		}
+	//delete
+	} else if ($req_params["work_flag"] == "delete") {
+		$result = CodeService::deleteCodes($req_params);
+		if ($result) {
+			Js::alert(Lang::getText("RESULT_DELETE"));
+			Js::locationReplace("code_list.html");
+		} else {
+			Js::alertBack(Lang::getText("RESULT_ERROR"));
+		}
 	}
 ?>

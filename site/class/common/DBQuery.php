@@ -8,6 +8,12 @@
 			return $query;
 		}
 		
+		static function delete($table) {
+			$query = "delete from $table";
+			
+			return $query;
+		}
+		
 		static function insert($table) {
 			$query = "insert into $table";
 			

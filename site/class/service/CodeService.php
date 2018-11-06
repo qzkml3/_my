@@ -2,33 +2,32 @@
 
 	Class CodeService
 	{
-		static function getListCode($db_param) {
-			$code_ref = $db_param["code_ref"];
+		static function getListCode($req_params) {
+			$ref_code = $req_params["ref_code"];
 			
 			$query = DBQuery::select("code");
 			
-			if ($code_ref == "") {
-				$query = DBQuery::where($query, "code_ref is null or code_ref = ''");
+			if ($ref_code == "") {
+				$query = DBQuery::where($query, "ref_code is null or ref_code = ''");
 			} else {
-				$query = DBQuery::where($query, "code_ref = '$code_ref'");
+				$query = DBQuery::where($query, "ref_code = '$ref_code'");
 			}
 			
 			$query = DBQuery::orderBy($query, "code_name asc");
 			
 			DevUtil::consoleLog($query);
-			
 			return DB::getDB()->query($query);
 		}
 		
-		static function getCode($db_param) {
-			$code_ref = $db_param["code_ref"];
+		static function getCode($req_params) {
+			$ref_code = $req_params["ref_code"];
 			
 			$query = DBQuery::select("code");
 			
-			if ($code_ref == "") {
-				$query = DBQuery::where($query, "code_ref is null");
+			if ($ref_code == "") {
+				$query = DBQuery::where($query, "ref_code is null");
 			} else {
-				$query = DBQuery::where($query, "code_ref = $code_ref");
+				$query = DBQuery::where($query, "ref_code = $ref_code");
 			}
 			
 			$query = DBQuery::orderBy($query, "code_name asc");
@@ -36,27 +35,26 @@
 			return DB::getDB()->query($query);
 		}
 		
-		static function writeCode($db_param) {
+		static function writeCode($req_params) {
 			$query = DBQuery::insert("code");
-			$values["code"] = $db_param["code"];
-			$values["code_name"] = $db_param["code_name"];
-			$values["code_ref"] = $db_param["code_ref"];
+			$values["code"] = $req_params["code"];
+			$values["code_name"] = $req_params["code_name"];
+			$values["ref_code"] = $req_params["ref_code"];
 			$query = DBQuery::values($query, $values);
 			
 			DevUtil::consoleLog($query);
-			
 			return DB::getDB()->query($query);
 		}
 		
-		static function editCode($db_param) {
-			$code_ref = $db_param["code_ref"];
+		static function editCode($req_params) {
+			$ref_code = $req_params["ref_code"];
 			
 			$query = DBQuery::select("code");
 			
-			if ($code_ref == "") {
-				$query = DBQuery::where($query, "code_ref is null or code_ref = ''");
+			if ($ref_code == "") {
+				$query = DBQuery::where($query, "ref_code is null or ref_code = ''");
 			} else {
-				$query = DBQuery::where($query, "code_ref = $code_ref");
+				$query = DBQuery::where($query, "ref_code = $ref_code");
 			}
 			
 			$query = DBQuery::orderBy($query, "code_name asc");
@@ -64,19 +62,18 @@
 			return DB::getDB()->query($query);
 		}
 		
-		static function deleteCode($db_param) {
-			$code_ref = $db_param["code_ref"];
-			
-			$query = DBQuery::select("code");
-			
-			if ($code_ref == "") {
-				$query = DBQuery::where($query, "code_ref is null");
+		static function deleteCodes($req_params) {
+			$id = $req_params["id"];
+			if (! is_array($id)) {
+				Js::alertBack(Lang::getText("ITEM_NO_SELECTED"));
 			} else {
-				$query = DBQuery::where($query, "code_ref = $code_ref");
+				$ids = join($id, ", ");
 			}
 			
-			$query = DBQuery::orderBy($query, "code_name asc");
-
+			$query = DBQuery::delete("code");
+			$query = DBQuery::where($query, "id in (". $ids .")");
+			
+			DevUtil::consoleLog($query);
 			return DB::getDB()->query($query);
 		}
 	}

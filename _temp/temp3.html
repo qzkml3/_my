@@ -19,10 +19,10 @@
 	
 	
 	$query = DBQuery::select("code");
-	if ($code_ref == "") {
-		$query = DBQuery::where($query, "code_ref is null");
+	if ($ref_code == "") {
+		$query = DBQuery::where($query, "ref_code is null");
 	} else {
-		$query = DBQuery::where($query, "code_ref = $code_ref");
+		$query = DBQuery::where($query, "ref_code = $ref_code");
 	}
 	$query = DBQuery::orderBy($query, "code_name asc");
 	

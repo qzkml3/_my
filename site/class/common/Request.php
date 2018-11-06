@@ -1,21 +1,35 @@
 <?php
 	Class Request {
 		static function getParam($name) {
-			//todo trim();
-			$param = $_GET + $_POST[$name];
+			$request = $_GET + $_POST;
+			$param = $request[$name];
 			return $param;
 		}
 		
 		/**
-		 * @return array
+		 * @return $req_params: array
 		 */
 		static function getParameters() {
-			//todo trim();
-			return $_GET + $_POST;
+			$req_params = $_GET + $_POST;
+			return $req_params;
 		}
+		
+		/**
+		 * @return a=a&b=b
+		 */
 		static function getQueryString() {
-			//todo trim();
-			return $_GET + $_POST;
+			return $_SERVER["QUERY_STRING"];
+		}
+		
+		static function replaceQueryString($replacement) {
+			$req_params = self::getParameters();
+			
+			$result = array_merge($req_params, $replacement);
+			
+			foreach($result as $key => $val) {
+				$result[$key] = $key . "=" . $val;
+			}
+			return join("&", $result);
 		}
 	}
 ?>

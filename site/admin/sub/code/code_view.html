@@ -13,13 +13,13 @@
 			<tr>
 				<th>code_name</th>
 				<th>code</th>
-				<th>code_ref</th>
+				<th>ref_code</th>
 			</tr>
 			<?php while ($data = $dataListCode->fetch_assoc()) { ?>
 				<tr>
 					<td><a href="code_view.html"><?= $data["code_name"] ?></a></td>
 					<td><?= $data["code"] ?></td>
-					<td><?= $data["code_ref"] ?></td>
+					<td><?= $data["ref_code"] ?></td>
 				</tr>
 			<? } ?>
 		</table>
