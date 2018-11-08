@@ -20,6 +20,7 @@ class Js
 	}
 
 	static function consoleLog($str) {
+		$str = str_replace("'", "\'", $str);
 		echo "
 				<script>
 					console.log('$str');

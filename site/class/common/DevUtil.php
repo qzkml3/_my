@@ -27,21 +27,32 @@
 		
 		static function consoleLog($obj) {
 			if (self::isDevMode()) {
+				//set doctype for standard mode
 				if (!self::$hasDoctype) {
 					self::$hasDoctype = true;
 					echo "<!doctype html>";
 				}
 				
+				// if param is array
 				if (is_array($obj)) {
-					foreach($obj as $key => $val) {
-						$str = $key . " = " . $val;
+					foreach ($obj as $key => $val) {
+						if (is_array($val)) {
+							$str = "[" . $key . "]\\n";
+							foreach ($val as $key2 => $val2) {
+								$str .= $key2 . " = \"" . $val2 . "\";\\n";
+							}
+						} else {
+							$str = $key . " = \"" . $val . "\";\\n";
+						}
 						Js::consoleLog($str);
 					}
+				// if param is string
 				} else {
-					$obj = str_replace("'", "\'", $obj);
-					Js::consoleLog($obj);
+					$str = $obj;
+					Js::consoleLog($str);
 				}
 			}
 		}
 	}
+
 ?>

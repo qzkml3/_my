@@ -159,16 +159,16 @@ HTML = {
  * */
 StringUtil = {
 	/*문자열에서 문자제거*/
-	remove: function(str, sepa) {
+	remove: function (str, sepa) {
 		return str.split(sepa).join("");
 	},
 
 	/**돈 형식으로 콤마 추가*/
-	toMoney: function(el) {
+	toMoney: function (el) {
 		$(el).on("keyup", function () {
 			var v = $(this).val();
 			v = StringUtil.remove(v, ",");
-			v =  v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+			v = v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			$(el).val(v);
 		});
 	},
@@ -330,6 +330,24 @@ Youtube = {
 };
 
 UI = {
+	/**
+	 * 체크박스 목록을 다른 체크박스로 복사한다.
+	 */
+	cloneCheck: function (chk, chk_clone) {
+		$(chk).each(function (i) {
+			$(this).on("click", function () {
+				$chk = $(this);
+				$chk_clone = $(chk_clone);
+				if ($chk.prop("checked")) {
+					$chk_clone.eq(i).prop("checked", true);
+					$chk_clone.eq(i).attr("preview_checked", true);
+				} else {
+					$chk_clone.eq(i).prop("checked", false);
+					$chk_clone.eq(i).attr("preview_checked", false);
+				}
+			})
+		});
+	},
 	tab: function (tabBtn, tabCont) {
 		var $tabBtn = $(tabBtn);
 		var $tabCont = $(tabCont);
@@ -465,12 +483,12 @@ NumberUtil = {
 };
 
 CookieUtil = {
-	setCookie: function(name, value, expiredays){
+	setCookie: function (name, value, expiredays) {
 		var todayDate = new Date();
-		todayDate.setDate( todayDate.getDate() + expiredays );
-		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+		todayDate.setDate(todayDate.getDate() + expiredays);
+		document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
 	},
-	getCookie: function(name){
+	getCookie: function (name) {
 		var arg = name + "=";
 		var alen = arg.length;
 		var clen = document.cookie.length;
@@ -478,16 +496,16 @@ CookieUtil = {
 		while (i < clen) {
 			var j = i + alen;
 			if (document.cookie.substring(i, j) == arg)
-				return CookieUtil.getCookieVal (j);
-				i = document.cookie.indexOf(" ", i) + 1;
-				if (i == 0) break;
+				return CookieUtil.getCookieVal(j);
+			i = document.cookie.indexOf(" ", i) + 1;
+			if (i == 0) break;
 		}
 		return null;
 	},
-	getCookieVal: function(offset){
-		var endstr = document.cookie.indexOf (";", offset);
+	getCookieVal: function (offset) {
+		var endstr = document.cookie.indexOf(";", offset);
 		if (endstr == -1)
 			endstr = document.cookie.length;
-		   	return unescape(document.cookie.substring(offset, endstr));
+		return unescape(document.cookie.substring(offset, endstr));
 	}
 };

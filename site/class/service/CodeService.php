@@ -15,8 +15,7 @@
 			
 			$query = DBQuery::orderBy($query, "code_name asc");
 			
-			DevUtil::consoleLog($query);
-			return DB::getDB()->query($query);
+			return DB::execute($query);
 		}
 		
 		static function getCode($req_params) {
@@ -31,8 +30,8 @@
 			}
 			
 			$query = DBQuery::orderBy($query, "code_name asc");
-
-			return DB::getDB()->query($query);
+			
+			return DB::execute($query);
 		}
 		
 		static function writeCode($req_params) {
@@ -40,10 +39,11 @@
 			$values["code"] = $req_params["code"];
 			$values["code_name"] = $req_params["code_name"];
 			$values["ref_code"] = $req_params["ref_code"];
+			$values["code_level"] = $req_params["code_level"];
+			
 			$query = DBQuery::values($query, $values);
 			
-			DevUtil::consoleLog($query);
-			return DB::getDB()->query($query);
+			return DB::execute($query);
 		}
 		
 		static function editCode($req_params) {
@@ -58,23 +58,28 @@
 			}
 			
 			$query = DBQuery::orderBy($query, "code_name asc");
-
-			return DB::getDB()->query($query);
+			
+			return DB::execute($query);
 		}
 		
 		static function deleteCodes($req_params) {
-			$id = $req_params["id"];
-			if (! is_array($id)) {
+			$code_id = $req_params["code_id"];
+			$code = $req_params["code"];
+			
+			if (! is_array($code_id)) {
 				Js::alertBack(Lang::getText("ITEM_NO_SELECTED"));
 			} else {
-				$ids = join($id, ", ");
+				$code_ids = join($code_id, ", ");
 			}
 			
 			$query = DBQuery::delete("code");
-			$query = DBQuery::where($query, "id in (". $ids .")");
+			 //code delete
+			$query = DBQuery::where($query, "code_id in (". $code_ids .")");
+			//code decendant delete
+			$query = DBQuery::_or($query, "ref_code regexp '" . join($code, "|"). "'");
+			$query = DBQuery::_and($query, "code_level > 1");
 			
-			DevUtil::consoleLog($query);
-			return DB::getDB()->query($query);
+			return DB::execute($query);
 		}
 	}
 

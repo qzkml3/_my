@@ -26,7 +26,8 @@
 			$ko["ITEM_NO_SELECTED"] = "항목이 선택되지 않았습니다.";
 			$en["ITEM_NO_SELECTED"] = "ITEM_NO_SELECTED";
 			
-			
+			$ko["CONFIRM_WORK_FLAG"] = "작업타입을 확인해 주세요.";
+			$en["CONFIRM_WORK_FLAG"] = "CONFIRM_WORK_FLAG";
 			
 			if (self::isKo()) { //en
 				$default = $ko[$var_name];

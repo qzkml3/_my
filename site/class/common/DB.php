@@ -11,5 +11,10 @@
 
 			return $db;
 		}
+		
+		static function execute($query) {
+			DevUtil::consoleLog($query);
+			return DB::getDB()->query($query);
+		}
 	}
 ?>

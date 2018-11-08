@@ -6,16 +6,14 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
 	$req_params = Request::getParameters();
-	
-	DevUtil::consoleLog($req_params);
 	$dataListCode = CodeService::getListCode($req_params);
 ?>
 	<form action="code_proc.php" method="post" name="f">
 		<input type="hidden" name="work_flag">
 		<table class="tbl1 th_center td_center">
 			<tr>
-				<!--js: btn_all_check-->
-				<td class="th"><input class="btn_all_check" type="checkbox" title="전체항목선택"></td>
+				<!--js: chk_all_item-->
+				<td class="th"><input class="chk_all_item" type="checkbox" title="전체항목선택"></td>
 				<td class="th">code_name</td>
 				<td class="th">code</td>
 				<td class="th">ref_code</td>
@@ -25,7 +23,8 @@
 				<?php while ($data = $dataListCode->fetch_assoc()) { ?>
 					<tr>
 						<td>
-							<input name="id[]" class="btn_check" type="checkbox" title="항목선택" value="<?= $data["id"] ?>">
+							<input title="항목선택" name="code_id[]" class="chk_item" type="checkbox" value="<?= $data["code_id"] ?>">
+							<input title="코드" name="code[]" class="chk_item_clone" type="checkbox" value="<?= $data["code"] ?>" style="display: none;">
 						</td>
 						<td>
 							<a href="code_list.html?code_level=<?= $data["code_level"] + 1 ?>&ref_code=<?= $data["code"] ?>">
@@ -35,7 +34,7 @@
 						<td class="align_center"><?= $data["code"] ?></td>
 						<td class="align_center"><?= $data["ref_code"] ?></td>
 						<td class="align_center">
-							<a class="btn btn_small" href="code_write.html?<?=Request::replaceQueryString(array("work_flag" => "edit"))?>">수정</a>
+							<a class="btn btn_small" href="code_write.html?<?=Request::getQueryStringWith(array("work_flag" => "edit"))?>">수정</a>
 						</td>
 					</tr>
 				<? } ?>
@@ -49,13 +48,15 @@
 		</table>
 
 		<div class="btn_area1">
-			<a class="btn" href="code_write.html?<?=Request::replaceQueryString(array("work_flag" => "write"))?>">등록</a>
+			<a class="btn" href="code_write.html?<?=Request::getQueryStringWith(array("work_flag" => "write",
+				"code_level" => $req_params["code_level"] + 1))?>">등록</a>
 			<button class="btn" type="button" onclick="deleteCodes();">삭제</button>
 		</div>
 	</form>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
 	<script>
-		UI.checkAll(".btn_all_check", ".btn_check");
+		UI.checkAll(".chk_all_item", ".chk_item");
+		UI.cloneCheck(".chk_item", ".chk_item_clone");
 		
 		function deleteCodes() {
 			var f = document.f;

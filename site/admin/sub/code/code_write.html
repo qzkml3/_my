@@ -6,12 +6,11 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
 	$req_params = Request::getParameters();
-	DevUtil::consoleLog($req_params);
-	
 	$dataListCode = CodeService::getListCode($req_params);
 ?>
 	<form name="f" method="post" action="code_proc.php" onsubmit="onSubmit(); return false;">
-		<input type="hidden" name="work_flag" value=" <?= $req_params["work_flag"] ?> ">
+		<input type="hidden" name="work_flag" value="  <?= $req_params["work_flag"] ?>  ">
+		<input type="hidden" name="code_level" value="  <?= $req_params["code_level"] ?>  ">
 		<table class="tbl1 th_center td_left">
 			<?php $v = "코드" ?>
 			<tr>
@@ -23,7 +22,7 @@
 				<td class="th"><?= $v ?></td>
 				<td><input type="text" name="code_name" title="<?= $v ?>"></td>
 			</tr>
-			<?php if ($req_params["code_level"] != "") { ?>
+			<?php if ($req_params["code_level"]  > "1") { ?>
 				<?php $v = "참조코드"; ?>
 				<tr>
 					<td class="th"><?= $v ?></td>

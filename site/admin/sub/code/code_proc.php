@@ -2,9 +2,7 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php" ?>
 <?php
 	$req_params = Request::getParameters();
-	DevUtil::consoleLog($req_params);
 	
-	echo (($req_params["work_flag"]) == "write ");
 	//work_flag
 	if ($req_params["work_flag"] == "") {
 		Js::alertBack(Lang::getText("WORK_FLAG_IS_EMPTY"));
@@ -35,5 +33,7 @@
 		} else {
 			Js::alertBack(Lang::getText("RESULT_ERROR"));
 		}
+	} else {
+		Js::alertBack(Lang::getText("CONFIRM_WORK_FLAG"));
 	}
 ?>
