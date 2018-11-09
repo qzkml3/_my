@@ -17,4 +17,4 @@
 	<script src="http://www.dbdbdeep.com/cms/pub/js/ie9.min.js?v=<?=$release_ver?>"></script><![endif]-->
 </head>
 <body>
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/_landing/pc/inc2/btn_go_dbfield.php" ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/_landing/pc/inc2/btn_go_dbfield.php" ?>

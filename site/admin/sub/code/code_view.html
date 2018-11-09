@@ -4,7 +4,7 @@
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
 <?php
-	include_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php";
 	$dataListCode = CodeService::getListCode();
 ?>
 	<main>

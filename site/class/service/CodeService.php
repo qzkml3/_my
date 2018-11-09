@@ -19,19 +19,14 @@
 		}
 		
 		static function getCode($req_params) {
-			$ref_code = $req_params["ref_code"];
+			$code_id = $req_params["code_id"];
 			
 			$query = DBQuery::select("code");
+			$query = DBQuery::where($query, "code_id = $code_id");
 			
-			if ($ref_code == "") {
-				$query = DBQuery::where($query, "ref_code is null");
-			} else {
-				$query = DBQuery::where($query, "ref_code = $ref_code");
-			}
+			$data = DB::execute($query)->fetch_assoc();
 			
-			$query = DBQuery::orderBy($query, "code_name asc");
-			
-			return DB::execute($query);
+			return $data;
 		}
 		
 		static function writeCode($req_params) {
@@ -47,17 +42,13 @@
 		}
 		
 		static function editCode($req_params) {
-			$ref_code = $req_params["ref_code"];
+			$code_id = $req_params["code_id"];
 			
-			$query = DBQuery::select("code");
-			
-			if ($ref_code == "") {
-				$query = DBQuery::where($query, "ref_code is null or ref_code = ''");
-			} else {
-				$query = DBQuery::where($query, "ref_code = $ref_code");
-			}
-			
-			$query = DBQuery::orderBy($query, "code_name asc");
+			$query = DBQuery::update("code");
+			$values["code_name"] = $req_params["code_name"];
+			echo $values["code_name"];
+			$query = DBQuery::set($query, $values);
+			$query = DBQuery::where($query, "code_id = ". $req_params["code_id"]);
 			
 			return DB::execute($query);
 		}

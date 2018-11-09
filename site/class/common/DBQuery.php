@@ -4,19 +4,16 @@
 	{
 		static function select($table) {
 			$query = "select * from $table";
-			
 			return $query;
 		}
 		
 		static function delete($table) {
 			$query = "delete from $table";
-			
 			return $query;
 		}
 		
 		static function insert($table) {
 			$query = "insert into $table";
-			
 			return $query;
 		}
 		
@@ -33,6 +30,20 @@
 			$query = substr($query, 0, -2);
 			$query = $query . ")";
 			
+			return $query;
+		}
+		
+		static function update($table) {
+			$query = "update $table";
+			return $query;
+		}
+		
+		static function set($query, $values) {
+			$query .= " set ";
+			foreach ($values as $key => $val) {
+				$query .= + $key . " = '" . $val . "', ";
+			}
+			$query = substr($query, 0, -2);
 			return $query;
 		}
 		

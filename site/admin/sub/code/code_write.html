@@ -1,38 +1,44 @@
-<?php
-	define("LAYOUT", "sub");
-	define("DOC_TITLE", "코드관리 등록");
-?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
+	$work_flag_name = ($_REQUEST["work_flag"] == "write") ? Lang::getText("WRITE") : Lang::getText("EDIT");
+	define("LAYOUT", "sub");
+	define("DOC_TITLE", "코드관리 " . $work_flag_name);
+	
 	$req_params = Request::getParameters();
-	$dataListCode = CodeService::getListCode($req_params);
+	
+	//get edit data
+	if ($req_params["work_flag"] == "edit") {
+		$data_code = CodeService::getCode($req_params);
+	}
 ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
 	<form name="f" method="post" action="code_proc.php" onsubmit="onSubmit(); return false;">
 		<input type="hidden" name="work_flag" value="  <?= $req_params["work_flag"] ?>  ">
+		<input type="hidden" name="code_id" value="  <?= $req_params["code_id"] ?>  ">
 		<input type="hidden" name="code_level" value="  <?= $req_params["code_level"] ?>  ">
 		<table class="tbl1 th_center td_left">
 			<?php $v = "코드" ?>
 			<tr>
 				<td class="th"><?= $v ?></td>
-				<td><input type="text" name="code" title="<?= $v ?>"></td>
+				<td><input type="text" name="code" title="<?= $v ?>" value="<?= $data_code["code"] ?>"></td>
 			</tr>
 			<?php $v = "코드이름" ?>
 			<tr>
 				<td class="th"><?= $v ?></td>
-				<td><input type="text" name="code_name" title="<?= $v ?>"></td>
+				<td><input type="text" name="code_name" title="<?= $v ?>" value="<?= $data_code["code_name"] ?>"></td>
 			</tr>
-			<?php if ($req_params["code_level"]  > "1") { ?>
+			<?php if ($req_params["code_level"] > "1") { ?>
 				<?php $v = "참조코드"; ?>
 				<tr>
-					<td class="th"><?= $v ?></td>
+					<td class=" th"><?= $v ?></td>
 					<td><input type="text" name="ref_code" title="<?= $v ?>"></td>
 				</tr>
 			<? } ?>
 		</table>
 
 		<div class="btn_area1">
-			<button class="btn" type="submit">등록</button class="btn">
+			<button class="btn" type="submit"><?= $work_flag_name ?></button class="btn">
 			<a class="btn" href="code_list.html?<?= Request::getQueryString() ?>">목록</a>
 		</div>
 	</form>

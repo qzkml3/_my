@@ -29,15 +29,32 @@
 			$ko["CONFIRM_WORK_FLAG"] = "작업타입을 확인해 주세요.";
 			$en["CONFIRM_WORK_FLAG"] = "CONFIRM_WORK_FLAG";
 			
+			$ko["WRITE"] = "등록";
+			$en["WRITE"] = "WRITE";
+			
+			$ko["EDIT"] = "수정";
+			$en["EDIT"] = "EDIT";
+			
+			$ko["DELETE"] = "삭제";
+			$en["DELETE"] = "DELETE";
+			
+			$ko["LIST"] = "삭제";
+			$en["LIST"] = "LIST";
+			
+			$ko["VIEW"] = "상세";
+			$en["VIEW"] = "VIEW";
+			
+			$result_text = "";
+			
 			if (self::isKo()) { //en
-				$default = $ko[$var_name];
+				$result_text = $ko[$var_name];
 			} else if (self::isEn()) {
-				$default = $en[$var_name];
+				$result_text = $en[$var_name];
 			} else {
 				DevUtil::consoleLog("Not language selected!");
 			}
 			
-			return $default;
+			return $result_text;
 		}
 		
 		static function isKo() {

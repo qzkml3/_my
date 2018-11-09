@@ -1,6 +1,6 @@
 <?php
 	define("SITE_TITLE", "ko");
-	include_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_script.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php";
 ?>
 	<!doctype html>
 	<html lang="ko">

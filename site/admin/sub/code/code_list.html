@@ -1,13 +1,13 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
 	define("LAYOUT", "sub");
 	define("DOC_TITLE", "코드관리 목록");
+	
+	$req_params = Request::getParameters();
+	$list_code = CodeService::getListCode($req_params);
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
-<?php
-	$req_params = Request::getParameters();
-	$dataListCode = CodeService::getListCode($req_params);
-?>
 	<form action="code_proc.php" method="post" name="f">
 		<input type="hidden" name="work_flag">
 		<table class="tbl1 th_center td_center">
@@ -19,37 +19,49 @@
 				<td class="th">ref_code</td>
 				<td class="th"></td>
 			</tr>
-			<?php if ($dataListCode->num_rows) { ?>
-				<?php while ($data = $dataListCode->fetch_assoc()) { ?>
+			<?php
+				if ($list_code->num_rows) { ?>
+					<?php while ($dataCode = $list_code->fetch_assoc()) { ?>
+						<tr>
+							<td>
+								<input title="항목선택" name="code_id[]" class="chk_item" type="checkbox"
+										 value="<?= $dataCode["code_id"] ?>">
+								<input title="코드" name="code[]" class="chk_item_clone" type="checkbox"
+										 value="<?= $dataCode["code"] ?>"
+										 style="display: none;">
+							</td>
+							<td>
+								<a href="code_list.html?<?= Request::getQueryStringWith(
+									array("code_level" => $dataCode["code_level"] + 1,
+										"ref_code" => $dataCode["code"]
+									)
+								); ?>"><?= $dataCode["code_name"] ?></a>
+							</td>
+							<td class="align_center"><?= $dataCode["code"] ?></td>
+							<td class="align_center"><?= $dataCode["ref_code"] ?></td>
+							<td class="align_center">
+								<a class="btn btn_small" href="code_write.html?<?= Request::getQueryStringWith(
+									array("work_flag" => "edit",
+										"code_id" => $dataCode["code_id"]
+									)
+								); ?>">수정</a>
+							</td>
+						</tr>
+					<? } ?>
+				<? } else { ?>
 					<tr>
-						<td>
-							<input title="항목선택" name="code_id[]" class="chk_item" type="checkbox" value="<?= $data["code_id"] ?>">
-							<input title="코드" name="code[]" class="chk_item_clone" type="checkbox" value="<?= $data["code"] ?>" style="display: none;">
-						</td>
-						<td>
-							<a href="code_list.html?code_level=<?= $data["code_level"] + 1 ?>&ref_code=<?= $data["code"] ?>">
-								<?= $data["code_name"] ?>
-							</a>
-						</td>
-						<td class="align_center"><?= $data["code"] ?></td>
-						<td class="align_center"><?= $data["ref_code"] ?></td>
-						<td class="align_center">
-							<a class="btn btn_small" href="code_write.html?<?=Request::getQueryStringWith(array("work_flag" => "edit"))?>">수정</a>
+						<td colspan="10" class="align_center">
+							데이터가 존재하지 않습니다.
 						</td>
 					</tr>
 				<? } ?>
-			<? } else { ?>
-				<tr>
-					<td colspan="10" class="align_center">
-						데이터가 존재하지 않습니다.
-					</td>
-				</tr>
-			<? } ?>
 		</table>
 
 		<div class="btn_area1">
-			<a class="btn" href="code_write.html?<?=Request::getQueryStringWith(array("work_flag" => "write",
-				"code_level" => $req_params["code_level"] + 1))?>">등록</a>
+			<a class="btn" href="code_write.html?<?= Request::getQueryStringWith(
+				array("work_flag" => "write",
+					"code_level" => $req_params["code_level"] + 1)
+			) ?>">등록</a>
 			<button class="btn" type="button" onclick="deleteCodes();">삭제</button>
 		</div>
 	</form>
@@ -57,7 +69,7 @@
 	<script>
 		UI.checkAll(".chk_all_item", ".chk_item");
 		UI.cloneCheck(".chk_item", ".chk_item_clone");
-		
+
 		function deleteCodes() {
 			var f = document.f;
 			f.work_flag.value = "delete";

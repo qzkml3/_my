@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_script.php" ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php" ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php" ?>
 <?php
 	$req_params = Request::getParameters();
