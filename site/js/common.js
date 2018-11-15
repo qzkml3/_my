@@ -1,6 +1,6 @@
 $(document).ready(function () {
-	HTML.createHTML5(); //for old ie
-	HTML.setPlaceholder(); //for old ie
+	Html.createHTML5(); //for old ie
+	Html.setPlaceholder(); //for old ie
 	UI.setFontAdjust(); //for win7
 	UI.responsiveImgMap(); //for mobile
 	UI.setHashControl(); //for animate link
@@ -65,13 +65,13 @@ ValidChk = {
 	}
 };
 
-HTML = {
+Html = {
 	/* IE9 이하 placeholder 사용가능하게 */
 	setPlaceholder: function () {
 		if (Client.isIE9() || Client.isIE9() || Client.isIE7() || Client.isIE6() || Client.isQuirks()) {
 			var target = 'input[placeholder], textarea[placeholder]';
 			$(target).each(function (i) {
-				//Set HTML
+				//Set Html
 				var $el = $(this);
 				var $el_w;
 				var $el_place;
@@ -348,7 +348,7 @@ Youtube = {
 
 				if (StringUtil.hasString($iframe.attr("src"), ("youtube"))) {
 
-					//Set HTML
+					//Set Html
 					var $el = $(this);
 					var $el_w;
 					var $el_place;
