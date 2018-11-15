@@ -9,6 +9,7 @@
 	//write
 	} else if ($req_params["work_flag"] == "write") {
 		$result = CodeService::writeCode($req_params);
+		
 		if ($result) {
 			Js::alert(Lang::getText("RESULT_WRITE"));
 			Js::locationReplace("code_list.html");
@@ -18,6 +19,7 @@
 	//edit
 	} else if ($req_params["work_flag"] == "edit") {
 		$result = CodeService::editCode($req_params);
+		
 		if ($result) {
 			Js::alert(Lang::getText("RESULT_EDIT"));
 			Js::locationReplace("code_list.html");
@@ -27,6 +29,7 @@
 	//delete
 	} else if ($req_params["work_flag"] == "delete") {
 		$result = CodeService::deleteCodes($req_params);
+		
 		if ($result) {
 			Js::alert(Lang::getText("RESULT_DELETE"));
 			Js::locationReplace("code_list.html");

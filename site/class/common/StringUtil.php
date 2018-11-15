@@ -25,6 +25,13 @@
 				return trim($obj);
 			}
 		}
+		
+		static function presentArray($arr, $separate, $last) {
+			foreach ($arr as $key => $val) {
+				$arr[$key] = $key . $separate . $val . $last;
+			}
+			return $arr;
+		}
 	}
 
 ?>

@@ -2,8 +2,18 @@
 	
 	Class DBQuery
 	{
-		static function select($table) {
-			$query = "select * from $table";
+		static function select($columns) {
+			$query = "select " . join($columns, ", ");
+			return $query;
+		}
+		
+		static function from($query, $table) {
+			$query .= " from $table";
+			return $query;
+		}
+		
+		static function where($query, $where) {
+			$query .= " where $where";
 			return $query;
 		}
 		
@@ -41,15 +51,9 @@
 		static function set($query, $values) {
 			$query .= " set ";
 			foreach ($values as $key => $val) {
-				$query .= + $key . " = '" . $val . "', ";
+				$query .= $key . " = '" . $val . "', ";
 			}
 			$query = substr($query, 0, -2);
-			return $query;
-		}
-		
-		static function where($query, $where) {
-			$query = "$query where $where";
-			
 			return $query;
 		}
 		

@@ -16,5 +16,21 @@
 			DevUtil::consoleLog($query);
 			return DB::getDB()->query($query);
 		}
+		
+		static function getData($query) {
+			DevUtil::consoleLog($query);
+			return DB::getDB()->query($query)->fetch_assoc();
+		}
+		
+		static function getList($query) {
+			DevUtil::consoleLog($query);
+			
+			$list = array();
+			$db_result = DB::getDB()->query($query);
+			while ($row = $db_result->fetch_assoc()) {
+				array_push($list, $row);
+			}
+			return $list;
+		}
 	}
 ?>

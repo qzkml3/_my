@@ -5,7 +5,7 @@
 	define("DOC_TITLE", "코드관리 목록");
 	
 	$req_params = Request::getParameters();
-	$list_code = CodeService::getListCode($req_params);
+	$code_list = CodeService::getListCode($req_params);
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
 	<form action="code_proc.php" method="post" name="f">
@@ -20,29 +20,29 @@
 				<td class="th"></td>
 			</tr>
 			<?php
-				if ($list_code->num_rows) { ?>
-					<?php while ($dataCode = $list_code->fetch_assoc()) { ?>
+				if (count($code_list)) { ?>
+					<?php foreach ($code_list as $row => $code_data) { ?>
 						<tr>
 							<td>
 								<input title="항목선택" name="code_id[]" class="chk_item" type="checkbox"
-										 value="<?= $dataCode["code_id"] ?>">
+										 value="<?= $code_data["code_id"] ?>">
 								<input title="코드" name="code[]" class="chk_item_clone" type="checkbox"
-										 value="<?= $dataCode["code"] ?>"
+										 value="<?= $code_data["code"] ?>"
 										 style="display: none;">
 							</td>
 							<td>
 								<a href="code_list.html?<?= Request::getQueryStringWith(
-									array("code_level" => $dataCode["code_level"] + 1,
-										"ref_code" => $dataCode["code"]
+									array("code_level" => $code_data["code_level"] + 1,
+										"ref_code" => $code_data["code"]
 									)
-								); ?>"><?= $dataCode["code_name"] ?></a>
+								); ?>"><?= $code_data["code_name"] ?></a>
 							</td>
-							<td class="align_center"><?= $dataCode["code"] ?></td>
-							<td class="align_center"><?= $dataCode["ref_code"] ?></td>
+							<td class="align_center"><?= $code_data["code"] ?></td>
+							<td class="align_center"><?= $code_data["ref_code"] ?></td>
 							<td class="align_center">
 								<a class="btn btn_small" href="code_write.html?<?= Request::getQueryStringWith(
 									array("work_flag" => "edit",
-										"code_id" => $dataCode["code_id"]
+										"code_id" => $code_data["code_id"]
 									)
 								); ?>">수정</a>
 							</td>

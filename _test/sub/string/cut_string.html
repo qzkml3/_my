@@ -1,0 +1,49 @@
+<?php
+	define("DOC_TITLE", "cutString");
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/_test/inc/layout_top.php" ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php" ?>
+	<style>
+		* {font-family: "맑은 고딕"}
+		.wrap {background: #cccccc; display: inline-block; width: 231px;}
+		.wrap span {background: #c6f0ff;}
+		.wrap img {display: inline-block; margin: 0;}
+		.wrap a {display: inline-block; margin: 0;}
+	</style>
+
+	<div class="wrap">
+		<span>가가가 나나나 다다다</span>
+	</div>
+
+	<br>
+
+	<div class="wrap">
+		<span>가가가 나나나 다다다 라라라 마마마</span>
+	</div>
+
+	<br>
+
+	<div class="wrap">
+		<span>가가가 나나나 다다다</span>
+		<a href=""><img src="http://healthfit.co.kr/img/icon_new.png"></a>
+	</div>
+
+	<br>
+
+	<div class="wrap">
+		<span>가가가 나나나 다다다 라라라</span>
+		<a href=""><img src="http://healthfit.co.kr/img/icon_new.png"></a>
+	</div>
+
+	<br>
+
+	<div class="wrap">
+		<span>가가가 나나나 다다다 라라라 마마마</span>
+		<a href=""><img src="http://healthfit.co.kr/img/icon_new.png"></a>
+		<a href=""><img src="http://healthfit.co.kr/img/icon_new.png"></a>
+	</div>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php" ?>
+	<script>
+		StringUtil.cutString(".wrap", "..", -2);
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/_test/inc/layout_btm.php" ?>

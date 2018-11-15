@@ -9,7 +9,7 @@
 	
 	//get edit data
 	if ($req_params["work_flag"] == "edit") {
-		$data_code = CodeService::getCode($req_params);
+		$code_data = CodeService::getCode($req_params);
 	}
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
@@ -18,21 +18,23 @@
 		<input type="hidden" name="code_id" value="  <?= $req_params["code_id"] ?>  ">
 		<input type="hidden" name="code_level" value="  <?= $req_params["code_level"] ?>  ">
 		<table class="tbl1 th_center td_left">
-			<?php $v = "코드" ?>
-			<tr>
-				<td class="th"><?= $v ?></td>
-				<td><input type="text" name="code" title="<?= $v ?>" value="<?= $data_code["code"] ?>"></td>
-			</tr>
+			<? //php $v = "코드" ?>
+			<!--<tr>
+				<td class="th"><? /*= $v */ ?></td>
+				<td><input type="text" name="code" title="<? /*= $v */ ?>" value="<? /*= $data_code["code"] */ ?>"></td>
+			</tr>-->
 			<?php $v = "코드이름" ?>
 			<tr>
 				<td class="th"><?= $v ?></td>
-				<td><input type="text" name="code_name" title="<?= $v ?>" value="<?= $data_code["code_name"] ?>"></td>
+				<td><input type="text" name="code_name" title="<?= $v ?>" value="<?= $code_data["code_name"] ?>"></td>
 			</tr>
 			<?php if ($req_params["code_level"] > "1") { ?>
 				<?php $v = "참조코드"; ?>
 				<tr>
 					<td class=" th"><?= $v ?></td>
-					<td><input type="text" name="ref_code" title="<?= $v ?>"></td>
+					<td>
+						<input type="text" name="ref_code" title="<?= $v ?>" value="<?= $req_params["ref_code"] ?>" readonly>
+					</td>
 				</tr>
 			<? } ?>
 		</table>

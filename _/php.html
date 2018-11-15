@@ -1,7 +1,25 @@
 <?php
-function aaa($a, $b) {
-	echo $a;
-}
-aaa("kkk");
+	$arr = array(
+		"a" => "aa",
+		"b" => "bb"
+	);
+	
+	echo"<hr>";
+	print_r($arr);
+	
+	
+	
+	
+	function presentArray($arr, $separate, $last) {
+		foreach ($arr as $key => $val) {
+			$arr[$key] = $key . $separate . $val . $last;
+		}
+		return $arr;
+	}
+	
+	$arr2 = presentArray($arr, "=", "");
+	
+	echo"<hr>";
+	print_r($arr2);
 ?>
 
