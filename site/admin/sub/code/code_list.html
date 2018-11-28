@@ -1,5 +1,6 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/dao/CodeDao.php"; ?>
 <?php
 	define("LAYOUT", "sub");
 	define("DOC_TITLE", "코드관리 목록");
@@ -8,6 +9,7 @@
 	$code_list = CodeService::getListCode($req_params);
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
+	<?= StringUtil::setDefault(Request::getParam("code_name"), "최상위"); ?>
 	<form action="code_proc.php" method="post" name="f">
 		<input type="hidden" name="work_flag">
 		<table class="tbl1 th_center td_center">
@@ -32,8 +34,10 @@
 							</td>
 							<td>
 								<a href="code_list.html?<?= Request::getQueryStringWith(
-									array("code_level" => $code_data["code_level"] + 1,
-										"ref_code" => $code_data["code"]
+									array(
+										"code_level" => $code_data["code_level"] + 1,
+										"ref_code" => $code_data["code"],
+										"code_name" => $code_data["code_name"]
 									)
 								); ?>"><?= $code_data["code_name"] ?></a>
 							</td>
@@ -51,7 +55,7 @@
 				<? } else { ?>
 					<tr>
 						<td colspan="10" class="align_center">
-							데이터가 존재하지 않습니다.
+							<?php Text::getText("NO_DATA");?>
 						</td>
 					</tr>
 				<? } ?>
@@ -59,9 +63,9 @@
 
 		<div class="btn_area1">
 			<a class="btn" href="code_write.html?<?= Request::getQueryStringWith(
-				array("work_flag" => "write",
-					"code_level" => $req_params["code_level"] + 1)
-			) ?>">등록</a>
+				array(
+					"work_flag" => "write"
+			)) ?>">등록</a>
 			<button class="btn" type="button" onclick="deleteCodes();">삭제</button>
 		</div>
 	</form>
@@ -73,7 +77,7 @@
 		function deleteCodes() {
 			var f = document.f;
 			f.work_flag.value = "delete";
-			if (confirm('<?=Lang::getText("CONFIRM_DELETE")?>')) {
+			if (confirm('<?=Text::getText("CONFIRM_DELETE")?>')) {
 				f.submit();
 			}
 		}

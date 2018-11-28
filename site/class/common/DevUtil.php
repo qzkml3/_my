@@ -25,13 +25,17 @@
 			';
 		}
 		
-		static function consoleLog($obj) {
-			if (self::isDevMode()) {
+		static function setDoctype() {
 				//set doctype for standard mode
 				if (!self::$hasDoctype) {
 					self::$hasDoctype = true;
 					echo "<!doctype html>";
 				}
+		}
+		
+		static function consoleLog($obj) {
+			if (self::isDevMode()) {
+				//self:: setDoctype();
 				
 				// if param is array
 				if (is_array($obj)) {
@@ -52,6 +56,16 @@
 					Js::consoleLog($str);
 				}
 			}
+		}
+		
+		static function keyVal($key, $val) {
+			echo "<hr>";
+			echo "$key = \"$val\";";
+		}
+		
+		static function val($val) {
+			echo "<hr>";
+			echo "\"$val\";";
 		}
 	}
 

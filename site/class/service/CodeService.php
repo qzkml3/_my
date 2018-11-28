@@ -1,6 +1,6 @@
 <?php
-
-	Class CodeService
+	
+	class CodeService
 	{
 		//getList
 		static function getListCode($req_params) {
@@ -42,27 +42,12 @@
 		
 		//write
 		static function writeCode($req_params) {
-			$code_level = $req_params["code_level"];
-			
-			$columns = array(
-				'max(code) as max_code'
-			);
-			$query = DBQuery::select($columns);
-			$query = DBQuery::from($query, "code");
-			$query = DBQuery::where($query, "code_level  = '$code_level'");
-			$code_data = DB::getData($query);
-			$max_code = $code_data["max_code"];
-			
-			$max_code += 1;
-			
-			$query = DBQuery::insert("code");
-			$values["code"] = $max_code;
-			$values["code_name"] = $req_params["code_name"];
-			$values["ref_code"] = $req_params["ref_code"];
-			$values["code_level"] = $req_params["code_level"];
-			$query = DBQuery::values($query, $values);
-			
-			return DB::execute($query);
+			if (empty($req_params["ref_code"])) {
+				$req_params["code"] = CodeDao::getNextCodeAtRoot($req_params);
+			} else {
+				$req_params["code"] = CodeDao::getNextCodeAtSub($req_params);
+			}
+			return CodeDao::writeCode($req_params);
 		}
 		
 		//edit
@@ -72,7 +57,7 @@
 			$query = DBQuery::update("code");
 			$values["code_name"] = $req_params["code_name"];
 			$query = DBQuery::set($query, $values);
-			$query = DBQuery::where($query, "code_id = ". $code_id);
+			$query = DBQuery::where($query, "code_id = " . $code_id);
 			
 			return DB::execute($query);
 		}
@@ -82,17 +67,17 @@
 			$code_id = $req_params["code_id"];
 			$code = $req_params["code"];
 			
-			if (! is_array($code_id)) {
-				Js::alertBack(Lang::getText("ITEM_NO_SELECTED"));
+			if (!is_array($code_id)) {
+				Js::alertBack(Text::getText("ITEM_NO_SELECTED"));
 			} else {
 				$code_ids = join($code_id, ", ");
 			}
 			
 			$query = DBQuery::delete("code");
-			 //code delete
-			$query = DBQuery::where($query, "code_id in (". $code_ids .")");
+			//code delete
+			$query = DBQuery::where($query, "code_id in (" . $code_ids . ")");
 			//code decendant delete
-			$query = DBQuery::_or($query, "ref_code regexp '" . join($code, "|"). "'");
+			$query = DBQuery::_or($query, "ref_code regexp '" . join($code, "|") . "'");
 			$query = DBQuery::_and($query, "code_level > 1");
 			
 			return DB::execute($query);

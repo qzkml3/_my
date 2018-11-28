@@ -19,11 +19,20 @@ class Js
 			";
 	}
 
+
 	static function consoleLog($str) {
 		$str = str_replace("'", "\'", $str);
 		echo "
 				<script>
 					console.log('$str');
+				</script>
+			";
+	}
+	
+	static function consoleClear() {
+		echo "
+				<script>
+					console.clear();
 				</script>
 			";
 	}

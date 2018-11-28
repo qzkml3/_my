@@ -16,22 +16,37 @@ $.fn.getPercentWidth = function () {
 	return Math.round(100 * width) + '%';
 };
 
-ValidChk = {
-	isEmpty: function (el, el_name) {
+var isSubmit = false;
+Form = {
+	submit: function (form, action) {
+		if (!isSubmit) {
+			isSubmit = true;
+
+			$.post("join_proc.php", $(form).serialize(), function (res) {
+				isSubmit = false;
+				$("body").append(res);
+			});
+		} else {
+			alert("요청을 처리중입니다. 잠시 기다려 주시기 바랍니다.");
+		}
+	}
+};
+Field = {
+	isEmpty: function (el_name, el) {
 		if (StringUtil.trim(el.value) == "") {
 			alert(el_name + "을(를) 입력해주세요.");
 			el.focus();
 			return true;
 		}
 	},
-	isNotSelected: function (el, el_name) {
+	isNotSelected: function (el_name, el) {
 		if ($(el).val().trim() == "") {
 			alert(el_name + "을(를) 선택해주세요.");
 			el.focus();
 			return true;
 		}
 	},
-	isNotChecked: function (el, el_name) {
+	isNotChecked: function (el_name, el) {
 		var checked = false;
 		$(el).each(function () {
 			var v = $(this).prop("checked");
@@ -45,7 +60,7 @@ ValidChk = {
 			return true;
 		}
 	},
-	isNotTel: function (el, el_name) {
+	isNotTel: function (el_name, el) {
 		var re = /^\d{2,3}-\d{3,4}-\d{4}$/;
 		if (!re.test(el.value)) {
 			alert(el_name + " 형식이 틀립니다.");
@@ -54,7 +69,7 @@ ValidChk = {
 		}
 	},
 	//연락처나 숫자가 아니면 true
-	isNotTelWithNum: function (el, el_name) {
+	isNotTelWithNum: function (el_name, el) {
 		var re1 = /^\d{2,3}-\d{3,4}-\d{4}$/;
 		var re2 = /^\d*$/;
 		if (!(re1.test(el.value) || re2.test(el.value))) {

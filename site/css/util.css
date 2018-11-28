@@ -4,7 +4,9 @@
 button {font-size: inherit; cursor: pointer;}
 
 /* # custom */
-.clfix {overflow: hidden;}
+.clfix,
+.clearfix
+{ content: ""; clear: both; display: table;}
 .float_left {float: left;}
 
 .pos_rel {position: relative;}
@@ -20,3 +22,5 @@ button {font-size: inherit; cursor: pointer;}
 .td_left td {text-align: left;}
 .td_center td {text-align: center;}
 .td_right td {text-align: right;}
+
+[readonly], [readonly=readonly] {border: none !important;}

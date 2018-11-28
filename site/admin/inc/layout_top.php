@@ -16,9 +16,10 @@
 <?php if (LAYOUT == "main" || LAYOUT == "sub") { ?>
 	<header id="header">
 		<div id="header_inner">
-			<h1><a href="/">_my</a></h1>
+			<h1><a href="/">_my</a> <a href="/site/admin">admin</a></h1>
 			<nav id="gnb">
 				<a href="/site/admin/sub/code/code_list.html">코드관리</a>
+				<a href="/site/admin/sub/member/join.html">회원가입</a>
 			</nav>
 		</div>
 	</header>

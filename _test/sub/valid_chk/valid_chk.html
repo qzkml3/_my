@@ -23,10 +23,10 @@
 
 		function submitForm() {
 			var f = document.f;
-			if (ValidChk.isEmpty(f.t, "text")) return;
-			if (ValidChk.isNotChecked(f.c, "checkbox")) return;
-			if (ValidChk.isNotChecked(f.r, "radio")) return;
-			if (ValidChk.isNotSelected(f.s, "select")) return;
+			if (Field.isEmpty(f.t, "text")) return;
+			if (Field.isNotChecked(f.c, "checkbox")) return;
+			if (Field.isNotChecked(f.r, "radio")) return;
+			if (Field.isNotSelected(f.s, "select")) return;
 			f.submit();
 		}
 	</script>

@@ -1,7 +1,7 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
-	$work_flag_name = ($_REQUEST["work_flag"] == "write") ? Lang::getText("WRITE") : Lang::getText("EDIT");
+	$work_flag_name = ($_REQUEST["work_flag"] == "write") ? Text::getText("WRITE") : Text::getText("EDIT");
 	define("LAYOUT", "sub");
 	define("DOC_TITLE", "코드관리 " . $work_flag_name);
 	
@@ -13,7 +13,7 @@
 	}
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
-	<form name="f" method="post" action="code_proc.php" onsubmit="onSubmit(); return false;">
+	<form name="f" method="post" action="code_proc.php">
 		<input type="hidden" name="work_flag" value="  <?= $req_params["work_flag"] ?>  ">
 		<input type="hidden" name="code_id" value="  <?= $req_params["code_id"] ?>  ">
 		<input type="hidden" name="code_level" value="  <?= $req_params["code_level"] ?>  ">
@@ -40,7 +40,7 @@
 		</table>
 
 		<div class="btn_area1">
-			<button class="btn" type="submit"><?= $work_flag_name ?></button class="btn">
+			<button class="btn" type="button" onclick="onSubmit();"><?= $work_flag_name ?></button>
 			<a class="btn" href="code_list.html?<?= Request::getQueryString() ?>">목록</a>
 		</div>
 	</form>
@@ -48,10 +48,7 @@
 	<script>
 		function onSubmit() {
 			var f = document.f;
-
-			if (ValidChk.isEmpty(f.code, "코드")) return;
-			if (ValidChk.isEmpty(f.code_name, "코드이름")) return;
-
+			if (Field.isEmpty(f.code_name, "코드이름")) return;
 			f.submit();
 		}
 	</script>

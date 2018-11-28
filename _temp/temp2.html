@@ -3,5 +3,31 @@
 	define("DOC_TITLE", "임시 템플릿");
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/_test/inc/layout_top.php"; ?>
+
+a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/_test/inc/comm_js.php"; ?>
+	<script>
+		var wheeplUpDown = "";
+		var iScrollPos = 0;
+		
+		$(window).on("scroll", function () {
+			var iCurScrollPos = $(this).scrollTop();
+			if (iCurScrollPos > iScrollPos) {
+				wheeplUpDown = "down";
+			} else {
+				wheeplUpDown = "up";
+			}
+			iScrollPos = iCurScrollPos;
+			
+			//console.log(wheeplUpDown);
+		});
+		
+		$(window).on("scroll", function () {
+			
+			
+			console.log(wheeplUpDown);
+		});
+		
+		
+	</script>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/_test/inc/layout_btm.php"; ?>

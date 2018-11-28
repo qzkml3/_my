@@ -54,3 +54,11 @@ a {color: #0b7cc1;}
 button.btn {background: #73a6d2; color: white;}
 
 .btn_small {font-size: 12px;}
+
+
+.form1 {}
+.form1 label {padding: .5em; margin: 0; display: block;}
+.form1 label:after { content: ""; clear: both; display: table;}
+.form1 label:nth-child(odd) {background: #ddd;}
+.form1 strong {float: left; font-weight:bold; width: 150px;}
+.form1 dd {float: left;}
