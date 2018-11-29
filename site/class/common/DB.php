@@ -19,7 +19,9 @@
 		
 		static function getData($query) {
 			DevUtil::consoleLog($query);
-			return DB::getDB()->query($query)->fetch_assoc();
+			$result = DB::getDB()->query($query)->fetch_assoc();
+			DevUtil::consoleLog($result);
+			return $result;
 		}
 		
 		static function getList($query) {
@@ -27,9 +29,12 @@
 			
 			$list = array();
 			$db_result = DB::getDB()->query($query);
+			
 			while ($row = $db_result->fetch_assoc()) {
 				array_push($list, $row);
 			}
+			
+			DevUtil::consoleLog($list);
 			return $list;
 		}
 	}

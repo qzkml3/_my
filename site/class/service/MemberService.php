@@ -1,17 +1,19 @@
 <?php
+	require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/dao/MemberDao.php";
 	
 	class MemberService
 	{
 		//join
 		static function joinMember($req_params) {
-			if (empty($req_params["ref_code"])) {
-				$req_params["code"] = CodeDao::getNextCodeAtRoot($req_params);
-			} else {
-				$req_params["code"] = CodeDao::getNextCodeAtSub($req_params);
-			}
-			return CodeDao::writeCode($req_params);
+			$result = MemberDao::joinMember($req_params);
+			return $result;
 		}
 		
+		//join
+		static function login($req_params) {
+			$result = MemberDao::getMember($req_params);
+			return $result;
+		}
 	}
 
 ?>

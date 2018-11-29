@@ -47,9 +47,7 @@
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
 	<script>
 		function onSubmit() {
-			var f = document.f;
-			if (Field.isEmpty(f.code_name, "코드이름")) return;
-			f.submit();
+			Form.submit(f, "code_proc.php");
 		}
 	</script>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_btm.php"; ?>

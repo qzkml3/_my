@@ -1,0 +1,34 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
+<?php
+	define("LAYOUT", "sub");
+	define("DOC_TITLE", "로그인");
+	
+	$req_params = Request::getParameters();
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
+	<form name="f">
+		<input type="hidden" name="work_flag" value="login">
+		<ul style="list_unstyled">
+			<li class="grid">
+				<?php $v = "email"; ?>
+				<span><label for="<?= $v ?>">이메일</label></span>
+				<span><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
+			</li>
+			<li class="grid">
+				<?php $v = "password"; ?>
+				<span><label for="<?= $v ?>">비밀번호</label></span>
+				<span><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
+			</li>
+		</ul>
+		<div class="btn_area1">
+			<button class="btn" type="button" onclick="onSubmit();">로그인</button>
+			<a class="btn" href="#" onclick="history.back();">취소</a>
+		</div>
+	</form>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
+	<script>
+		function onSubmit() {
+			Form.submit(f, "login_proc.php");
+		}
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>

@@ -1,6 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/dao/CodeDao.php"; ?>
 <?php
 	define("LAYOUT", "sub");
 	define("DOC_TITLE", "코드관리 목록");
@@ -55,7 +54,7 @@
 				<? } else { ?>
 					<tr>
 						<td colspan="10" class="align_center">
-							<?php Text::getText("NO_DATA");?>
+							<?= Text::getText("NO_DATA");?>
 						</td>
 					</tr>
 				<? } ?>

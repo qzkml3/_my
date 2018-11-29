@@ -9,6 +9,8 @@
 		Js::alertBack(Text::getText("WORK_FLAG_IS_EMPTY"));
 	//write
 	} else if ($req_params["work_flag"] == "write") {
+		validateCode($req_params);
+		
 		$result = CodeService::writeCode($req_params);
 		
 		if ($result) {
@@ -19,6 +21,8 @@
 		}
 	//edit
 	} else if ($req_params["work_flag"] == "edit") {
+		validateCode($req_params);
+		
 		$result = CodeService::editCode($req_params);
 		
 		if ($result) {
@@ -39,5 +43,10 @@
 		}
 	} else {
 		Js::alertBack(Text::getText("CONFIRM_WORK_FLAG"));
+	}
+	
+	function validateCode($req_params) {
+		//validate
+		Field::isEmpty("코드이름", "f", "code_name", $req_params);
 	}
 ?>

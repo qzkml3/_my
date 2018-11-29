@@ -1,11 +1,10 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
 <?php
-	define("LAYOUT", "main");
-	define("DOC_TITLE", "메인");
+	define("LAYOUT", "sub");
+	define("DOC_TITLE", "로그아웃");
+	
+	$req_params = Request::getParameters();
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
-	<?=Text::getText("가나다", "a_b");?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
-	<script>
-
-	</script>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>

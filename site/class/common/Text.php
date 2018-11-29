@@ -3,7 +3,14 @@
 	class Text
 	{
 		static function getText($var_name) {
+			$ko["LOGIN_OK"] = "로그인 되었습니다.";
+			$en["LOGIN_OK"] = "LOGIN_OK";
+			
+			$ko["LOGIN_NO"] = "로그인에 실패하였습니다 !";
+			$en["LOGIN_NO"] = "Login failed !";
+			
 			$ko["WORK_FLAG_IS_EMPTY"] = "작업타입이 없습니다.";
+			$en["WORK_FLAG_IS_EMPTY"] = "작업타입이 없습니다.";
 			
 			$ko["RESULT_ERROR"] = "작업실패, 관리자에게 문의바랍니다.";
 			$en["RESULT_ERROR"] = "RESULT_ERROR";
@@ -62,7 +69,6 @@
 			} else {
 				DevUtil::consoleLog("Not language selected!");
 			}
-			
 			return $result_text;
 		}
 		

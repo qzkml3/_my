@@ -22,7 +22,7 @@ Form = {
 		if (!isSubmit) {
 			isSubmit = true;
 
-			$.post("join_proc.php", $(form).serialize(), function (res) {
+			$.post(action, $(form).serialize(), function (res) {
 				isSubmit = false;
 				$("body").append(res);
 			});

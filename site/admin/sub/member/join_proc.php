@@ -1,7 +1,7 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php" ?>
 <?php// header("Content-Type: text/javascript;charset=UTF-8");?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php" ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/dao/CodeDao.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/MemberService.php" ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/dao/MemberDao.php"; ?>
 <?php
 	$req_params = Request::getParameters();
 	

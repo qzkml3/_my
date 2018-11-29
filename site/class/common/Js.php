@@ -58,6 +58,14 @@ class Js
 				</script>
 			";
 	}
+	
+	static function locationHref($location) {
+		echo "
+				<script>
+					location.href = '$location';
+				</script>
+			";
+	}
 }
 
 ?>
