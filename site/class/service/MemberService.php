@@ -9,10 +9,15 @@
 			return $result;
 		}
 		
-		//join
-		static function login($req_params) {
+		//get
+		static function getMember($req_params) {
 			$result = MemberDao::getMember($req_params);
 			return $result;
+		}
+		
+		//login
+		static function login($req_params) {
+			return;
 		}
 	}
 

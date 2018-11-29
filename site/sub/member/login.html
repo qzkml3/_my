@@ -8,19 +8,19 @@
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
 	<form name="f">
 		<input type="hidden" name="work_flag" value="login">
-		<ul style="list_unstyled">
+		<ul class="list_unstyled" style="max-width: 800px; margin: 0 auto;">
 			<li class="grid">
 				<?php $v = "email"; ?>
-				<span><label for="<?= $v ?>">이메일</label></span>
-				<span><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
+				<span style="width: 25%;"><label for="<?= $v ?>">이메일</label></span>
+				<span style="width: 75%;"><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
 			</li>
 			<li class="grid">
 				<?php $v = "password"; ?>
-				<span><label for="<?= $v ?>">비밀번호</label></span>
-				<span><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
+				<span style="width: 25%;"><label for="<?= $v ?>">비밀번호</label></span>
+				<span style="width: 75%;"><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
 			</li>
 		</ul>
-		<div class="btn_area1">
+		<div class="btn_w1">
 			<button class="btn" type="button" onclick="onSubmit();">로그인</button>
 			<a class="btn" href="#" onclick="history.back();">취소</a>
 		</div>

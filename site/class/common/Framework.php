@@ -26,13 +26,20 @@
 			}
 		}
 		
+		static function headerRemove($name) {
+			if (function_exists("header_remove")) {
+				header_remove($name);
+			} else {
+				header($name . ":");
+			}
+		}
+		
 		static function setSession() {
 			session_start();
-			if (Framework::hasHeaderRemove()) {
-				header_remove("Cache-Control");
-				header_remove("Pragma");
-				header_remove("Expires");
-			}
+			
+			self::headerRemove("Cache-Control");
+			self::headerRemove("Pragma");
+			self::headerRemove("Expires");
 		}
 	}
 ?>

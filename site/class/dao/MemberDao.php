@@ -18,7 +18,7 @@
 			$query = DBQuery::select($columns);
 			$query = DBQuery::from($query, "member");
 			$query = DBQuery::where($query, "email = '" . $req_params["email"] . "'");
-			return DB::execute($query);
+			return DB::getData($query);
 		}
 	}
 

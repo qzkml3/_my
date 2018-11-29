@@ -9,6 +9,7 @@
 		<title><?php Framework::getDocTitle(); ?></title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0">
 
 		<link rel="stylesheet" href="/site/css/util.css">
 		<link rel="stylesheet" href="/site/css/common.css">

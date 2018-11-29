@@ -13,9 +13,11 @@
 		Js::alert(Text::getText("WORK_FLAG_IS_EMPTY"));
 	//join
 	} else if ($req_params["work_flag"] == "login") {
-		$result = MemberService::login($req_params);
+		$result = MemberService::getMember($req_params);
 		
 		if ($result) {
+			$result = MemberService::login($req_params);
+			
 			Js::alert(Text::getText("LOGIN_OK"));
 			Js::locationHref("/site/");
 		} else {

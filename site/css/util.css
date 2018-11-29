@@ -24,3 +24,14 @@ button {font-size: inherit; cursor: pointer;}
 .td_right td {text-align: right;}
 
 [readonly], [readonly=readonly] {border: none !important;}
+
+.list_unstyled {padding:0; margin:0;}
+.list_unstyled li {list-style: none;}
+
+
+
+input[type="text"], input[type="password"], input[type="tel"]
+{width: 100%;}
+
+.grid {overflow: hidden;}
+.grid > span {float: left; padding: 5px; box-sizing: border-box;}

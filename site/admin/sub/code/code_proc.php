@@ -1,6 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php" ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php" ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/dao/CodeDao.php"; ?>
 <?php
 	$req_params = Request::getParameters();
 	

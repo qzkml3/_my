@@ -35,7 +35,7 @@
 		
 		static function consoleLog($obj) {
 			if (self::isDevMode()) {
-				//self:: setDoctype();
+				self:: setDoctype();
 				
 				// if param is array
 				if (is_array($obj)) {
