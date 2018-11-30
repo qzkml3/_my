@@ -3,8 +3,11 @@
 	class Text
 	{
 		static function getText($var_name) {
+			$ko["Logout ok."] = "로그아웃 되었습니다.";
+			$en["Logout ok."] = "Logout ok.";
+			
 			$ko["LOGIN_OK"] = "로그인 되었습니다.";
-			$en["LOGIN_OK"] = "LOGIN_OK";
+			$en["LOGIN_OK"] = "Login ok.";
 			
 			$ko["LOGIN_NO"] = "로그인에 실패하였습니다 !";
 			$en["LOGIN_NO"] = "Login failed !";

@@ -18,6 +18,7 @@
 			$query = DBQuery::select($columns);
 			$query = DBQuery::from($query, "member");
 			$query = DBQuery::where($query, "email = '" . $req_params["email"] . "'");
+			$query = DBQuery::_and($query, "password = '" . $req_params["password"] . "'");
 			return DB::getData($query);
 		}
 	}

@@ -1,1 +1,0 @@
-console.log("loaded: outeruter2.js");

@@ -16,7 +16,7 @@
 		$result = MemberService::getMember($req_params);
 		
 		if ($result) {
-			$result = MemberService::login($req_params);
+			MemberService::login($req_params);
 			
 			Js::alert(Text::getText("LOGIN_OK"));
 			Js::locationHref("/site/");

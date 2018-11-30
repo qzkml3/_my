@@ -15,6 +15,7 @@
 		<link rel="stylesheet" href="/site/css/common.css">
 	</head>
 <body>
+<?php echo $_SESSION["email"];?>
 <?php if (LAYOUT == "main" || LAYOUT == "sub") { ?>
 	<header id="header">
 		<div id="header_inner">
@@ -22,7 +23,7 @@
 			<nav id="gnb">
 				<a href="/site/sub/article/article.html">회원가입</a>
 				<a href="/site/sub/member/login.html">로그인</a>
-				<a href="/site/sub/member/logout.html">로그아웃</a>
+				<a href="/site/sub/member/logout.php">로그아웃</a>
 			</nav>
 		</div>
 	</header>

@@ -17,7 +17,7 @@
 		
 		//login
 		static function login($req_params) {
-			return;
+			$_SESSION["email"] = $req_params["email"];
 		}
 	}
 
