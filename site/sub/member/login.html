@@ -6,21 +6,21 @@
 	$req_params = Request::getParameters();
 ?>
 <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
-	<form name="f">
+	<form name="f" id="login_form">
 		<input type="hidden" name="work_flag" value="login">
-		<ul class="list_unstyled" style="max-width: 800px; margin: 0 auto;">
-			<li class="grid">
+		<ul class="grid">
+			<li>
 				<?php $v = "email"; ?>
 				<span style="width: 25%;"><label for="<?= $v ?>">이메일</label></span>
 				<span style="width: 75%;"><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
 			</li>
-			<li class="grid">
+			<li>
 				<?php $v = "password"; ?>
 				<span style="width: 25%;"><label for="<?= $v ?>">비밀번호</label></span>
 				<span style="width: 75%;"><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
 			</li>
 		</ul>
-		<div class="btn_w1">
+		<div class="btn_w">
 			<button class="btn" type="button" onclick="onSubmit();">로그인</button>
 			<a class="btn" href="#" onclick="history.back();">취소</a>
 		</div>

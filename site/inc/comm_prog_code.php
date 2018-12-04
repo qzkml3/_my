@@ -10,6 +10,7 @@
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/site/class/common/Framework.php";
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/site/class/common/Text.php";
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/site/class/common/DevUtil.php";
+	require_once $_SERVER["DOCUMENT_ROOT"] . "/site/class/service/MemberService.php";
 
 	Framework::setSession();
 ?>

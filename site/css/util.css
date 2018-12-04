@@ -1,37 +1,119 @@
 @charset "UTF-8";
 
-/* # reset */
-button {font-size: inherit; cursor: pointer;}
+/* patch iOS */
+html {-webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none;
+	-webkit-overflow-scrolling:touch !important; /* sooth scroll */}
+button, input[type="button"] {-webkit-appearance: none; border-radius: 0;}
 
-/* # custom */
-.clfix,
-.clearfix
+/* patch IE */
+section {margin: 0;}
+main {display:block;}
+label {display: inline-block;} /* image label  */
+label img {pointer-events: none;}
+
+/* all */
+html {font-family:맑은 고딕; word-break:keep-all; word-wrap:break-word;}
+
+/* html */
+body {margin:0; padding: 0;}
+a {font-size: inherit; color: #0b7cc1; text-decoration: none;}
+a:hover {color: #ff94a3;}
+button {font-size: inherit; cursor:pointer; background: none; border: none; padding: 0;}
+img {vertical-align:middle; border:none;}
+fieldset {padding:0; border:none;}
+legend {position:absolute; left:-9999999px; top:-9999999px;}
+
+/* init */
+.init ,
+.init * {margin:0; padding:0;}
+
+/* clearfix */
+.clfix:after,
+.clearfix:after
 { content: ""; clear: both; display: table;}
-.float_left {float: left;}
 
+/* float */
+.pull_left, .folat_left
+{float:left !important;}
+.pull_right, .float_right
+{float:right !important;}
+
+/* position */
 .pos_rel {position: relative;}
-.pos_left {position:absolute; left: 0;}
-.pos_top {position:absolute; top: 0;}
+.pos_abs {position: absolute;}
+.pos_fix {position: fixed;}
+.pos_left {left: 0;}
+.pos_right {right: 0;}
+.pos_top {top: 0;}
+.pos_bottom {bottom: 0;}
 
-.align_center {text-align: center;}
+/* align */
+.align_center {text-align:center !important;}
+.align_middle {vertical-align:middle !important;}
+.align_left {text-align:left !important;}
+.align_right {text-align:right !important;}
 
-.th_left .th {text-align: left;}
-.th_center .th {text-align: center;}
-.th_right .th {text-align: right;}
+/* align table */
+.th_left th {text-align: left;}
+.th_center th {text-align: center;}
+.th_right th {text-align: right;}
 
 .td_left td {text-align: left;}
 .td_center td {text-align: center;}
 .td_right td {text-align: right;}
 
-[readonly], [readonly=readonly] {border: none !important;}
+/* align both */
+.both {overflow:hidden;}
+.both > * {float:right;}
+.both > *:first-child {float:left;}
 
+/* font */
+.font_bold {font-weight:bold !important;}
+
+/* indent */
+.indent_1em {padding-left:1em;}
+.indent_2em {padding-left:2em;}
+.indent_3em {padding-left:3em;}
+.indent_4em {padding-left:4em;}
+
+/* hidden */
+.hidden,
+.ir
+{position:absolute; left:-9999999px; top:-9999999px;}
+
+/* list */
 .list_unstyled {padding:0; margin:0;}
 .list_unstyled li {list-style: none;}
 
+/* .grid */
+.grid {border: solid 1px #ccc;}
+.grid > li {padding: 8px;}
+.grid > li:nth-child(odd) {background: #eee;}
+.grid > li > span {float: left; box-sizing: border-box;}
+.grid label {top: 0.25em; position: relative;}
 
+@media (max-width: 360px) {
+	.grid > li > span {float: none;}
+	.grid label {margin-bottom: 10px; display: inline-block; top:0;}
+}
 
-input[type="text"], input[type="password"], input[type="tel"]
-{width: 100%;}
+/* inherit */
+.grid {padding:0; margin:0;}
+.grid li {list-style: none;}
+.grid li:after { content: ""; clear: both; display: table;}
 
-.grid {overflow: hidden;}
-.grid > span {float: left; padding: 5px; box-sizing: border-box;}
+/* no newline */
+.no_br {white-space:nowrap;}
+
+/* form */
+/* readonly */
+[readonly], [readonly=readonly]
+{border: none !important;}
+
+/* text */
+input[type="text"], input[type="password"], input[type="tel"], textarea
+{width: 100%; box-sizing: border-box; padding: 6px;}
+
+/* check radio */
+input[type="checkbox"], input[type="radio"]
+{}
