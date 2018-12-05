@@ -1,6 +1,7 @@
 <?
 	header("Content-Type: text/html; charset=UTF-8");
 	
+	require_once $_SERVER["DOCUMENT_ROOT"] . "/site/class/common/Setting.php";
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/site/class/common/Request.php";
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/site/class/common/DB.php";
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/site/class/common/DBQuery.php";

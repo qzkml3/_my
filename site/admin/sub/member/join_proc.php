@@ -21,7 +21,7 @@
 		
 		if ($result) {
 			Js::alert(Text::getText("JOIN_OK"));
-			Js::locationReplace("/site/admin?" . Request::getQueryString());
+			Js::locationReplace("<?=Setting::WEB_ROOT_ADMIN?>?" . Request::getQueryString());
 		} else {
 			Js::alertBack(Text::getText("JOIN_NO"));
 		}

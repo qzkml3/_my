@@ -1,20 +1,23 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
 	define("LAYOUT", "default");
 	define("DOC_TITLE", "코드관리 목록");
-	
+?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_top.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/class/service/CodeService.php"; ?>
+<?php
 	$req_params = Request::getParameters();
 	$code_list = CodeService::getListCode($req_params);
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
-	<?= StringUtil::setDefault(Request::getParam("code_name"), "최상위"); ?>
+<?= StringUtil::setDefault(Request::getParam("code_name"), "최상위"); ?>
 	<form action="code_proc.php" method="post" name="f">
 		<input type="hidden" name="work_flag">
 		<table class="tbl1 th_center td_center">
 			<tr>
 				<!--js: chk_all_item-->
-				<td class="th"><input class="chk_all_item" type="checkbox" title="전체항목선택"></td>
+				<td class="th">
+					<input class="chk_all_item" type="checkbox" title="전체항목선택">
+				</td>
 				<td class="th">code_name</td>
 				<td class="th">code</td>
 				<td class="th">ref_code</td>
@@ -47,24 +50,26 @@
 									array("work_flag" => "edit",
 										"code_id" => $code_data["code_id"]
 									)
-								); ?>">수정</a>
+								); ?>">수정
+								</a>
 							</td>
 						</tr>
 					<? } ?>
 				<? } else { ?>
 					<tr>
 						<td colspan="10" class="align_center">
-							<?= Text::getText("NO_DATA");?>
+							<?= Text::getText("NO_DATA"); ?>
 						</td>
 					</tr>
 				<? } ?>
 		</table>
-
+		
 		<div class="btn_w">
 			<a class="btn" href="code_write.html?<?= Request::getQueryStringWith(
 				array(
 					"work_flag" => "write"
-			)) ?>">등록</a>
+				)) ?>">등록
+			</a>
 			<button class="btn" type="button" onclick="deleteCodes();">삭제</button>
 		</div>
 	</form>
@@ -81,4 +86,4 @@
 			}
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_btm.php"; ?>

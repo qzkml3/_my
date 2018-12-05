@@ -7,7 +7,7 @@
 	DevUtil::consoleLog($req_params);
 
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_top.php"; ?>
 	<form name="f">
 		<input type="hidden" name="work_flag" value="join">
 		<div class="form1">
@@ -39,4 +39,4 @@
 			Form.submit(f, "join_proc.php");
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_btm.php"; ?>

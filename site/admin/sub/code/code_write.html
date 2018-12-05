@@ -1,5 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/class/service/CodeService.php"; ?>
 <?php
 	$work_flag_name = ($_REQUEST["work_flag"] == "write") ? Text::getText("WRITE") : Text::getText("EDIT");
 	define("LAYOUT", "default");
@@ -12,7 +12,7 @@
 		$code_data = CodeService::getCode($req_params);
 	}
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_top.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_top.php"; ?>
 	<form name="f" method="post" action="code_proc.php">
 		<input type="hidden" name="work_flag" value="  <?= $req_params["work_flag"] ?>  ">
 		<input type="hidden" name="code_id" value="  <?= $req_params["code_id"] ?>  ">
@@ -50,4 +50,4 @@
 			Form.submit(f, "code_proc.php");
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/admin/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_btm.php"; ?>

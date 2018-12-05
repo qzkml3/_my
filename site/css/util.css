@@ -12,7 +12,7 @@ label {display: inline-block;} /* image label  */
 label img {pointer-events: none;}
 
 /* all */
-html {font-family:맑은 고딕; word-break:keep-all; word-wrap:break-word;}
+html {font-family:맑은 고딕; word-break:keep-all; word-wrap:break-word; overflow-y: scroll;}
 
 /* html */
 body {margin:0; padding: 0;}

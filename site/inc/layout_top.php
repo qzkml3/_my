@@ -1,6 +1,5 @@
 <?php
 	define("SITE_TITLE", "site");
-	require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php";
 ?>
 <!doctype html>
 <html lang="ko" class="layout_<?=LAYOUT?>">
@@ -27,7 +26,7 @@
 			<a href="/site/sub/product/product_list.html">제품</a>
 		</nav>
 		<nav id="gnb2">
-			<a href="/site/admin/">어드민</a>&nbsp;&nbsp;&nbsp;
+			<a href="<?=Setting::WEB_ROOT_ADMIN?>/">어드민</a>&nbsp;&nbsp;&nbsp;
 			<?php if (!MemberService::isLogin()) { ?>
 				<a href="/site/sub/member/login.html">로그인</a>
 				<a href="/site/sub/member/join.html">회원가입</a>
