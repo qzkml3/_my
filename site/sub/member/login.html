@@ -1,6 +1,6 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
 <?php
-	define("LAYOUT", "sub");
+	define("LAYOUT", "default");
 	define("DOC_TITLE", "로그인");
 	
 	$req_params = Request::getParameters();
@@ -11,13 +11,13 @@
 		<ul class="grid">
 			<li>
 				<?php $v = "email"; ?>
-				<span style="width: 25%;"><label for="<?= $v ?>">이메일</label></span>
-				<span style="width: 75%;"><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
+				<div class="col" style="width: 25%;"><label for="<?= $v ?>">이메일</label></div>
+				<div class="col" style="width: 75%;"><input type="text" name="<?= $v ?>" id="<?= $v ?>"></div>
 			</li>
 			<li>
 				<?php $v = "password"; ?>
-				<span style="width: 25%;"><label for="<?= $v ?>">비밀번호</label></span>
-				<span style="width: 75%;"><input type="text" name="<?= $v ?>" id="<?= $v ?>"></span>
+				<div class="col" style="width: 25%;"><label for="<?= $v ?>">비밀번호</label></div>
+				<div class="col" style="width: 75%;"><input type="text" name="<?= $v ?>" id="<?= $v ?>"></div>
 			</li>
 		</ul>
 		<div class="btn_w">

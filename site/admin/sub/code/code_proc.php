@@ -26,7 +26,7 @@
 		
 		if ($result) {
 			Js::alert(Text::getText("RESULT_EDIT"));
-			Js::locationReplace("code_list.html");
+			Js::locationReplace("code_list.html?" . Request::getQueryString());
 		} else {
 			Js::alertBack(Text::getText("RESULT_ERROR"));
 		}

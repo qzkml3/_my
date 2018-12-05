@@ -1,6 +1,6 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
 <?php
-	define("LAYOUT", "sub");
+	define("LAYOUT", "default");
 	define("DOC_TITLE", "템플릿");
 	
 	$req_params = Request::getParameters();

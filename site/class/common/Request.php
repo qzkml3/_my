@@ -17,8 +17,9 @@
 		 */
 		static function getParameters() {
 			$req_params = self::getParameters_Core();
+			DevUtil::consoleLog("# debug start");
 			Js::consoleClear();
-			Js::consoleLog("# req_param");
+			DevUtil::consoleLog("# req_param");
 			DevUtil::consoleLog($req_params);
 			return $req_params;
 		}

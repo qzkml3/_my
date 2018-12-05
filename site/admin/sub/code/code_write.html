@@ -2,7 +2,7 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php"; ?>
 <?php
 	$work_flag_name = ($_REQUEST["work_flag"] == "write") ? Text::getText("WRITE") : Text::getText("EDIT");
-	define("LAYOUT", "sub");
+	define("LAYOUT", "default");
 	define("DOC_TITLE", "코드관리 " . $work_flag_name);
 	
 	$req_params = Request::getParameters();
@@ -17,28 +17,28 @@
 		<input type="hidden" name="work_flag" value="  <?= $req_params["work_flag"] ?>  ">
 		<input type="hidden" name="code_id" value="  <?= $req_params["code_id"] ?>  ">
 		<input type="hidden" name="code_level" value="  <?= $req_params["code_level"] ?>  ">
-		<table class="tbl1 th_center td_left">
-			<? //php $v = "코드" ?>
-			<!--<tr>
-				<td class="th"><? /*= $v */ ?></td>
-				<td><input type="text" name="code" title="<? /*= $v */ ?>" value="<? /*= $data_code["code"] */ ?>"></td>
-			</tr>-->
-			<?php $v = "코드이름" ?>
-			<tr>
-				<td class="th"><?= $v ?></td>
-				<td><input type="text" name="code_name" title="<?= $v ?>" value="<?= $code_data["code_name"] ?>"></td>
-			</tr>
+		<?php
+			$col_width[1] = "30%";
+			$col_width[2] = "70%";
+		?>
+		<ul class="grid">
+			<li>
+				<?php $v = "코드이름" ?>
+				<div class="col" style="width:<?=$col_width[1]?>;"><label><?= $v ?></label></div>
+				<div class="col" style="width:<?=$col_width[2]?>;">
+					<input type="text" name="code_name" title="<?= $v ?>" value="<?= $code_data["code_name"] ?>">
+				</div>
+			</li>
 			<?php if ($req_params["code_level"] > "1") { ?>
 				<?php $v = "참조코드"; ?>
-				<tr>
-					<td class=" th"><?= $v ?></td>
-					<td>
+				<li>
+					<div class="col" style="width:<?=$col_width[1]?>;"><?= $v ?></div>
+					<div class="col" style="width:<?=$col_width[2]?>;">
 						<input type="text" name="ref_code" title="<?= $v ?>" value="<?= $req_params["ref_code"] ?>" readonly>
-					</td>
-				</tr>
+					</div>
+				</li>
 			<? } ?>
-		</table>
-
+		</ul>
 		<div class="btn_w">
 			<button class="btn" type="button" onclick="onSubmit();"><?= $work_flag_name ?></button>
 			<a class="btn" href="code_list.html?<?= Request::getQueryString() ?>">목록</a>
