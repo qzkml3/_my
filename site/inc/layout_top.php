@@ -1,5 +1,5 @@
 <?php
-	define("SITE_TITLE", "ko");
+	define("SITE_TITLE", "site");
 	require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php";
 ?>
 <!doctype html>

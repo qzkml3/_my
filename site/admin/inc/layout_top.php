@@ -1,5 +1,5 @@
 <?php
-	define("SITE_TITLE", "ko");
+	define("SITE_TITLE", "admin");
 ?>
 	<!doctype html>
 	<html lang="ko">
