@@ -1,10 +1,10 @@
 <?php
 	Class DB {
 		static function getDB() {
-			$host = 'localhost';
-			$id = 'root';
-			$pw = 'root';
-			$dbName = '_my';
+			$id = Setting::DB_ID;
+			$pw = Setting::DB_PASSWORD;
+			$host = Setting::DB_HOST;
+			$dbName = Setting::DB_NAME;
 
 			$db = new mysqli($host, $id, $pw, $dbName);
 			$db->set_charset("UTF8");
