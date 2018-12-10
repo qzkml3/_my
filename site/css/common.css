@@ -66,6 +66,7 @@ button.btn {background: #73a6d2; color: white;}
 .btn_small {font-size: 12px;}
 
 .btn_block {display: block; line-height: 2em;}
+.btn_inline {display: inline-block; line-height: 2em; margin-right: 0.4em;}
 
 /* login form */
 #login_form {max-width: 600px; margin: 100px auto;}

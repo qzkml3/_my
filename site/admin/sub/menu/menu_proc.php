@@ -1,6 +1,6 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/Setting.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php" ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/CodeService.php" ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/MenuService.php" ?>
 <?php
 	$req_params = Request::getParameters();
 	
@@ -9,35 +9,32 @@
 		Js::alertBack(Text::getText("WORK_FLAG_IS_EMPTY"));
 	//write
 	} else if ($req_params["work_flag"] == "write") {
-		validateCode($req_params);
+		validateMenu($req_params);
 		
-		$result = CodeService::writeCode($req_params);
+		$result = MenuService::writeMenu($req_params);
 		
 		if ($result) {
-			Js::alert(Text::getText("RESULT_WRITE"));
-			Js::locationReplace("code_list.html?" . Request::getQueryString());
+			Js::alertBack(Text::getText("RESULT_WRITE"));
 		} else {
 			Js::alertBack(Text::getText("RESULT_ERROR"));
 		}
 	//edit
 	} else if ($req_params["work_flag"] == "edit") {
-		validateCode($req_params);
+		validateMenu($req_params);
 		
-		$result = CodeService::editCode($req_params);
+		$result = MenuService::editMenu($req_params);
 		
 		if ($result) {
-			Js::alert(Text::getText("RESULT_EDIT"));
-			Js::locationReplace("code_list.html?" . Request::getQueryString());
+			Js::alertBack(Text::getText("RESULT_EDIT"));
 		} else {
 			Js::alertBack(Text::getText("RESULT_ERROR"));
 		}
 	//delete
 	} else if ($req_params["work_flag"] == "delete") {
-		$result = CodeService::deleteCodes($req_params);
+		$result = MenuService::deleteMenus($req_params);
 		
 		if ($result) {
-			Js::alert(Text::getText("RESULT_DELETE"));
-			Js::locationReplace("code_list.html");
+			Js::alertBack(Text::getText("RESULT_DELETE"));
 		} else {
 			Js::alertBack(Text::getText("RESULT_ERROR"));
 		}
@@ -45,8 +42,8 @@
 		Js::alertBack(Text::getText("CONFIRM_WORK_FLAG"));
 	}
 	
-	function validateCode($req_params) {
+	function validateMenu($req_params) {
 		//validate
-		Field::isEmpty("코드이름", "f", "code_name", $req_params);
+		Field::isEmpty("메뉴이름", "f", "menu_name", $req_params);
 	}
 ?>

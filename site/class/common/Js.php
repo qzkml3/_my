@@ -66,6 +66,14 @@ class Js
 				</script>
 			";
 	}
+	
+	static function locationReload() {
+		echo "
+				<script>
+					location.reload(true);
+				</script>
+			";
+	}
 }
 
 ?>

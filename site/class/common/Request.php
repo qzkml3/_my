@@ -26,7 +26,7 @@
 		
 		static function getParameters_Core() {
 			$req_params = $_GET + $_POST;
-			$req_params = StringUtil::trimArray($req_params);
+			$req_params = ArrayUtil::trimArray($req_params);
 			return $req_params;
 		}
 		
@@ -35,7 +35,7 @@
 		 */
 		static function getQueryString() {
 			$req_params = self::getParameters_Core();
-			$req_params = StringUtil::presentArray($req_params, "=", "");
+			$req_params = ArrayUtil::presentArray($req_params, "=", "");
 			return join("&", $req_params);
 		}
 		
@@ -47,7 +47,7 @@
 		static function getQueryStringWith($replacement) {
 			$req_params = self::getParameters_Core();
 			$req_params = array_merge($req_params, $replacement);
-			$req_params = StringUtil::presentArray($req_params, "=", "");
+			$req_params = ArrayUtil::presentArray($req_params, "=", "");
 			return join("&", $req_params);
 		}
 	}

@@ -12,6 +12,14 @@
 
 		static function getDocTitle() {
 			if (DOC_TITLE) {
+				echo DOC_TITLE . " : " . Setting::SITE_TITLE;
+			} else {
+				echo SITE_TITLE;
+			}
+		}
+
+		static function getDocTitleAdmin() {
+			if (DOC_TITLE) {
 				echo DOC_TITLE . " : " . Setting::SITE_TITLE_ADMIN;
 			} else {
 				echo SITE_TITLE;

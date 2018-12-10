@@ -3,6 +3,44 @@
 	class Text
 	{
 		static function getText($var_name) {
+			/* common */
+			$ko["list"] = "목록";
+			$en["list"] = "list";
+			
+			$ko["detail view"] = "상세보기";
+			$en["detail view"] = "detail view";
+			
+			$ko["write"] = "등록";
+			$en["write"] = "write";
+			
+			$ko["edit"] = "수정";
+			$en["edit"] = "edit";
+			
+			$ko["delete"] = "삭제";
+			$en["delete"] = "delete";
+			
+			$ko["NO_DATA"] = "데이터가 존재하지 않습니다.";
+			$en["NO_DATA"] = "Data does not exist.";
+			
+			$ko["Select all item"] = "전체항목선택";
+			$en["Select all item"] = "Select all item";
+			
+			$ko["Select item"] = "항목선택";
+			$en["Select item"] = "Select item";
+			
+			/* menu */
+			$ko["root"] = "최상위";
+			$en["root"] = "root";
+			
+			$ko["menu name"] = "메뉴이름";
+			$en["menu name"] = "menu name";
+			
+			$ko["menu code"] = "메뉴코드";
+			$en["menu code"] = "menu code";
+			
+			$ko["ref menu code"] = "참조메뉴코드";
+			$en["ref menu code"] = "ref menu code";
+			
 			$ko["Logout ok."] = "로그아웃 되었습니다.";
 			$en["Logout ok."] = "Logout ok.";
 			
@@ -44,24 +82,6 @@
 			
 			$ko["INVALID_WORK_FLAG"] = "작업타입을 확인해 주세요.";
 			$en["INVALID_WORK_FLAG"] = "INVALID_WORK_FLAG";
-			
-			$ko["WRITE"] = "등록";
-			$en["WRITE"] = "WRITE";
-			
-			$ko["EDIT"] = "수정";
-			$en["EDIT"] = "EDIT";
-			
-			$ko["DELETE"] = "삭제";
-			$en["DELETE"] = "DELETE";
-			
-			$ko["LIST"] = "삭제";
-			$en["LIST"] = "LIST";
-			
-			$ko["VIEW"] = "상세";
-			$en["VIEW"] = "VIEW";
-			
-			$ko["NO_DATA"] = "데이터가 존재하지 않습니다.";
-			$en["NO_DATA"] = "Data does not exist.";
 			
 			$result_text = "";
 			

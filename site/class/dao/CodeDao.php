@@ -90,7 +90,13 @@
 			$query = DBQuery::from($query, "code");
 			$query = DBQuery::where($query, "ref_code is null or ref_code = ''");
 			$code_data = DB::getData($query);
-			$next_code = $code_data["max_code"] + 1;
+			
+			if (empty($code_data["max_code"])) {
+				$next_code = 1;
+			} else {
+				$next_code = $code_data["max_code"] + 1;
+			}
+			
 			return $next_code;
 		}
 		
