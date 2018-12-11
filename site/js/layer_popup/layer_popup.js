@@ -1,6 +1,6 @@
 var LayerPopup = {
-	css: '<link rel="stylesheet" href="/site/js/layer_popup/layer_popup.css">',
-	htmlPath: '/site/js/layer_popup/layer_popup.html',
+	css: '<link rel="stylesheet" href="http://_my.test/site/js/layer_popup/layer_popup.css">',
+	htmlPath: 'http://_my.test/site/js/layer_popup/layer_popup.html',
 	open: function (param) {
 		this.isAttachedCSS = false;
 

@@ -1,8 +1,12 @@
+<?php require_once "inc/comm_program.php"; ?>
 <?php
-	define("LAYOUT", "default");
-	define("DOC_TITLE", "메인");
+	Setting::$doc_title = "메인";
+	Setting::$doc_layout = "default";
 ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/Setting.php"; ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/layout_top.php"; ?>
+	<!-- html here -->
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/comm_js.php"; ?>
+	<script>
+		//js here
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/layout_btm.php"; ?>

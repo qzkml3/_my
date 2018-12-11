@@ -1,10 +1,12 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php"; ?>
+<?php require_once "../../inc/comm_program.php"; ?>
 <?php
-	define("LAYOUT", "lnb");
-	define("DOC_TITLE", "템플릿");
-	
-	$req_params = Request::getParameters();
+	Setting::$doc_title = "템플릿";
+	Setting::$doc_layout = "default";
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/comm_js.php"; ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/layout_top.php"; ?>
+	<!-- html here -->
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/comm_js.php"; ?>
+	<script>
+		//js here
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/layout_btm.php"; ?>

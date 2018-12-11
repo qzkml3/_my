@@ -1,5 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/Setting.php"; ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_prog_code.php" ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/inc/comm_program.php" ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/site/class/service/MenuService.php" ?>
 <?php
 	$req_params = Request::getParameters();
