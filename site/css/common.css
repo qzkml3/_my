@@ -51,7 +51,7 @@ footer
 	.tbl1 .th {background: #ccc; padding: 8px 8px; box-sizing: border-box;
 	border: solid 2px white;}
 	
-	.tbl1 td {border: solid 1px #ccc; padding:6px 6px; border-left: 0; border-right: 0; box-sizing: border-box;}
+	.tbl1 td {border: solid 1px #ccc; padding:6px 2%; border-left: 0; border-right: 0; box-sizing: border-box;}
 	.tbl1 .on td {background: #c6f0ff;}
 	
 /* button */

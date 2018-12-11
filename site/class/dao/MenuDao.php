@@ -38,20 +38,22 @@
 		
 		//write
 		static function writeMenu($req_params) {
-			$values["menu_code"] = $req_params["menu_code"];
-			$values["menu_name"] = $req_params["menu_name"];
-			$values["ref_menu_code"] = $req_params["ref_menu_code"];
-			$values["menu_level"] = empty($req_params["menu_level"]) ? 1 : $req_params["menu_level"];
+			$columns["menu_url"] = $req_params["menu_url"];
+			$columns["menu_code"] = $req_params["menu_code"];
+			$columns["menu_name"] = $req_params["menu_name"];
+			$columns["ref_menu_code"] = $req_params["ref_menu_code"];
+			$columns["menu_level"] = empty($req_params["menu_level"]) ? 1 : $req_params["menu_level"];
 			$query = DBQuery::insert("menu");
-			$query = DBQuery::values($query, $values);
+			$query = DBQuery::values($query, $columns);
 			return DB::execute($query);
 		}
 		
 		//edit
 		static function editMenu($req_params) {
 			$query = DBQuery::update("menu");
-			$values["menu_name"] = $req_params["menu_name"];
-			$query = DBQuery::set($query, $values);
+			$columns["menu_name"] = $req_params["menu_name"];
+			$columns["menu_url"] = $req_params["menu_url"];
+			$query = DBQuery::set($query, $columns);
 			$query = DBQuery::where($query, "menu_code = '" . $req_params["menu_code"] . "'");
 			
 			return DB::execute($query);

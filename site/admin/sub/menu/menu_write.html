@@ -23,26 +23,35 @@
 			$col_width[2] = "75%";
 		?>
 		<ul class="grid">
-			<?php if ($req_params["menu_level"] > "1") { ?>
 			<li>
-				<?php $v = "메뉴이름" ?>
+				<?php $v = Text::getText("MENU_NAME") ?>
 				<div class="col" style="width:<?= $col_width[1] ?>;">
-					<label><?= $v ?></label>
+					<label for="<?= $v ?>"><?= $v ?></label>
 				</div>
 				<div class="col" style="width:<?= $col_width[2] ?>;">
-					<input type="text" name="menu_name" title="<?= $v ?>" value="<?= $menu_data["menu_name"] ?>">
+					<input id="<?= $v ?>" type="text" name="menu_name" value="<?= $menu_data["menu_name"] ?>">
 				</div>
 			</li>
-				<?php $v = "참조메뉴이름"; ?>
+			<?php if ($req_params["menu_level"] > "1") { ?>
+				<?php $v = Text::getText("REF_MENU_NAME"); ?>
 				<li>
 					<div class="col" style="width:<?= $col_width[1] ?>;">
-						<label><?= $v ?></label>
+						<label for="<?= $v ?>"><?= $v ?></label>
 					</div>
 					<div class="col" style="width:<?= $col_width[2] ?>;">
-						<input type="text" name="ref_menu_code" title="<?= $v ?>" value="<?= $ref_menu_data["menu_name"] ?>" readonly>
+						<input id="<?= $v ?>" type="text" name="ref_menu_code" value="<?= $ref_menu_data["menu_name"] ?>" readonly>
 					</div>
 				</li>
 			<? } ?>
+			<li>
+				<?php $v = Text::getText("MENU_URL") ?>
+				<div class="col" style="width:<?= $col_width[1] ?>;">
+					<label for="<?= $v ?>"><?= $v ?></label>
+				</div>
+				<div class="col" style="width:<?= $col_width[2] ?>;">
+					<input id="<?= $v ?>" type="text" name="menu_url" value="<?= $menu_data["menu_url"] ?>">
+				</div>
+			</li>
 		</ul>
 		<div class="btn_w">
 			<button class="btn" type="button" onclick="onSubmit();">

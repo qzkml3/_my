@@ -32,14 +32,20 @@
 			$ko["root"] = "최상위";
 			$en["root"] = "root";
 			
-			$ko["menu name"] = "메뉴이름";
-			$en["menu name"] = "menu name";
+			$ko["MENU_NAME"] = "메뉴이름";
+			$en["MENU_NAME"] = "menu name";
 			
-			$ko["menu code"] = "메뉴코드";
-			$en["menu code"] = "menu code";
+			$ko["REF_MENU_NAME"] = "참조메뉴이름";
+			$en["REF_MENU_NAME"] = "ref menu name";
 			
-			$ko["ref menu code"] = "참조메뉴코드";
-			$en["ref menu code"] = "ref menu code";
+			$ko["MENU_URL"] = "메뉴 URL";
+			$en["MENU_URL"] = "menu URL";
+			
+			$ko["MENU_CODE"] = "메뉴코드";
+			$en["MENU_CODE"] = "menu code";
+			
+			$ko["REF_MENU_CODE"] = "참조메뉴코드";
+			$en["REF_MENU_CODE"] = "ref menu code";
 			
 			$ko["Logout ok."] = "로그아웃 되었습니다.";
 			$en["Logout ok."] = "Logout ok.";

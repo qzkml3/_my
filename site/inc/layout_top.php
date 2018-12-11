@@ -25,7 +25,7 @@
 				if (count($gnb_list)) {
 					foreach ($gnb_list as $row => $gnb_data) {
 						?>
-						<a href="<?= Setting::WEB_ROOT ?><?= $gnb_data["menu_link"] ?>"><?= $gnb_data["menu_name"] ?></a>
+						<a href="<?= Setting::WEB_ROOT ?><?= $gnb_data["menu_url"] ?>"><?= $gnb_data["menu_name"] ?></a>
 						<?
 					}
 				} else {
