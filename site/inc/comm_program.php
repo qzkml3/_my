@@ -42,6 +42,7 @@
 	}
 	
 	//include
+	require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/class/common/Layout.php";
 	require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/class/common/Request.php";
 	require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/class/common/DB.php";
 	require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/class/common/DBQuery.php";
