@@ -5,7 +5,7 @@
 	
 	$req_params = Request::getParameters();
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_top.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_header.php"; ?>
 	<form name="f" id="login_form">
 		<input type="hidden" name="work_flag" value="login">
 		<ul class="grid">
@@ -31,4 +31,4 @@
 			Form.submit(f, "login_proc.php");
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/site/inc/layout_footer.php"; ?>

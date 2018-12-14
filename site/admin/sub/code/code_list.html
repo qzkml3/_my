@@ -3,7 +3,7 @@
 	define("DOC_TITLE", "코드관리 목록");
 ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/Setting.php"; ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_top.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_header.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/class/service/CodeService.php"; ?>
 <?php
 	$code_list = CodeService::getListCode($req_params);
@@ -85,4 +85,4 @@
 			}
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_footer.php"; ?>

@@ -3,7 +3,7 @@
 	define("DOC_TITLE", "메뉴관리 " . $work_flag_name);
 ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/Setting.php"; ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_top.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_header.php"; ?>
 <?php
 	//get ref data
 	$ref_menu_data = MenuService::getRefMenu($req_params);
@@ -68,4 +68,4 @@
 			Form.submit(f, "menu_proc.php");
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_footer.php"; ?>

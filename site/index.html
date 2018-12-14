@@ -3,10 +3,10 @@
 	Setting::$doc_title = "메인";
 	Setting::$doc_layout = "default";
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/layout_top.php"; ?>
+<?php Layout::getHeader(); ?>
 	<!-- html here -->
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/comm_js.php"; ?>
+<?php Layout::getCommJs(); ?>
 	<script>
 		//js here
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/layout_btm.php"; ?>
+<?php Layout::getFooter(); ?>

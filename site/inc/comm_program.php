@@ -1,12 +1,12 @@
 <?
-	//setting
+	
 	class Setting
 	{
 		//Document
 		static $doc_title = "";
 		static $doc_layout = "";
 		
-		//Site name
+		//Site
 		const SITE_TITLE = "_my";
 		const SITE_TITLE_ADMIN = "admin";
 		
@@ -31,7 +31,7 @@
 				echo Setting::SITE_TITLE;;
 			}
 		}
-
+		
 		static function getHeadTitleAdmin() {
 			if (Setting::$doc_title) {
 				echo Setting::$doc_title . " : " . Setting::SITE_TITLE_ADMIN;

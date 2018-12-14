@@ -1,13 +1,12 @@
 <?php require_once "../inc/comm_program.php"; ?>
 <?php
-	
 	Setting::$doc_title = "메인";
 	Setting::$doc_layout = "default";
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_top.php"; ?>
+<?php Layout::getHeaderAdmin(); ?>
 	<!-- html here -->
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/comm_js.php"; ?>
+<?php Layout::getCommJs(); ?>
 	<script>
 		//js here
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_btm.php"; ?>
+<?php Layout::getFooterAdmin(); ?>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" class="layout_<?= Setting::getDocLayout() ?>">
 <head>
 	<?php DevUtil::setDevModeToJS(); ?>
 	<title><?php Setting::getHeadTitleAdmin(); ?></title>

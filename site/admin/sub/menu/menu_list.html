@@ -1,9 +1,9 @@
 <?php require_once "../../../inc/comm_program.php"; ?>
 <?php
 	Setting::$doc_title = "메뉴관리 목록";
-	Setting::$doc_layout = "lnb";
-	Layout::getHeader();
+	Setting::$doc_layout = "default";
 ?>
+<?php Layout::getHeaderAdmin(); ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/class/service/MenuService.php"; ?>
 <?php
 	$menu_list = MenuService::getListMenu($req_params);
@@ -84,4 +84,4 @@
 			}
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_btm.php"; ?>
+<?php Layout::getFooterAdmin(); ?>

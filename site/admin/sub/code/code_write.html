@@ -3,7 +3,7 @@
 	define("DOC_TITLE", "코드관리 " . $work_flag_name);
 ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/Setting.php"; ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_top.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_header.php"; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/class/service/CodeService.php"; ?>
 <?php
 	$work_flag_name = ($_REQUEST["work_flag"] == "write") ? Text::getText("WRITE") : Text::getText("EDIT");
@@ -53,4 +53,4 @@
 			Form.submit(f, "code_proc.php");
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_btm.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_footer.php"; ?>
