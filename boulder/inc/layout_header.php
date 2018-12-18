@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="ko" class="layout_<?= Setting::getDocLayout() ?>">
+<html lang="ko" class="layout_<?= Document::getLayout() ?>">
 <head>
 	<?php DevUtil::setDevModeToJS(); ?>
-	<title><?php Setting::getHeadTitle(); ?></title>
+	<title><?php Document::getTitle(); ?></title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0">
@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="<?= Setting::WEB_ROOT ?>/js/jquery/jquery-ui.min.css">
 </head>
 <body>
-<?php if (Setting::getDocLayout() == "default" || Setting::getDocLayout() == "lnb") { ?>
+<?php if (Document::getLayout() == "default" || Document::getLayout() == "lnb") { ?>
 <header id="header">
 	<div id="header_inner">
 		<h1>
@@ -50,14 +50,14 @@
 </header>
 <section id="container">
 	<div id="container_inner">
-		<?php if (Setting::getDocLayout() == "lnb") { ?>
+		<?php if (Document::getLayout() == "lnb") { ?>
 			<nav id="lnb">
 				<a class="btn_block" href="<?= Setting::WEB_ROOT ?>/sub/article/notice.html">공지사항</a>
 				<a class="btn_block" href="<?= Setting::WEB_ROOT ?>/sub/article/free_article.html">자유게시판</a>
 			</nav>
 		<?php } ?>
 		<main id="main">
-			<h1><?= Setting::$doc_title ?></h1>
+			<h1><?= Document::getTitle() ?></h1>
 			<?php } ?>
 				
 			
