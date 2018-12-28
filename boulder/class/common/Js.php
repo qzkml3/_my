@@ -74,6 +74,10 @@ class Js
 				</script>
 			";
 	}
+	
+	public static function getCommJs() {
+		require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/comm_js.php";
+	}
 }
 
 ?>

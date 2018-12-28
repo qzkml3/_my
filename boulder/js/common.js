@@ -403,6 +403,38 @@ Youtube = {
 };
 
 UI = {
+	deleteRows: function (f, msg) {
+		f.work_flag.value = "delete";
+		if (confirm(msg)) {
+			f.submit();
+		}
+	},
+	changeOrder: function (sortable, changeOrder, saveChangeOrder) {
+		var $sortable = $(sortable);
+
+		//toggle button
+		$(changeOrder).hide();
+		$(saveChangeOrder).show();
+
+		//sort
+		$sortable.sortable({
+			placeholder: "ui-state-highlight",
+			helper: fixHelper
+		});
+
+		var fixHelper = function (e, ui) {
+			ui.children().each(function () {
+				$(this).width($(this).width());
+			});
+			return ui;
+		};
+	},
+	saveChangeOrder: function (sortable, changeOrder, saveChangeOrder) {
+		$(changeOrder).show();
+		$(saveChangeOrder).hide();
+
+		$(sortable).sortable("destroy");
+	},
 	/**
 	 * 체크박스 목록을 다른 체크박스로 복사한다.
 	 */

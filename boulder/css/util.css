@@ -118,3 +118,6 @@ input[type="text"], input[type="password"], input[type="tel"], textarea
 /* check radio */
 input[type="checkbox"], input[type="radio"]
 {}
+
+/* jQuery UI */
+.ui-state-highlight { background: #ffa;}

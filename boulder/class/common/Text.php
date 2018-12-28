@@ -3,7 +3,12 @@
 	class Text
 	{
 		static function getText($var_name) {
-			/* common */
+			$ko["SAVE_CHANGE_ORDER"] = "순서변경 저장";
+			$en["SAVE_CHANGE_ORDER"] = "Save change order";
+			
+			$ko["CHANGE_ORDER"] = "순서변경";
+			$en["CHANGE_ORDER"] = "Change order";
+			
 			$ko["list"] = "목록";
 			$en["list"] = "list";
 			
