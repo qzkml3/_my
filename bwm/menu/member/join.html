@@ -1,0 +1,42 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/inc/comm-program.php"; ?>
+<?php
+	define("LAYOUT", "default");
+	define("DOC_TITLE", "회원가입");
+	
+	$req_params = Request::getParameters();
+	DevUtil::consoleLog($req_params);
+
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/bwm/inc/layout_header.php"; ?>
+	<form name="f">
+		<input type="hidden" name="work_flag" value="join">
+		<ul class="grid">
+			<li>
+				<div class="col" style="width: 25%;"><label>닉네임</label></div>
+				<div class="col" style="width: 75%;"><input type="text" name="nick_name"></div>
+			</li>
+			<li>
+				<div class="col" style="width: 25%;"><label>이메일</label></div>
+				<div class="col" style="width: 75%;"><input type="text" name="email"></div>
+			</li>
+			<li>
+				<div class="col" style="width: 25%;"><label>비밀번호</label></div>
+				<div class="col" style="width: 75%;"><input type="text" name="password"></div>
+			</li>
+			<li>
+				<div class="col" style="width: 25%;"><label>비밀번호 확인</label></div>
+				<div class="col" style="width: 75%;"><input type="text" name="password_confirm"></div>
+			</li>
+		</ul>
+		<div class="btn_w">
+			<button class="btn" type="button" onclick="onSubmit();">회원가입</button>
+			<a class="btn" href="#" onclick="history.back();">취소</a>
+		</div>
+	</form>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/bwm/inc/comm_js.php"; ?>
+	<script>
+		function onSubmit() {
+			Form.submit(f, "join_proc.php");
+		}
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/bwm/inc/layout_footer.php"; ?>

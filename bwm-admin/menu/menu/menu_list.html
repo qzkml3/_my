@@ -1,0 +1,102 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/bwm-core/comm-program-admin.php" ?>
+<?php
+	Page::$title = "메뉴관리 목록";
+	Page::$layout = "default";
+?>
+<?php Page::getHeader(); ?>
+<?php Code::getOnce("/class/service/MenuService.php"); ?>
+<?php
+	$menu_list = MenuService::getListMenu($req_params);
+?>
+<?= StringUtil::setDefault(Request::getParam("menu_name"), Text::getText("root")); ?>
+	<style>
+		
+		/*.ui-state-highlight { height: 1.5em; line-height: 1.2em; width: 100%; background: red;}*/
+	
+	</style>
+	<form action="menu_proc.php" method="post" name="f">
+		<input type="hidden" name="work_flag">
+		<table id="tbl1" class="tbl1 th_center td_center">
+			<colgroup>
+				<col style="width: 10%;">
+				<col style="width: 25%;">
+				<col style="width: 50%;">
+				<col style="width: auto;">
+			</colgroup>
+			<thead>
+			<tr>
+				<?php $i = 0 ?>
+				<td class="th">
+					<input class="js chk_all_item" type="checkbox" title="<?= Text::getText("Select all item") ?>">
+				</td>
+				<td style="width: <?= $col_width[$i++] ?>" class="th"><?= Text::getText("MENU_NAME") ?></td>
+				<td style="width: <?= $col_width[$i++] ?>" class="th"><?= Text::getText("MENU_URL") ?></td>
+				<td style="width: <?= $col_width[$i++] ?>" class="th"></td>
+			</tr>
+			</thead>
+			<tbody class="sortable">
+			<?php
+				if (count($menu_list)) { ?>
+					<?php foreach ($menu_list as $row => $menu_data) { ?>
+						<tr>
+							<td>
+								<input title="<?= Text::getText("Select item") ?>" name="menu_code[]" class="chk_item" type="checkbox"
+										 value="<?= $menu_data["menu_code"] ?>">
+							</td>
+							<td style="width: <?= $col_width[$i++] ?>">
+								<a href="menu_list.html?<?= Request::getQueryStringWith(
+									array(
+										"menu_level" => $menu_data["menu_level"] + 1,
+										"ref_menu_code" => $menu_data["menu_code"],
+										"menu_name" => $menu_data["menu_name"]
+									)
+								); ?>"><?= $menu_data["menu_name"] ?></a>
+							</td>
+							<td style="width: <?= $col_width[$i++] ?>" class="align_left">
+								<a href="<?= Setting::WEB_ROOT . $menu_data["menu_url"] ?>" target="_blank">
+									<?= Setting::WEB_ROOT . $menu_data["menu_url"] ?>
+								</a>
+							</td>
+							<td style="width: <?= $col_width[$i++] ?>">
+								<a class="btn btn_small" href="menu_write.html?<?= Request::getQueryStringWith(
+									array("work_flag" => "edit",
+										"menu_code" => $menu_data["menu_code"]
+									)
+								); ?>"><?= Text::getText("edit") ?>
+								</a>
+							</td>
+						</tr>
+					<? } ?>
+				<? } else { ?>
+					<tr>
+						<td colspan="10" class="align_center">
+							<?= Text::getText("NO_DATA"); ?>
+						</td>
+					</tr>
+				<? } ?>
+			</tbody>
+		</table>
+		
+		<div class="btn_w">
+			<a class="btn" href="menu_write.html?<?= Request::getQueryStringWith(
+				array(
+					"work_flag" => "write"
+				)) ?>">
+				<?= Text::getText("write"); ?>
+			</a>
+			<button class="btn" type="button" onclick="UI.deleteRows(f);">
+				<?= Text::getText("delete"); ?>
+			</button>
+			<button class="btn changeOrder" type="button" onclick="UI.changeOrder('.sortable', '.changeOrder', '.saveChangeOrder');">
+				<?= Text::getText("CHANGE_ORDER"); ?>
+			</button>
+			<button style="display: none;" class="btn saveChangeOrder" type="button" onclick="UI.saveChangeOrder('.sortable', '.changeOrder', '.saveChangeOrder');">
+				<?= Text::getText("SAVE_CHANGE_ORDER"); ?>
+			</button>
+		</div>
+	</form>
+<?php Js::getCommJs() ?>
+	<script>
+		UI.checkAll(".chk_all_item", ".chk_item");
+	</script>
+<?php Page::getFooter(); ?>

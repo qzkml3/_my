@@ -1,0 +1,56 @@
+<?php
+	define("LAYOUT", "default");
+	define("DOC_TITLE", "코드관리 " . $work_flag_name);
+?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/Setting.php"; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_header.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/class/service/CodeService.php"; ?>
+<?php
+	$work_flag_name = ($_REQUEST["work_flag"] == "write") ? Text::getText("WRITE") : Text::getText("EDIT");
+	
+	//get edit data
+	if ($req_params["work_flag"] == "edit") {
+		$code_data = CodeService::getCode($req_params);
+	}
+?>
+
+	<form name="f" method="post" action="code_proc.php">
+		<input type="hidden" name="work_flag" value="  <?= $req_params["work_flag"] ?>  ">
+		<input type="hidden" name="code_id" value="  <?= $req_params["code_id"] ?>  ">
+		<input type="hidden" name="code_level" value="  <?= $req_params["code_level"] ?>  ">
+		<?php
+			$col_width[1] = "30%";
+			$col_width[2] = "70%";
+		?>
+		<ul class="grid">
+			<li>
+				<?php $v = "코드이름" ?>
+				<div class="col" style="width:<?= $col_width[1] ?>;">
+					<label><?= $v ?></label>
+				</div>
+				<div class="col" style="width:<?= $col_width[2] ?>;">
+					<input type="text" name="code_name" title="<?= $v ?>" value="<?= $code_data["code_name"] ?>">
+				</div>
+			</li>
+			<?php if ($req_params["code_level"] > "1") { ?>
+				<?php $v = "참조코드"; ?>
+				<li>
+					<div class="col" style="width:<?= $col_width[1] ?>;"><?= $v ?></div>
+					<div class="col" style="width:<?= $col_width[2] ?>;">
+						<input type="text" name="ref_code" title="<?= $v ?>" value="<?= $req_params["ref_code"] ?>" readonly>
+					</div>
+				</li>
+			<? } ?>
+		</ul>
+		<div class="btn_w">
+			<button class="btn" type="button" onclick="onSubmit();"><?= $work_flag_name ?></button>
+			<a class="btn" href="code_list.html?<?= Request::getQueryString() ?>">목록</a>
+		</div>
+	</form>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/bwm/inc/comm_js.php"; ?>
+	<script>
+		function onSubmit() {
+			Form.submit(f, "code_proc.php");
+		}
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_footer.php"; ?>

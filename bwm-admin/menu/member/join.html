@@ -1,0 +1,42 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/inc/comm-program.php"; ?>
+<?php
+	define("LAYOUT", "default");
+	define("DOC_TITLE", "회원가입");
+	
+	$req_params = Request::getParameters();
+	DevUtil::consoleLog($req_params);
+
+?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_header.php"; ?>
+	<form name="f">
+		<input type="hidden" name="work_flag" value="join">
+		<div class="form1">
+			<label>
+				<strong>닉네임</strong>
+				<input type="text" name="nick_name">
+			</label>
+			<label>
+				<strong>이메일</strong>
+				<input type="text" name="email">
+			</label>
+			<label>
+				<strong>비밀번호</strong>
+				<input type="text" name="password">
+			</label>
+			<label>
+				<strong>비밀번호 확인</strong>
+				<input type="text" name="password_confirm">
+			</label>
+		</div>
+		<div class="btn_w">
+			<button class="btn" type="button" onclick="onSubmit();">회원가입</button>
+			<a class="btn" href="#" onclick="history.back();">취소</a>
+		</div>
+	</form>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/bwm/inc/comm_js.php"; ?>
+	<script>
+		function onSubmit() {
+			Form.submit(f, "join_proc.php");
+		}
+	</script>
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_footer.php"; ?>
