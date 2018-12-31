@@ -8,7 +8,7 @@
 <?php
 	$menu_list = MenuService::getListMenu($req_params);
 ?>
-<?= StringUtil::setDefault(Request::getParam("menu_name"), Text::getText("root")); ?>
+<?= StringUtil::setDefault(Request::getParam("menu_name"), Text::getText("ROOT")); ?>
 	<style>
 		
 		/*.ui-state-highlight { height: 1.5em; line-height: 1.2em; width: 100%; background: red;}*/
@@ -62,7 +62,7 @@
 									array("work_flag" => "edit",
 										"menu_code" => $menu_data["menu_code"]
 									)
-								); ?>"><?= Text::getText("edit") ?>
+								); ?>"><?= Text::getText("EDIT") ?>
 								</a>
 							</td>
 						</tr>
@@ -82,10 +82,10 @@
 				array(
 					"work_flag" => "write"
 				)) ?>">
-				<?= Text::getText("write"); ?>
+				<?= Text::getText("WRITE"); ?>
 			</a>
 			<button class="btn" type="button" onclick="UI.deleteRows(f);">
-				<?= Text::getText("delete"); ?>
+				<?= Text::getText("DELETE"); ?>
 			</button>
 			<button class="btn changeOrder" type="button" onclick="UI.changeOrder('.sortable', '.changeOrder', '.saveChangeOrder');">
 				<?= Text::getText("CHANGE_ORDER"); ?>

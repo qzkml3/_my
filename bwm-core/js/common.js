@@ -477,12 +477,16 @@ UI = {
 	},
 	checkAll: function (btnAllChk, btnChk) {
 		$(btnAllChk).on("click", function () {
+			var $tr = $(this).closest("table").children("tbody").children("tr");
+			var $btnChk = $(btnChk);
+
 			if ($(this).prop("checked")) {
-				$(this).closest("tr").siblings().addClass("on");
+				$tr.addClass("on");
+				$btnChk.prop("checked", true);
 			} else {
-				$(this).closest("tr").siblings().removeClass("on");
+				$tr.removeClass("on");
+				$btnChk.prop("checked", false);
 			}
-			$(btnChk).prop("checked", $(this).prop("checked"));
 		});
 
 		$(btnChk).on("click", function () {

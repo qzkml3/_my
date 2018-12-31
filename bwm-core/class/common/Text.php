@@ -9,48 +9,48 @@
 			$ko["CHANGE_ORDER"] = "순서변경";
 			$en["CHANGE_ORDER"] = "Change order";
 			
-			$ko["list"] = "목록";
-			$en["list"] = "list";
+			$ko["LIST"] = "목록";
+			$en["LIST"] = "list";
 			
-			$ko["detail view"] = "상세보기";
-			$en["detail view"] = "detail view";
+			$ko["DETAIL_VIEW"] = "상세보기";
+			$en["DETAIL_VIEW"] = "Detail view";
 			
-			$ko["write"] = "등록";
-			$en["write"] = "write";
+			$ko["WRITE"] = "등록";
+			$en["WRITE"] = "write";
 			
-			$ko["edit"] = "수정";
-			$en["edit"] = "edit";
+			$ko["EDIT"] = "수정";
+			$en["EDIT"] = "edit";
 			
-			$ko["delete"] = "삭제";
-			$en["delete"] = "delete";
+			$ko["DELETE"] = "삭제";
+			$en["DELETE"] = "delete";
 			
 			$ko["NO_DATA"] = "데이터가 존재하지 않습니다.";
 			$en["NO_DATA"] = "Data does not exist.";
 			
-			$ko["Select all item"] = "전체항목선택";
-			$en["Select all item"] = "Select all item";
+			$ko["SELECT_ALL_ITEM"] = "전체항목선택";
+			$en["SELECT_ALL_ITEM"] = "Select all item";
 			
-			$ko["Select item"] = "항목선택";
-			$en["Select item"] = "Select item";
+			$ko["SELECT_ITEM"] = "항목선택";
+			$en["SELECT_ITEM"] = "Select item";
 			
 			/* menu */
-			$ko["root"] = "최상위";
-			$en["root"] = "root";
+			$ko["ROOT"] = "최상위";
+			$en["ROOT"] = "root";
 			
 			$ko["MENU_NAME"] = "메뉴이름";
-			$en["MENU_NAME"] = "menu name";
+			$en["MENU_NAME"] = "Menu name";
 			
 			$ko["REF_MENU_NAME"] = "참조메뉴이름";
-			$en["REF_MENU_NAME"] = "ref menu name";
+			$en["REF_MENU_NAME"] = "Ref menu name";
 			
 			$ko["MENU_URL"] = "메뉴 URL";
-			$en["MENU_URL"] = "menu URL";
+			$en["MENU_URL"] = "Menu URL";
 			
 			$ko["MENU_CODE"] = "메뉴코드";
-			$en["MENU_CODE"] = "menu code";
+			$en["MENU_CODE"] = "Menu code";
 			
 			$ko["REF_MENU_CODE"] = "참조메뉴코드";
-			$en["REF_MENU_CODE"] = "ref menu code";
+			$en["REF_MENU_CODE"] = "Ref menu code";
 			
 			$ko["Logout ok."] = "로그아웃 되었습니다.";
 			$en["Logout ok."] = "Logout ok.";
@@ -62,10 +62,10 @@
 			$en["LOGIN_NO"] = "Login failed !";
 			
 			$ko["WORK_FLAG_IS_EMPTY"] = "작업타입이 없습니다.";
-			$en["WORK_FLAG_IS_EMPTY"] = "작업타입이 없습니다.";
+			$en["WORK_FLAG_IS_EMPTY"] = "missing wor_flag.";
 			
 			$ko["RESULT_ERROR"] = "작업실패, 관리자에게 문의바랍니다.";
-			$en["RESULT_ERROR"] = "RESULT_ERROR";
+			$en["RESULT_ERROR"] = "Result error!";
 			
 			$ko["JOIN_OK"] = "회원가입이 완료되었습니다.";
 			$en["JOIN_OK"] = "Joinning is complated.";
