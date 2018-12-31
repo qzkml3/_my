@@ -4,7 +4,7 @@
 	Page::$layout = "default";
 ?>
 <?php Page::getHeader(); ?>
-<?php Code::getOnce("/class/service/MenuService.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/service/MenuService.php"; ?>
 <?php
 	$menu_list = MenuService::getListMenu($req_params);
 ?>

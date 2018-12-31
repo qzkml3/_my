@@ -419,15 +419,14 @@ UI = {
 		//sort
 		$sortable.sortable({
 			placeholder: "ui-state-highlight",
-			helper: fixHelper
+			helper: UI.fixHelper
+		});//.disableSelection(); //y use this?
+	},
+	fixHelper: function (e, ui) {
+		ui.children().each(function () {
+			$(this).width($(this).width());
 		});
-
-		var fixHelper = function (e, ui) {
-			ui.children().each(function () {
-				$(this).width($(this).width());
-			});
-			return ui;
-		};
+		return ui;
 	},
 	saveChangeOrder: function (sortable, changeOrder, saveChangeOrder) {
 		$(changeOrder).show();

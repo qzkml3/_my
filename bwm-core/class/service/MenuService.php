@@ -1,5 +1,5 @@
 <?php
-	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/class/dao/MenuDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/dao/MenuDao.php";
 	
 	class MenuService
 	{

@@ -1,5 +1,5 @@
 <?php
-	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/class/dao/MemberDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/dao/MemberDao.php";
 	
 	class MemberService
 	{

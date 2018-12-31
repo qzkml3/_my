@@ -1,19 +1,19 @@
 <?
 	//include
-	Code::getOnce("/class/common/Page.php");
-	Code::getOnce("/class/common/Code.php");
-	Code::getOnce("/class/common/Request.php");
-	Code::getOnce("/class/common/DB.php");
-	Code::getOnce("/class/common/DBQuery.php");
-	Code::getOnce("/class/common/Js.php");
-	Code::getOnce("/class/common/Field.php");
-	Code::getOnce("/class/common/StringUtil.php");
-	Code::getOnce("/class/common/ArrayUtil.php");
-	Code::getOnce("/class/common/Framework.php");
-	Code::getOnce("/class/common/Text.php");
-	Code::getOnce("/class/common/DevUtil.php");
-	Code::getOnce("/class/service/MemberService.php");
-	Code::getOnce("/class/service/MenuService.php");
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/Page.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/Code.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/Request.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/DB.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/DBQuery.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/Js.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/Field.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/StringUtil.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/ArrayUtil.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/Framework.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/Text.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/common/DevUtil.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/service/MemberService.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT_CORE . "/class/service/MenuService.php";
 	
 	header("Content-Type: text/html; charset=UTF-8");
 	Framework::setSession();
@@ -35,13 +35,6 @@
 		const DB_PASSWORD = "root";
 		const DB_HOST = "localhost";
 		const DB_NAME = "_my";
-	}
-	
-	class Code
-	{
-		static function getOnce($path) {
-			require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . $path;
-		}
 	}
 
 ?>
