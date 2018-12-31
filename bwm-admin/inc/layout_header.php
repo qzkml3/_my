@@ -7,8 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0">
 	
-	<link rel="stylesheet" href="<?= Setting::WEB_ROOT?>/css/util.css">
-	<link rel="stylesheet" href="<?= Setting::WEB_ROOT?>/css/common.css">
+	<link rel="stylesheet" href="<?= Setting::WEB_ROOT_CORE?>/css/util.css">
+	<link rel="stylesheet" href="<?= Setting::WEB_ROOT_CORE?>/css/common.css">
 </head>
 <body>
 	<?php if (Page::getLayout() == "default" || Page::getLayout() == "lnb") { ?>

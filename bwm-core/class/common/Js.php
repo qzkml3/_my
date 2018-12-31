@@ -77,9 +77,9 @@ class Js
 	
 	public static function getCommJs() {
 		if (Page::$is_admin) {
-			require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/comm_js.php";
+			require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_CORE . "/inc/comm_js.php";
 		} else {
-			require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT . "/inc/comm_js.php";
+			require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_CORE . "/inc/comm_js.php";
 		}
 	}
 }
