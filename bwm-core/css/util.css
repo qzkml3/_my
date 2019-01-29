@@ -108,8 +108,7 @@ legend {position:absolute; left:-9999999px; top:-9999999px;}
 
 /* form */
 /* readonly */
-[readonly], [readonly=readonly]
-{border: none !important;}
+.readonly {border: none !important;}
 
 /* text */
 input[type="text"], input[type="password"], input[type="tel"], textarea
