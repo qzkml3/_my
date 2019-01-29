@@ -1,11 +1,9 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/inc/comm-program.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/bwm-core/comm-program-admin.php" ?>
 <?php
-	define("LAYOUT", "default");
-	define("DOC_TITLE", "로그인");
-	
-	$req_params = Request::getParameters();
+	Page::$title = "로그인";
+	Page::$layout = "default";
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/bwm/inc/layout_header.php"; ?>
+<?php Page::getHeader(); ?>
 	<form name="f" id="login_form">
 		<input type="hidden" name="work_flag" value="login">
 		<ul class="grid">
@@ -31,4 +29,4 @@
 			Form.submit(f, "login_proc.php");
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/bwm/inc/layout_footer.php"; ?>
+<?php Page::getFooter(); ?>

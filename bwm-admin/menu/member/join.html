@@ -1,13 +1,9 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . Setting::WEB_ROOT . "/inc/comm-program.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/bwm-core/comm-program-admin.php" ?>
 <?php
-	define("LAYOUT", "default");
-	define("DOC_TITLE", "회원가입");
-	
-	$req_params = Request::getParameters();
-	DevUtil::consoleLog($req_params);
-
+	Page::$title = "회원가입";
+	Page::$layout = "default";
 ?>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_header.php"; ?>
+<?php Page::getHeader(); ?>
 	<form name="f">
 		<input type="hidden" name="work_flag" value="join">
 		<div class="form1">
@@ -39,4 +35,4 @@
 			Form.submit(f, "join_proc.php");
 		}
 	</script>
-<?php require_once $_SERVER["DOCUMENT_ROOT"] . Setting::WEB_ROOT_ADMIN . "/inc/layout_footer.php"; ?>
+<?php Page::getFooter(); ?>
